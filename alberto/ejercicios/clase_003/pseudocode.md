@@ -5,18 +5,25 @@
 ```
 	@contador = 0
 	repetir 100
-						@contador = @contador + 1
-						mostrar @contador
+		@contador = @contador + 1
+		mostrar @contador
 ```
 
 **2 -** Diseña un programa que muestre los numeros del 100 al 0.
 ```
-	// Tu solución
+	@contador = 100
+	repetir si @contador>0
+		mostrar @contador
+		@contador = @contador - 1
 ```
 
 **3 -** Diseña un programa que muestre los numeros pares entre 0 y 100.
 ```
-	// Tu solución
+	@contador = 0
+	repetir 100
+		@contador = @contador + 1
+		Si @contador % 2 == 0
+			mostrar @contador
 ```
 
 
