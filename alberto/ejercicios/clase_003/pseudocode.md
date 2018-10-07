@@ -29,12 +29,25 @@
 
 **4 -** Diseña un programa que simula el lanzamiento de una moneda al aire e imprimir si ha salido cara o cruz.
 ```
-	// Tu solución
+	procedimiento #moneda
+		definir @random = #aleatorio 0 y 99
+		si @random % 2 == 0
+			devolver "cara"
+		si no 
+			devolver "cruz"
 ```
 
 **5 -** Diseña un programa que simula cien tiradas de dos dados y contar las veces que entre los dos suman 10.
 ```
-	// Tu solución
+	procedimiento #contarDados
+		@sumatorioDiez = 0
+		@contador = 0
+		repetir 100
+			definir @dado1 = #aleatorio 1 y 6
+			definir @dado2 = #aleatorio 1 y 6
+			si @dado1 + @dado2 == 10
+				@sumatorioDiez = @sumatorioDiez + 1
+			devolver @sumatorioDiez
 ```
 
 
@@ -42,7 +55,7 @@
 - Trucos:
 	- Calcular porcentajes (segmento*100)/total
 ```
-	// Tu solución
+	procedimiento
 ```
 
 
