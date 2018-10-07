@@ -55,7 +55,13 @@
 - Trucos:
 	- Calcular porcentajes (segmento*100)/total
 ```
-	procedimiento
+	procedimiento #porcentajes @hombres, @mujeres, @total
+		definir @porcentajeHombres = (@hombres*100)/@total
+		definir @porcentajeMujeres = (@mujeres*100)/@total
+		definir @porcentajes 
+			@hombres = @porcentajeHombres
+			@mujeres = @porcentajeMujeres
+		devolver @porcentajes
 ```
 
 
