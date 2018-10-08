@@ -121,7 +121,7 @@ Algoritmo Ejercicio8
                         numeroDeFallos <- numeroDeFallos + 1
                         Escribir "Usuario NO autorizado (fallos cometidos: " + ConvertirATexto(numeroDeFallos) + ")."
                 Fin Si
-                Mientras Que (numeroDeFallos < 3 && !palabraClaveEsCorrecta)
+         Mientras Que (numeroDeFallos < 3 && !palabraClaveEsCorrecta)
 
                 Si (numeroDeFallos >=  3) Entonces
                         Escribir "Número máximo de fallos superado"
