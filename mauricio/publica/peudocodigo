@@ -1,0 +1,121 @@
+//1 - Diseña un programa que imprima los numeros del 1 al 100
+
+@inicio = 1
+@fin = 100
+repetir @fin
+    mostrar @inicio
+
+//2 - Diseña un programa que muestre los numeros del 100 al 0.
+
+@inicio = 100
+@fin = 0
+
+repetir si @inicio >= @fin
+    mostrar @inicio
+
+//3 - Diseña un programa que muestre los numeros pares entre 0 y 100.
+
+@inicio = 0
+repetir 100
+    si modulo @inicio es igual 0
+    mostrar @inicio
+
+// 4 - Diseña un programa que simula el lanzamiento de una moneda al aire e imprimir si ha salido cara o cruz.
+
+@cara = 'cara'
+@cruz = 'cruz'
+@moneda = numero_redondeado(numero_random)
+
+si @moneda es igual 0
+    mostrar @cara
+si no
+    mostrar @cruz
+
+// 5 - Diseña un programa que simula cien tiradas de dos dados y contar las veces que entre los dos suman 10.
+
+@dado1
+@dado2
+@contador = 0
+
+repetir 100
+    @dado1 = redondear numero_random(1-6)
+    @dado2 = redondear numero_random(1-6)
+    si @dado1 mas @dado2 es igual 10
+        @contador = @contador + 1 
+
+mostrar contador
+
+// 6 - Diseña un programa para calcular el porcentaje de hombres y mujeres en nuestro curso.
+
+@hombres = 5
+@mujeres = 2
+@total = 7
+@porcentaje = 0
+
+procedimiento #calPorcentaje @tipo
+    @porcentaje = (@tipo multiplicado 100) dividido @total
+    @porcentaje = redondear(@porcentaje)
+    mostrar @porcentaje
+
+mostrar #calPorcentaje @hombres
+mostrar #calPorcentaje @mujeres
+
+// 7 - Diseña un algoritmo que aplique al precio de un producto un descuento cuando se den las siguientes caracteristicas.
+
+@descuento = 25;
+@mes, @dia, @mesEncontrado, @findeEncontrado;
+@fecha = nuevo Date(2012, 10, 2);
+
+@mesesInvierno = 0, 1, 11
+@fines = 5, 6;
+@precio = 178;
+
+procedimiento #calFecha @mesEncontrado, @findeEncontrado
+    si @mesEncontrado es diferente 0 o @findeEncontrado es diferente 0
+        @precio = (@precio multiplicado @descuento) dividido 100
+        mostrar @precio
+    si no
+        mostrar @precio
+
+procedimiento #buscarMes @mes
+    @mesEncontrado = 0
+    repetir @mesesInvierno
+    si mesesInvierno es igual @mes
+        @mesEncontrado = @mesEncontrado + 1
+    devolver @mesEncontrado
+
+procedimiento #buscarFinDe @fines
+    @findeEncontrado = 0
+    repetir @fines
+    si @fines es igual @fines
+        @findeEncontrado = @findeEncontrado + 1
+    devolver @findeEncontrado
+
+procedimiento #extraerMes @fecha
+    @mes = @fecha.obtenerMes()
+    devolver @mes
+
+procedimiento #extDia @fecha
+    @dia = fecha.obtenerDia()
+    devolver dia
+
+@mes = #extraerMes(fecha);
+@dia = #extDia(fecha);
+
+@mesEncontrado = #buscarMes(mes);
+@findeEncontrado = #buscarFinDe(dia);
+
+#calfecha(mesEncontrado, findeEncontrado)
+
+// 8 - Diseña un algoritmo para identificar a los clientes autorizados a entrar a nuestro sistema.
+
+@password = 'Fictizia mola mucho'
+@input = '';
+@intentos = 3;
+
+si @input es diferente @password
+    @intentos = @intentos - 1
+    si @intentos es igual 0
+        mostrar "error"
+si no
+    mostrar "bienvenido"
