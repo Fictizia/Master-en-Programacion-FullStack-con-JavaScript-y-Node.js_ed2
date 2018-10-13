@@ -1,6 +1,6 @@
 ## Katas
 Cat years, Dog years
-```
+```javascript
 var humanYearsCatYearsDogYears = function(humanYears) {
   var catYears = 0;
   var dogYears = 0;
@@ -25,7 +25,7 @@ var humanYearsCatYearsDogYears = function(humanYears) {
 ```
 
 Multiply
-```
+```javascript
 function multiply(a, b){
   return a * b;
 }
@@ -43,7 +43,7 @@ describe("Solution", function(){
 ```
 
 Even or Odd
-```
+```javascript
 function even_or_odd(number) {
   var parity = "Odd";
   if (number % 2 == 0) {
@@ -55,7 +55,7 @@ function even_or_odd(number) {
 ```
 
 String repeat
-```
+```javascript
 function repeatStr (n, s) {
   var finalString = "";
   for (var i = 0; i < n; i++) {
@@ -67,7 +67,7 @@ function repeatStr (n, s) {
 
 
 Sum of positive
-```
+```javascript
 function positiveSum(arr) {
   var sum = 0;
   arr.forEach(function(num) {
@@ -79,7 +79,7 @@ function positiveSum(arr) {
 ```
 
 Get the Middle Character
-```
+```javascript
 function getMiddle(s)
 {
   var center = 0;
@@ -102,7 +102,7 @@ function getMiddle(s)
   ```
   
   Highest and Lowest
-  ```
+  ```javascript
   function highAndLow(numbers){
   var res = numbers.split(" ");
   
@@ -124,7 +124,7 @@ function getMiddle(s)
 ```
 
 Shortest Word
-```
+```javascript
 function findShort(s){
   var words = s.split(" ");
   var shortestLength = words[0].length;
