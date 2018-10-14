@@ -1,8 +1,8 @@
 # Ejercicios clase 4
 
-## **1 -** Utiliza .assert para controlar cuando se muestra tu nombre por la consola.
+## 1- Utiliza .assert para controlar cuando se muestra tu nombre por la consola.
 
-## **2 -** Crea un script que nos permita calcular el tiempo que se necesita para realizar las siguientes acciones.
+## 2- Crea un script que nos permita calcular el tiempo que se necesita para realizar las siguientes acciones.
 
 ```javascript
 console.time("Medición");
@@ -12,7 +12,7 @@ console.time("Medición");
 console.timeEnd("Medición");
 ```
 
-## **3 -** Partiendo del ejercicio anterior mejora los estilos de cada mensaje utilizando estilos.
+## 3- Partiendo del ejercicio anterior mejora los estilos de cada mensaje utilizando estilos.
 
 ```javascript
 console.time("Medición");
@@ -22,7 +22,7 @@ console.time("Medición");
 console.timeEnd("Medición");
 ```
 
-## **4 -** Agrupa cada tipo de mensaje y añade un contador de tiempo por cada grupo.
+## 4- Agrupa cada tipo de mensaje y añade un contador de tiempo por cada grupo.
 
 ```javascript
 console.time("timeLog");
@@ -44,7 +44,7 @@ console.time("timeWarn");
 console.timeEnd("timeWarn");
 ```
 
-## **5 -** Crea una tabla usando la consola para mostrar el nombre de tus compañeros y el puesto que ocupa en la clase.
+## 5- Crea una tabla usando la consola para mostrar el nombre de tus compañeros y el puesto que ocupa en la clase.
 
 ```javascript
 var comp = ["Optimus-73", "alberto", "maribel", "mauricio", "miguelGarcia", "ulisesGascon"];
