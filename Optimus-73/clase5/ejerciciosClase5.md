@@ -23,7 +23,7 @@ console.group("operGroup");
 console.groupEnd("operGroup");
 ```
 
-## ** 2 -** Diseña un algoritmo para calcular el porcentaje de hombres y mujeres en nuestro curso.
+## **2 -** Diseña un algoritmo para calcular el porcentaje de hombres y mujeres en nuestro curso.
 
 ```javascript
 let numH = 5;
