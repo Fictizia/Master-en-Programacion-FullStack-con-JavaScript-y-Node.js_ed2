@@ -43,3 +43,11 @@ console.time("timeWarn");
 	console.groupEnd("groupWarn");
 console.timeEnd("timeWarn");
 ```
+
+## **5 -** Crea una tabla usando la consola para mostrar el nombre de tus compañeros y el puesto que ocupa en la clase.
+
+```javascript
+var comp = ["Optimus-73", "alberto", "marible", "mauricio", "miguelGarcia", "ulisesGascon"];
+
+console.table(comp);
+```
