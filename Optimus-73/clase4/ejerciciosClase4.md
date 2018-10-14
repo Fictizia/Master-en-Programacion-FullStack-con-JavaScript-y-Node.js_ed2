@@ -18,6 +18,28 @@ console.timeEnd("Medición");
 console.time("Medición");
 	console.log("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: white; color: black;');
 	console.info("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: #82b1ff; color: white;');
-	console.warn("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: #ff8a80; color: white;');
+	console.warn("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: #ffff8d; color: black;');
 console.timeEnd("Medición");
+```
+
+## **4 -** Agrupa cada tipo de mensaje y añade un contador de tiempo por cada grupo.
+
+```javascript
+console.time("timeLog");
+	console.group("groupLog");
+		console.log("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: white; color: black;');
+	console.groupEnd('groupLog');
+console.timeEnd("timeLog");
+
+console.time("timeInfo");
+	console.group("groupInfo");
+		console.info("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: #82b1ff; color: white;');
+	console.groupEnd("groupInfo");
+console.timeEnd("timeInfo");
+
+console.time("timeWarn");
+	console.group("groupWarn");
+		console.warn("%cOptimus", 'padding: 50px; border: 1px solid black; border-radius: 10px; text-align: center; font-size: 20px; background-color: #ffff8d; color: black;');
+	console.groupEnd("groupWarn");
+console.timeEnd("timeWarn");
 ```
