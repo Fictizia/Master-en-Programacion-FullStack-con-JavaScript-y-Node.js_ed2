@@ -1,6 +1,6 @@
 # Ejercicios clase 5
 
-## **1 -** Diseña un algoritmo que lea dos números y realice los siguientes cálculos:
+## 1- Diseña un algoritmo que lea dos números y realice los siguientes cálculos:
 - Valor de su suma.
 - Valor de su resta.
 - Valor de su división.
@@ -23,7 +23,7 @@ console.group("operGroup");
 console.groupEnd("operGroup");
 ```
 
-## **2 -** Diseña un algoritmo para calcular el porcentaje de hombres y mujeres en nuestro curso.
+## 2- Diseña un algoritmo para calcular el porcentaje de hombres y mujeres en nuestro curso.
 
 ```javascript
 let numH = 5;
