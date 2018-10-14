@@ -11,3 +11,6 @@ console.time("Medición");
 	console.warn("Optimus");
 console.timeEnd("Medición");
 ```
+
+## **3 -** Partiendo del ejercicio anterior mejora los estilos de cada mensaje utilizando estilos.
+
