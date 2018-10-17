@@ -1,3 +1,156 @@
+![shieldsIO](https://img.shields.io/github/issues/Fictizia/Master-en-programacion-fullstack-con-JavaScript-y-Node.js_ed2.svg)
+![shieldsIO](https://img.shields.io/github/forks/Fictizia/Master-en-programacion-fullstack-con-JavaScript-y-Node.js_ed2.svg)
+![shieldsIO](https://img.shields.io/github/stars/Fictizia/Master-en-programacion-fullstack-con-JavaScript-y-Node.js_ed2.svg)
+
+![WideImg](http://fictizia.com/img/github/Fictizia-plan-estudios-github.jpg)
+
+# Máster en Programación FullStack con JavaScript y Node.js
+### JS, Node.js, Frontend, Backend, Firebase, Express, Patrones, HTML5_APIs, Asincronía, Websockets, Testing
+
+## Clase 7
+
+### While
+
+- Estructura:
+    ```javascript
+    /*  --while--
+    while (-Condición-) {
+        -Instrucciones-
+    };
+    */
+    ```
+
+- Documentación:
+    - [While en w3schools](http://www.w3schools.com/js/js_loop_while.asp)
+    - [While en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+
+- Bucle infinito:
+    Este es un error muy común.
+
+    ```javascript
+    while (true) {
+        console.log("Este texto se imprime hasta el infinito...");
+    };
+    ```
+
+- Bucle que no se ejecutará:
+    ```javascript
+    while (false) {
+        console.log("Este texto jamas se imprimirá...");
+    };
+    ```
+
+- Ejemplo:
+    ```javascript
+    var control = 1;
+    while (control <= 10) {
+        console.log(control);
+        control++;
+    };
+    ```
+
+
+### For
+
+- Estructura:
+    ```javascript
+    /*  --for--
+    for (-Expresión inicial-; -Condición-; -Expresión Actualización-) {
+        -Instrucciones-
+    };
+    */
+    ```
+
+- Documentación:
+    - [For en w3schools](http://www.w3schools.com/js/js_loop_for.asp)
+    - [For en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+    - [Dominando el rendimiento](https://web.archive.org/web/20141205235948/https://blogs.oracle.com/greimer/entry/best_way_to_code_a)
+
+
+- Ejemplo clásico:
+    ```javascript
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+    ```
+
+
+### Do... While
+
+- Estructura:
+    ```javascript
+    /* --Do...while--
+    do{
+       -Instrucciones-
+    } while (-Condición-);
+    */
+    ```
+
+- Documentación:
+    - [Do... While en w3schools](http://www.w3schools.com/js/js_loop_while.asp)
+    - [Do... While en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
+
+- Ejemplo:
+    ```javascript
+    var i = 0;
+    do {
+       i++;
+       console.log(i);
+   } while (i < 10);
+    ```
+
+- Al menos se ejecutará una vez, aunque la premisa no sea verdadera.
+
+    ```javascript
+    do{
+       console.warn("me ejecuto")
+    } while (false);
+    ```
+
+### Break y Continue
+
+- *Continue* nos permite saltar parte del bucle.
+```javascript
+for (var i = 0; i < 10; i++) {
+    
+    // Salta el 5 y sigue...
+    if (i === 5) { 
+    	continue; 
+    }
+    
+    console.log("El valor de i es "+i);
+}
+```
+
+- *Break* nos permite salir del bucle.
+```javascript
+for (var i = 0; i < 10; i++) {
+    
+    // Llega a 5 y sale.
+    if (i === 5) { 
+    	break; 
+    }
+    
+    console.log("El valor de i es "+i);
+}
+```
+
+### Usos Avanzados
+
+- Ejemplo usando decrecimiento:
+    ```javascript
+    for (var i = 10; i > 0; i--) {
+        console.log(i);
+    }    
+    ```
+
+- Ejemplo usando varios contadores:
+    ```javascript
+    for (var i = 0, x = 1, z = 2, tope = 10; i <= tope; x *= z, i++ ) {
+        console.log("i vale "+i+", x vale "+x+", z vale "+z);
+    }
+    ```
+
 ### Ejercicios
 
 Realiza los siguientes ejercicios usando en cada uno los tres tipos de bucles (Do...While, For, While )
@@ -10,93 +163,35 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de bucles (D
 
 - Usando *for*
 ```javascript
-	var keywords = ['palabra clave 01', 'palabra clave 02', 'Fictizia mola mucho', 'palabra clave 03', 'palabra clave 04', 'palabra clave 05', 'palabra clave 06', 'palabra clave 07', 'palabra clave 08', 'palabra clave 09', 'palabra clave 10', ]
-
-    var errors = 0;
-    
-    for( var i = 0; i < keywords.length; i++ ){
-        var keyword = keywords[i];
-        if(keyword !== 'Fictizia mola mucho') {
-            errors++;
-        }
-        
-        if(errors === 3){
-            console.log('Has llegado al total de intentos posibles!');
-            break;
-        }
-    }
+	// Tu solución
 ```
 
 - Usando *while* y *break*
 ```javascript
-	var keywords = ['palabra clave 01', 'palabra clave 02', 'Fictizia mola mucho', 'palabra clave 03', 'palabra clave 04', 'palabra clave 05', 'palabra clave 06', 'palabra clave 07', 'palabra clave 08', 'palabra clave 09', 'palabra clave 10', ]
-
-    var errors = 0;
-    var i = 0;
-    while(i < keywords.length){
-        var keyword = keywords[i];
-        if(keyword !== 'Fictizia mola mucho') {
-            errors++;
-        }
-        
-        if(errors === 3){
-            console.log('Has llegado al total de intentos posibles!');
-            break;
-        }
-        
-        i++;
-    }
+	// Tu solución
 ```
 
 - Usando *Do...While*
 ```javascript
-	
-	var keywords = ['palabra clave 01', 'palabra clave 02', 'Fictizia mola mucho', 'palabra clave 03', 'palabra clave 04', 'palabra clave 05', 'palabra clave 06', 'palabra clave 07', 'palabra clave 08', 'palabra clave 09', 'palabra clave 10', ]
-
-    var errors = 0;
-    var i = 0;
-    
-    do{
-        var keyword = keywords[i];
-        if(keyword !== 'Fictizia mola mucho') {
-            errors++;
-        }
-        
-        if(errors === 3){
-            console.log('Has llegado al total de intentos posibles!');
-            break;
-        }
-        
-        i++;
-    } while (i < keywords.length)
+	// Tu solución
 ```
+
 
 **2 -** Diseña un algoritmo que imprima los numeros del 1 al 100.
 
 - Usando *for*
 ```javascript
-	for( var i = 1; i <= 100; i++) {
-	    console.log(i);
-	}
+	// Tu solución
 ```
 
 - Usando *while*
 ```javascript
-
-    var i = 1;
-	while(  i <= 100) {
-	    console.log(i);
-	    i++;
-	}
+	// Tu solución
 ```
 
 - Usando *Do...While*
 ```javascript
-	var i = 1;
-	do  {
-	    console.log(i);
-	    i++;
-	} while(  i < 100)
+	// Tu solución
 ```
 
 
@@ -104,108 +199,52 @@ Realiza los siguientes ejercicios usando en cada uno los tres tipos de bucles (D
 
 - Usando *for*
 ```javascript
-	for( var i = 100; i <= 0; i--) {
-	    console.log(i);
-	}
+	// Tu solución
 ```
 
 - Usando *while*
 ```javascript
-
-    var i = 100;
-	while(  i >= 0) {
-	    console.log(i);
-	    i--;
-	}
+	// Tu solución
 ```
 
 - Usando *Do...While*
 ```javascript
-	var i = 100;
-	do  {
-	    console.log(i);
-	    i--;
-	} while(  i >= 0)
+	// Tu solución
 ```
+
 
 **4 -** Diseña un algoritmo que imprima los numeros pares entre 0 y 100.
 
 - Usando *for*
 ```javascript
-	for( var i = 0; i <= 100; i++) {
-        if( i%2 == 0){
-	        console.log(i);
-        }
-	}
+	// Tu solución
 ```
 
 - Usando *while*
 ```javascript
-
-    var i = 0;
-	while(  i <= 100) {
-	    if( i%2 == 0){
-	        console.log(i);
-        }
-	    i++;
-	}
+	// Tu solución
 ```
 
 - Usando *Do...While*
 ```javascript
-	var i = 0;
-	do  {
-	    if( i%2 == 0){
-	        console.log(i);
-        }
-	    i++;
-	} while(  i <= 100)
+	// Tu solución
 ```
 
 **5 -** Diseña un algoritmo que imprima los números impares entre un número dado por el usuario y los siguientes 50 números.
 
-- Usando *for*
+- Usando *for* (desestructurado)
 ```javascript
-	function printNumber(numberUser){
-        var limit = numberUser + 50;
-        for( var i = numberUser; i <= limit; i++) {
-            if( i%2 != 0){
-                console.log(i);
-            }
-        }
-    }
-
-    printNumber(23);
+	// Tu solución
 ```
 
 - Usando *while*
 ```javascript
-	function printNumber(numberUser){
-        var limit = numberUser + 50;
-        while(  numberUser <= limit; ) {
-            if( numberUser%2 != 0){
-                console.log(i);
-            }
-            numberUser++;
-        }
-    }
-
-    printNumber(23);
+	// Tu solución
 ```
 
 - Usando *Do...While*
 ```javascript
-	function printNumber(numberUser){
-        var limit = numberUser + 50;
-        do{
-            if( numberUser%2 != 0){
-                console.log(i);
-            }
-            numberUser++;
-        }while(  numberUser <= limit; )
-    }
-
-    printNumber(23);
+	// Tu solución
 ```
 
 **6 -** Diseña un algoritmo que imprima la suma de los 50 primeros numeros pares y el total de números impares partiendo de un número dado por el usuario
