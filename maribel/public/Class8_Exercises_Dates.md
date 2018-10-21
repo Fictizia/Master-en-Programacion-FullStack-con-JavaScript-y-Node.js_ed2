@@ -12,23 +12,23 @@ function validateDate(day, month, year) {
 	var isDateValid = false;
 	var minYear = 1000;
 	var maxYear = 3000;
-	
+
 	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  
+
   // Adjust for leap years
   if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
     monthLength[1] = 29;
   }
-  
+
   // Check the range of the day
-			isDateValid = day > 0 && day <= monthLength[month - 1];
+  isDateValid = day > 0 && day <= monthLength[month - 1];
 
   // Check the ranges of month and year
   if (year < minYear || year > maxYear || month == 0 || month > 12) {
     isDateValid = false;
   }
-  
+
   if (isDateValid) {
     var firstFormat = day + "/" +  month + "/" + year;
     var secondFormat = day + " of " + monthNames[month - 1] + " of " + year;
@@ -43,7 +43,7 @@ function validateDate(day, month, year) {
 ```javascript
 function addThirtyDays() {
   var todayDate = new Date();
-  
+
   todayDate.setDate(todayDate.getDate() + 30);
   console.log(todayDate.toLocaleString());
 }
@@ -54,10 +54,10 @@ function getTimeElapsed() {
   var startDate = new Date(2018, 9, 1);
   var endDate = new Date();
   var elapsedTime = endDate - startDate;
-  
+
   var elapsedHours = (elapsedTime / (1000 * 60 * 60)).toFixed(0);
-  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0); 
-  
+  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0);
+
   console.log(elapsedHours + " hours since the master started");
   console.log(elapsedDays + " days since the master started");
 }
@@ -68,10 +68,10 @@ function getTimeRemaining() {
   var startDate = new Date();
   var endDate = new Date(2019, 6, 1);
   var elapsedTime = endDate - startDate;
-  
+
   var elapsedHours = (elapsedTime / (1000 * 60 * 60)).toFixed(0);
-  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0); 
-  
+  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0);
+
   console.log(elapsedHours + " hours for the master to end");
   console.log(elapsedDays + " days for the master to end");
 }
@@ -91,14 +91,14 @@ function addAYearAndAnHour() {
 ```javascript
 function formatDateToLocale() {
   var todayDate = new Date();
-  var options = { 
+  var options = {
     weekday: 'long',
-    year: 'numeric', 
-    month: 'long', 
+    year: 'numeric',
+    month: 'long',
     day: 'numeric'
   };
-  
-  console.log("Korean: " + todayDate.toLocaleString("kr-KR", options));
-  console.log("Japanese: " + todayDate.toLocaleString("jp-JP", options));
+
+  console.log("Korean: " + todayDate.toLocaleString("ko-KR", options));
+  console.log("Japanese: " + todayDate.toLocaleString("ja-JP", options));
 }
 ```
