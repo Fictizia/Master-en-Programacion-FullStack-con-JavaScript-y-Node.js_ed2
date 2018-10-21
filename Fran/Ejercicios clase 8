@@ -1,0 +1,36 @@
+4 - ¿Que fecha será dentro de 30 días?
+
+var hoy = new Date();
+var entreinta = new Date();
+entreinta.setDate(hoy.getDate()+30);
+console.log(entreinta);
+
+
+5 - ¿Cuantas horas han pasado desde que emepezó este master? y... ¿en días?
+
+
+var comienzoCurso =new Date(2018, 9, 1);
+hoy=new Date();
+
+var unDia=1000*60*60*24;
+var unaHora=1000*60*60;
+
+var resultado= Math.ceil((hoy.getTime()-comienzoCurso.getTime()));
+var resultado2= Math.ceil((hoy.getTime()-comienzoCurso.getTime())/(unaHora));
+var resultado3= Math.ceil((hoy.getTime()-comienzoCurso.getTime())/(unDia));
+
+
+console.log("han pasado " + resultado2 +" HORAS desde el comienzo del master  ,  " + resultado3 + " DIAS Y  " + resultado + " MILISEGUNDOS");
+
+
+6 - ¿Cuantos milisengundos quedan para terminar el master? y... ¿en horas o días?
+
+ 
+var unDia=1000*60*60*24;
+var unaHora=1000*60*60;
+var finCurso =new Date(2019, 9, 1)
+hoy=new Date();
+var resultado = Math.ceil((finCurso.getTime()-hoy.getTime()));
+var resultado2= Math.ceil((finCurso.getTime()-hoy.getTime())/(unaHora));
+var resultado3= Math.ceil((finCurso.getTime()-hoy.getTime())/(unDia));
+console.log("quedan " + resultado + " milisegundos para que termine el master , " + resultado2 + " horas y " + resultado3 + " dias" );
