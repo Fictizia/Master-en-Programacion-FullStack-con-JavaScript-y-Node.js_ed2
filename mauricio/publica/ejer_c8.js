@@ -30,7 +30,7 @@ Después de validar, devolvemos la fecha en formato DD/MM/AAAA
 Convertimos el número del mes, en el nombre del mes real y devolvemos la fecha en el siguiente formato ( DD de MES de AAAA)
 */
 
-function validateNumber(str) {
+/*function validateNumber(str) {
     if (str === undefined && str === null && str === '' && isNaN(str) && str < 0 && str === -0) {
         return false;
     } else {
@@ -48,7 +48,7 @@ function fechaValida(dia, mes, anio) {
     } else {
         console.warn('alguna false');
     }
-}
+}*/
 
 // 4 - ¿Que fecha será dentro de 30 días?
 
