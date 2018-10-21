@@ -59,3 +59,7 @@
 ### clase5
 
 - https://media.giphy.com/media/FnGJfc18tDDHy/giphy.gif
+
+### clase6
+
+- https://media.giphy.com/media/7cALdpVCbmaMU/giphy.gif 
