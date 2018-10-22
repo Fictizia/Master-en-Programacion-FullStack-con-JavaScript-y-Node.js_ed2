@@ -169,7 +169,7 @@ function countEven() {
 function countEven() {
     var i = 0;
     while (i <= 100) {
-            console.log(i);
+        console.log(i);
         i += 2;
     }
 }
