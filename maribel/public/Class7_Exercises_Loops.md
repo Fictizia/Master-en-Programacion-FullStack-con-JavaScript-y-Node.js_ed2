@@ -158,36 +158,30 @@ function countBackwards(begin, end) {
 4. Diseña un algoritmo que imprima los numeros pares entre 0 y 100.
 - Usando for
 ```javascript
-function countEven(begin, end) {
-    for (var i = begin; i <= end; i++) {
-        if (i % 2 === 0) {
-            console.log(i);
-        }
+function countEven() {
+    for (var i = 0; i <= 100; i += 2) {
+        console.log(i);
     }
 }
 ```
 - Usando while
 ```javascript
-function countEven(begin, end) {
-    var i = begin;
-    while (i <= end) {
-        if (i % 2 === 0) {
+function countEven() {
+    var i = 0;
+    while (i <= 100) {
             console.log(i);
-        }
-        i++;
+        i += 2;
     }
 }
 ```
 - Usando Do...While
 ```javascript
-function countEven(begin, end) {
-    var i = begin;
+function countEven() {
+    var i = 0;
     do {
-        if (i % 2 === 0) {
-            console.log(i);
-        }
-        i++;
-    } while (i <= end);
+        console.log(i);
+        i += 2;
+    } while (i <= 100);
 }
 ```
 
