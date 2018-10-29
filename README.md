@@ -45,6 +45,11 @@ Fecha | Teoría | Recursos | Contenido
 10/10/18 | [Clase 5](teoria/clase5.md) | [Clase 5](recursos/clase5.md) | JSDocs, Comparadores, Tipos de datos, Modo Estricto, etc...
 15/10/18 | [Clase 6](teoria/clase6.md) | [Clase 6](recursos/clase6.md) | Condicionales: If...else, Switch y Operador ternario
 17/10/18 | [Clase 7](teoria/clase7.md) | [Clase 7](recursos/clase7.md) | Bucles: For, While, Do...while, Break & Continue
+19/10/18 | [Clase 8](teoria/clase8.md) | [Clase 8](recursos/clase8.md) | Números, Math y Fechas
+22/10/18 | [Clase 9](teoria/clase9.md) | [Clase 9](recursos/clase9.md) | Cadenas y Arrays
+24/10/18 | [Clase 10](teoria/clase10.md) | [Clase 10](recursos/clase10.md) | Objetos y Funciones
+26/10/18 | [Clase 11](teoria/clase11.md) | Clase 11 | Práctica: Maquina Expendedora por consola
+29/10/18 | [Clase 12](teoria/clase12.md) | [Clase 12](recursos/clase12.md) | BOM y DOM I
 
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)

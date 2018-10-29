@@ -55,3 +55,8 @@ function highAndLow(numbers){
 }
 
 // Shortest word
+
+function findShort(s){
+  let lengths = s.split(' ').map(elm => elm.length);
+  return Math.min(...lengths);
+}

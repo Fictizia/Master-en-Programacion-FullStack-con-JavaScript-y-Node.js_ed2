@@ -12,7 +12,7 @@
 
 ## Tools for Web Developers
 
-![IMG](http://krystianczaplicki.com/wp-content/uploads/2018/07/chrome-devtools.jpg)
+![IMG](../assets/clase4/20ea9273-1b0f-411a-afb8-729542adc6b5.jpeg)
 
 **Recursos**
 - [Blog de Chromium](https://blog.chromium.org/)
@@ -34,13 +34,13 @@
 
 ### Canary
 
-![Logo](https://upload.wikimedia.org/wikipedia/commons/2/26/Logo_Google_Chrome_Canary.jpg)
+![Logo](../assets/clase4/971648cf-0541-40fa-aff9-ef3b5d361309.jpeg)
 
 - [Web oficial](https://www.google.com/intl/en/chrome/canary/)
 
 ### PageSpeed
 
-![Logo](https://borjaarandavaquero.com/wp-content/uploads/2017/01/google-pagespeed.png)
+![Logo](../assets/clase4/7300fd57-8537-409b-a4e6-8056456c8e2e.html)
 
 **Doc**
 - [PageSpeed](https://developers.google.com/speed/)
@@ -50,7 +50,7 @@
 
 ### Lighthouse
 
-![img](https://searchengineland.com/figz/wp-content/seloads/2018/05/google-lighthouse-800x364.jpg)
+![img](../assets/clase4/8fef1147-6778-4a10-86a7-dcc226ee0691.jpeg)
 
 **Doc**
 - [Lighthouse en Github](https://github.com/GoogleChrome/lighthouse)
@@ -58,7 +58,7 @@
 
 ### puppeteer
 
-![img_logo](https://testinproduction.files.wordpress.com/2017/09/articleocw-599af35e5ad57.png?w=1000)
+![img_logo](../assets/clase4/b4ea8807-23e6-47c8-806f-8ea125fa6c40.png)
 
 **Doc**
 - [Web Oficial](https://pptr.dev/)
@@ -70,7 +70,7 @@
 
 ### Workbox
 
-![img_logo](https://csbun.github.io/workbox-examples/workbox-get-started/images/workbox_logo.png)
+![img_logo](../assets/clase4/ff50979d-9842-44b8-803b-2b6250bdc1a7.png)
 
 **Doc**
 - [Video presentación](https://youtu.be/DtuJ55tmjps)
@@ -80,7 +80,7 @@
 
 ### ChromeDevTools
 
-![img_logo](https://articles.tbscg.com/wp-content/uploads/2015/09/google-chrome-devtools-banner.png)
+![img_logo](../assets/clase4/aeea68ed-c351-4c1d-8e9c-de2d0ad0a9a8.png)
 
 **Recursos**
 - [Slack](https://chromiumdev.slack.com/?redir=%2Fmessages%2Fdevtools)
@@ -191,7 +191,7 @@
 
 
 ### Extensiones para developers: SAFETY FIRST
-![IMG](https://media.kasperskydaily.com/wp-content/uploads/sites/92/2018/01/30060157/browser-extensions-security-featured-1024x672.jpg)
+![IMG](../assets/clase4/29bfc13c-c593-44f1-bea6-5c520201d640.jpeg)
 
 - [Browser Extensions Are a Privacy Nightmare: Stop Using So Many of Them](https://www.howtogeek.com/188346/why-browser-extensions-can-be-dangerous-and-how-to-protect-yourself/)
 - [Google Chrome WARNING – Using these popular extensions could put your computer at risk](https://www.express.co.uk/life-style/science-technology/907189/Google-Chrome-update-store-extensions-malware-browser-security-risk)
