@@ -11,7 +11,7 @@
 
 ### Importante
 
-![img](https://hacktoberfest.digitalocean.com/assets/hacktoberfest-2018-social-card-c8d2e1489f647f2e0a26e6f598adeb760872818905b34cd437afc7ac2857ceab.png)
+![img](../assets/clase2/e24bcbab-6828-4530-8fde-6bed183244ca.png)
 
 ### Control de Versiones
 
@@ -41,7 +41,7 @@
 
 **Working Flow**
 
-![Como trabajar con Git](http://nvie.com/img/git-model@2x.png)
+![Como trabajar con Git](../assets/clase2/c4b54c2e-d919-454b-bf61-67bd79ab5790.png)
 
 
 ### Github
@@ -85,8 +85,8 @@ git --version
 
 Configuración (entornos):
 
-[Repositorios locales y remotos](http://media.tumblr.com/tumblr_lbnpoxYtNm1qaku05.png)
-![Repositorios locales y remotos](http://media.tumblr.com/tumblr_lbnpoxYtNm1qaku05.png)
+[Repositorios locales y remotos](../assets/clase2/a4f5c8e2-bebd-40a8-bae9-8c19a724b27c.png)
+![Repositorios locales y remotos](../assets/clase2/a4f5c8e2-bebd-40a8-bae9-8c19a724b27c.png)
 
 - System (todos los usuarios)
     - git config --system
@@ -103,7 +103,7 @@ Configuración (entornos):
 
 **Comandos básicos**
 
-![data transport commands](https://s3.amazonaws.com/media-p.slid.es/uploads/479298/images/4043813/Screen-Shot-2015-06-24-at-8.37.13-PM-1024x663.png)
+![data transport commands](../assets/clase2/9e578e2c-7800-4d59-b936-21208d12fa2a.png)
 
 versión
 ```
@@ -655,13 +655,13 @@ Recuerda que debes incluir este comando antes de tu próximo *git push*
 - [https://api.github.com/repos/{user}/{repo}](https://api.github.com/repos/OSWeekends/c9scripts)
 
 ### Resumen
-![Trabajar con Git/Github](http://www.geekgumbo.com/wp-content/uploads/2011/08/nvie-git-workflow-commands.png)
-[tamaño original](http://www.geekgumbo.com/wp-content/uploads/2011/08/nvie-git-workflow-commands.png)
+![Trabajar con Git/Github](../assets/clase2/ed87ee5b-7f97-40ea-a89d-21e87b001e75.png)
+[tamaño original](../assets/clase2/ed87ee5b-7f97-40ea-a89d-21e87b001e75.png)
 
 
 ### Git Drama: Microsfot compró Github
 
-![img](https://thepracticaldev.s3.amazonaws.com/i/5ccop0xkp5y5d81tfwi2.png)
+![img](../assets/clase2/6f66df7c-10d3-44e5-b57a-1bfc172c463a.png)
 
 - [Con la compra de GitHub, Microsoft hace honor a su mantra: desarrolladores, desarrolladores, desarrolladores](https://www.xataka.com/aplicaciones/microsoft-punto-adquirir-github-desarrolladores-desarrolladores-desarrolladores)
 - [Confirmado: Microsoft compra GitHub por 7.500 millones de dólares](https://www.genbeta.com/actualidad/confirmado-microsoft-compra-github-7-500-millones-dolares)
@@ -682,7 +682,7 @@ Recuerda que debes incluir este comando antes de tu próximo *git push*
 
 ### Los principales jugadores
 
-![img](https://www.amarinfotech.com/wp-content/uploads/2017/05/GitLab-vs-GitHub-vs-bitbucket-1.jpg)
+![img](../assets/clase2/aaa6929b-7055-4c27-9c34-b1e0ac04d607.jpeg)
 
 - [GitHub vs. Bitbucket vs. GitLab vs. Coding](https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1)
 - [The Key Differences : GitLab vs GitHub vs bitbucket](https://medium.com/@ramoliya/the-key-differences-gitlab-vs-github-vs-bitbucket-3d76c4bcf5e6)
@@ -693,12 +693,12 @@ Recuerda que debes incluir este comando antes de tu próximo *git push*
 
 ### Terminología
 
-![terminologia](https://about.gitlab.com/images/blogimages/gitlab-terminology.png)
+![terminologia](../assets/clase2/cd67f9fd-0c25-4309-87ab-eba2987d661f.png)
 
 
 ### Gitlab
 
-![logo](https://cdn.worldvectorlogo.com/logos/gitlab-1.svg)
+![logo](../assets/clase2/5e4b214a-ecb9-4b99-a2f1-b4e59716d9ac.svg)
 
 **Recursos**
 - [Canal oficial de Youtube](https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg)
@@ -728,7 +728,7 @@ Recuerda que debes incluir este comando antes de tu próximo *git push*
 
 ### Bitbucket
 
-![Logo](https://www.atlassian.com/dam/jcr:bd56917e-e361-4f03-b672-9f5ef5b06e80/Bitbucket-blue.svg)
+![Logo](../assets/clase2/1c69a830-124c-4b8a-aa2a-3e980dcab071.svg)
 
 **Recursos**
 - [@bitbucket en Twitter](https://twitter.com/bitbucket)
@@ -766,7 +766,7 @@ Recuerda que debes incluir este comando antes de tu próximo *git push*
 
 ### Ejercicios
 
-![logo](https://c2.staticflickr.com/6/5547/12317670703_bc38a3ec49_b.jpg)
+![logo](../assets/clase2/d3bd868b-e3e2-4830-94d4-f9572fd70a9f.jpeg)
 
 
 **1 -** Creamos una cuenta en Github y creamos un workespace con referencia a nuestro repositorio de GitHub en [c9.io](https://c9.io/) una vez hayamos recibido la invitación.
