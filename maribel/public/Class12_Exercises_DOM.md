@@ -54,22 +54,22 @@ for (var i = 0; i < articles.length; i++) {
     teacher.information = articles[i].querySelector("div:nth-child(2) > p").innerText;
     var links = articles[i].querySelector("div:nth-child(2) > ul");
 	if (links) {
-		var aNodes = links.getElementsByClassName("txtBtn");
-		for (var j = 0; j < aNodes.length; j++) {
-		    var href = aNodes[j].href;
+	    var aNodes = links.getElementsByClassName("txtBtn");
+	    for (var j = 0; j < aNodes.length; j++) {
+		var href = aNodes[j].href;
 	        if(href.includes("twitter") === true) {
-	            teacher.links.twitter = href;
-            }
-            else if(href.includes("github")) {
-                teacher.links.github = href;
-            }
-            else if(href.includes("linkedin")) {
-                teacher.links.linkedin = href;
-            }
-            else {
-                teacher.links.web = href;
-            }
+		    teacher.links.twitter = href;
 		}
+		else if(href.includes("github")) {
+		    teacher.links.github = href;
+		}
+		else if(href.includes("linkedin")) {
+		    teacher.links.linkedin = href;
+		}
+		else {
+		    teacher.links.web = href;
+		}
+	    }
 	}
 
 	teachersList.push(teacher);
