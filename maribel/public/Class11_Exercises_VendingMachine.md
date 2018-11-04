@@ -52,11 +52,11 @@ clients.push(client3);
 **Paso 3**. Creamos varios métodos para gestionar a los clientes y sus necesidades
 - Metodos:
     - Consultar saldo de un cliente
-    - Devolverá el saldo existente o *-1* en caso de error
-    - Comprobaremos la contraseña y el usuario
+        - Devolverá el saldo existente o *-1* en caso de error
+        - Comprobaremos la contraseña y el usuario
     - Consultar gastos de un cliente
-    - Devolverá un array o *false* en caso de error
-    - Comprobaremos la contraseña y el usuario
+        - Devolverá un array o *false* en caso de error
+        - Comprobaremos la contraseña y el usuario
     - Agregar un cliente
     - Eliminar un cliente
 
@@ -67,33 +67,13 @@ clients.push(client3);
     - Protegeremos las funciones de gestión de usuarios con la contraseña *ficticiaMola*
 
 ```javascript
-// Assume the username is unique
-function getClient(username) {
-    var foundClient;
-    for (var client of clients) {
-        if (client.username == username) {
-            foundClient = client;
-            break;
-        }
-    }
-    
-    return foundClient ? foundClient : -1;
-}
-
-
 function getClientBudget(username) {
     var client = getClient(username);
     return (client !== -1) ? client.budget : -1;
 }
 
-function clientIsAuthorized(username, password) {
-    var storedPassword = getClientPassword(username);
-    return password === storedPassword;
-}
-
-function getClientPassword(username) {
-    var client = getClient(username);
-    return (client !== -1) ? client.password : null;
+function getClientExpenses(username){
+    // TODO
 }
 
 function addClient(client) {
@@ -116,11 +96,8 @@ function addClient(client) {
     }
 }
 
-function clientExists(client) {
-    return (getClient(client.username) !== -1) ? true : false;
-}
-
-function removeClient(client) {
+function removeClient(username) {
+    var client = getClient(username);
     if(clientHasPrivileges(client)){
         if (clientExists(client)) {
             var usernames = clients.map(function(client) { return client.username; } );
@@ -137,6 +114,20 @@ function removeClient(client) {
     }
 }
 
+function clientIsAuthorized(username, password) {
+    var storedPassword = getClientPassword(username);
+    return password === storedPassword;
+}
+
+function getClientPassword(username) {
+    var client = getClient(username);
+    return (client !== -1) ? client.password : null;
+}
+
+function clientExists(client) {
+    return (getClient(client.username) !== -1) ? true : false;
+}
+
 function clientIsValid(client) {
     var isValid = true;
     for (var prop in client){
@@ -147,6 +138,19 @@ function clientIsValid(client) {
     }
     
     return isValid;
+}
+
+// Assume the username is unique
+function getClient(username) {
+    var foundClient;
+    for (var client of clients) {
+        if (client.username == username) {
+            foundClient = client;
+            break;
+        }
+    }
+    
+    return foundClient ? foundClient : -1;
 }
 
 function clientHasPrivileges() {
