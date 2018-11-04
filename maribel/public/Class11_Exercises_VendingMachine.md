@@ -361,6 +361,9 @@ function productIsValid(product) {
 ```
 
 **Paso 5**. (Nivel Medio) Ahora podemos agregar los métodos para agregar, retirar y resetear saldo de los usuarios.
+- Importante:
+    - Los saldos jamas pueden ser negativos.
+
 ```javascript
 function incrementClientBudget(client, quantity){
     client.budget += quantity;
