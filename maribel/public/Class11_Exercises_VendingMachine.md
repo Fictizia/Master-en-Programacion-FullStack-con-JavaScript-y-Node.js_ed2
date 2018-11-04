@@ -377,3 +377,31 @@ function resetClientBudget(client, quantity){
     client.budget = quantity;
 }
 ```
+
+**Paso 6.** (Nivel Avanzado) Ahora podemos agregar el método para saber la disponibilidad de stock
+- Importante:
+    - Es necesaria clave (adminsitrador)
+    - Debemos saber las existencias
+    - Debemos saber que productos estan disponibles y cuales no.
+    - Debemos incluir el código y el nombre
+    - Cuando se imprima el informe... es necesario incluir la fecha.
+
+```javascript
+function doInventory(){
+    if(clientHasPrivileges()){
+        console.log("* * * * * * * * * * Inventory * * * * * * * * * *");
+        console.log("Total number of different products: " + products.length);
+        for (var item of products) {
+            console.log("-------------------------");
+            console.log("Name: " + item.name);
+            console.log("Code: " + item.code);
+            console.log("Stock: " + item.stock);
+            console.log("Is available: " + item.isAvaliable);
+        }
+        console.log("* * * * * * * * * * * * * * * * * * * * * * * * *");
+        var date = new Date();
+        console.log("Date: " + date.toLocaleString());
+        console.log("* * * * * * * * * * * * * * * * * * * * * * * * *");
+    }
+}
+```
