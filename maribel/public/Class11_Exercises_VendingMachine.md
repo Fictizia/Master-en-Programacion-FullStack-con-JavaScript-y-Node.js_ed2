@@ -204,14 +204,14 @@ var item1 = {
     name: "Risketos",
     code: "C1",
     stock: 100,
-    isAvaliable: true
+    isAvailable: true
 }
 
 var item2 = {
     name: "Kit-Kat",
     code: "C2",
     stock: 4,
-    isAvaliable: true
+    isAvailable: true
 }
 
 
@@ -219,7 +219,7 @@ var item3 = {
     name: "Orbit Gum",
     code: "C3",
     stock: 10,
-    isAvaliable: true
+    isAvailable: true
 }
 
 
@@ -227,7 +227,7 @@ var item4 = {
     name: "Conos 3D Matutano",
     code: "C4",
     stock: 50,
-    isAvaliable: true
+    isAvailable: true
 }
 
 
@@ -235,7 +235,7 @@ var item5 = {
     name: "Actimel Natural",
     code: "C5",
     stock: 60,
-    isAvaliable: true
+    isAvailable: true
 }
 
 products.push(item1);
@@ -334,12 +334,12 @@ function getProduct(productCode) {
 }
 
 function productIsAvailable(product){
-    return product.isAvaliable;
+    return product.isAvailable;
 }
 
 function updateProductAvailability(product){
     if(product.stock === 0){
-        product.isAvaliable = false;
+        product.isAvailable = false;
     }
 }
 
@@ -396,7 +396,7 @@ function doInventory(){
             console.log("Name: " + item.name);
             console.log("Code: " + item.code);
             console.log("Stock: " + item.stock);
-            console.log("Is available: " + item.isAvaliable);
+            console.log("Is available: " + item.isAvailable);
         }
         console.log("* * * * * * * * * * * * * * * * * * * * * * * * *");
         var date = new Date();
