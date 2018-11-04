@@ -99,7 +99,7 @@ function addClient(client) {
 function removeClient(username) {
     var client = getClient(username);
     if(clientHasPrivileges(client)){
-        if (clientExists(client)) {
+        if (clientExists(client)) { // TODO repasar esto
             var usernames = clients.map(function(client) { return client.username; } );
             var index = usernames.indexOf(client.username);
             clients.splice(index, 1);
@@ -178,5 +178,184 @@ function clientHasPrivileges() {
     }
     
     return keywordIsCorrect;
+}
+```
+
+**Paso  4.** Creamos varios métodos para gestionar a los productos y sus necesidades
+Creamos 5 productos que estarán disponibles a la venta
+- Métodos:
+    - Consumir un producto (cliente)
+        - Comprobaremos la contraseña y el usuario
+        - Devolverá el producto o -1 en caso de no existir o estar agotado
+        - Actualizaremos el stock
+        - Actualizaremos el saldo del cliente
+    - Agregar un producto a la máquina (administración)
+    - Eliminar un prodcutos de la máquina (administración)
+
+- Caracteristicas:
+    - Evitaremos agregar productos que ya existan
+    - Evitaremos eliminar productos que no existan
+    - Evitaremos agregar productos que no esten debidamente cumplimentados
+    - Protegeremos las funciones de agregar y eliminar productos con la contraseña *ficticiaMola*
+
+```javascript
+var products = []
+var item1 = {
+    name: "Risketos",
+    code: "C1",
+    stock: 100,
+    isAvaliable: true
+}
+
+var item2 = {
+    name: "Kit-Kat",
+    code: "C2",
+    stock: 4,
+    isAvaliable: true
+}
+
+
+var item3 = {
+    name: "Orbit Gum",
+    code: "C3",
+    stock: 10,
+    isAvaliable: true
+}
+
+
+var item4 = {
+    name: "Conos 3D Matutano",
+    code: "C4",
+    stock: 50,
+    isAvaliable: true
+}
+
+
+var item5 = {
+    name: "Actimel Natural",
+    code: "C5",
+    stock: 60,
+    isAvaliable: true
+}
+
+products.push(item1);
+products.push(item2);
+products.push(item3);
+products.push(item4);
+products.push(item5);
+
+function dispenseProduct(productCode) {
+    if(productExists(productCode)){
+        var product = getProduct(productCode);
+        if (productIsAvailable(product)){
+            var username = prompt("Please, enter your username:");
+            var password = prompt("Please, enter your password:");
+            if(clientIsAuthorized(username, password)){
+                console.log("User is authorized to buy the product.");
+                var client = getClient(username);
+                if (clientCanPay(client)){
+                    console.log("Processing request...");
+                    product.stock--;
+                    updateProductAvailability(product);
+                    client.budget--;
+                    
+                    console.log(product.name + "'s updated stock: " + product.stock);
+                    console.log(client.name + "'s updated budget: " + client.budget);
+                }
+                else {
+                    console.log("Sorry, client hasn't enough points to buy the requested item.");
+                }
+            }
+            else {
+                console.log("Incorrect credentials. Client is not authorized to do this task.");
+            }
+        }
+        else {
+            console.log("Sorry, the requested produc is out of stock.");
+        }
+    }
+    else {
+        console.log("Sorry, the requested product doesn't exist.")
+    }
+}
+
+function addNewProduct(product){
+    if(productIsValid(product)){
+        if (!productExists(product)){
+            if (clientHasPrivileges()) {
+                products.push(product);
+                console.log("Product added successfully.");
+            }
+            else {
+                console.log("Error adding product. Client is not authorized to do this task.");
+            }
+        }
+        else {
+            console.log("Error adding product. Product already exists.");
+        }
+    }
+    else {
+        console.log("Error adding product. Product has some not valid fields.");
+    }
+}
+
+function removeProduct(code) {
+    if(productExists(code)){
+        if (clientHasPrivileges()) {
+            var product = getProduct(code);
+            var index = products.indexOf(product.code);
+            products.splice(index, 1);
+            console.log("Product removed successfully");
+        }
+        else {
+            console.log("Error removing product. Client is not authorized to do this task.");
+        }
+    }
+    else {
+        console.log("Error removing product. Products doesn't exists.");
+    }
+}
+
+function productExists(code){
+    return (getProduct(code) !== -1) ? true : false;
+}
+
+// Assume the product code is unique
+function getProduct(productCode) {
+    var foundProduct;
+    for (var product of products) {
+        if (product.code == productCode) {
+            foundProduct = product;
+            break;
+        }
+    }
+    
+    return (foundProduct && productIsAvailable(foundProduct)) ? foundProduct : -1;
+}
+
+function productIsAvailable(product){
+    return product.isAvaliable;
+}
+
+function updateProductAvailability(product){
+    if(product.stock === 0){
+        product.isAvaliable = false;
+    }
+}
+
+function clientCanPay(client){
+    return (client.budget > 0) ? true : false;
+}
+
+function productIsValid(product) {
+    var isValid = true;
+    for (var prop in product){
+        if(!product[prop]){
+            isValid = false;
+            break;
+        }
+    }
+    
+    return isValid;
 }
 ```
