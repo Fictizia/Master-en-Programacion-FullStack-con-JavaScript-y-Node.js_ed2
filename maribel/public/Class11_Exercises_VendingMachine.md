@@ -77,40 +77,39 @@ function getClientExpenses(username){
 }
 
 function addClient(client) {
-    if(clientHasPrivileges(client)){
-        if (clientIsValid(client)){
-            if (!clientExists(client)) {
+    if(clientIsValid(client)){
+        if (!clientExists(client)){
+            if (clientHasPrivileges(client)) {
                 clients.push(client);
                 console.log("Client added successfully");
             }
             else {
-                console.log("Error adding client. Client already exists.");
+                console.log("Error adding client. Client is not authorized to do this task.");
             }
         }
         else {
-            console.log("Error adding client. Client has some not valid fields.");
+            console.log("Error adding client. Client already exists.");
         }
     }
     else {
-        console.log("Error adding client. Client is not authorized to do this task.");
+        console.log("Error adding client. Client has some not valid fields.");
     }
 }
 
 function removeClient(username) {
-    var client = getClient(username);
-    if(clientHasPrivileges(client)){
-        if (clientExists(client)) { // TODO repasar esto
+    if(clientExists(username)){
+        if (clientHasPrivileges()) {
             var usernames = clients.map(function(client) { return client.username; } );
-            var index = usernames.indexOf(client.username);
+            var index = usernames.indexOf(username);
             clients.splice(index, 1);
             console.log("Client removed successfully");
         }
         else {
-            console.log("Error removing client. Client doesn't exists.");
+            console.log("Error removing client. Client is not authorized to do this task.");
         }
     }
     else {
-        console.log("Error adding client. Client is not authorized to do this task.");
+        console.log("Error removing client. Client doesn't exists.");
     }
 }
 
@@ -124,8 +123,8 @@ function getClientPassword(username) {
     return (client !== -1) ? client.password : null;
 }
 
-function clientExists(client) {
-    return (getClient(client.username) !== -1) ? true : false;
+function clientExists(username) {
+    return (getClient(username) !== -1) ? true : false;
 }
 
 function clientIsValid(client) {
@@ -156,7 +155,7 @@ function getClient(username) {
 function clientHasPrivileges() {
     var failedAttempts = 0;
     var maxAllowedFailedAttempts = 3;
-    var correctKeyword = "Fictizia mola mucho";
+    var correctKeyword = "ficticiaMola";
     var keywordIsCorrect = false;
     
     do
