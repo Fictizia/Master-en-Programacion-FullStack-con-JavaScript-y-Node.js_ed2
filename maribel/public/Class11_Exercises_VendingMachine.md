@@ -301,8 +301,8 @@ function addNewProduct(product){
 function removeProduct(code) {
     if(productExists(code)){
         if (clientHasPrivileges()) {
-            var product = getProduct(code);
-            var index = products.indexOf(product.code);
+            var usernames = products.map(function(product) { return product.code; } );
+            var index = products.indexOf(code);
             products.splice(index, 1);
             console.log("Product removed successfully");
         }
