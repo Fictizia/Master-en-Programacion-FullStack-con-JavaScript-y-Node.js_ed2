@@ -70,7 +70,7 @@ clients.push(client3);
 function getClientBudget() {
     var username = prompt("Please, enter your username:");
     var password = prompt("Please, enter your password:");
-    if(clientIsAuthorized(username, password)){
+    if(credentialsAreCorrect(username, password)){
         var client = getClient(username);
         return (client !== -1) ? client.budget : -1;
     }
@@ -80,11 +80,13 @@ function getClientExpenses(username){
     // TODO
 }
 
-function addClient(client) {
-    if(clientIsValid(client)){
-        if (!clientExists(client)){
-            if (clientHasPrivileges(client)) {
-                clients.push(client);
+function addClient(clientToAdd) {
+    if(clientIsValid(clientToAdd)){
+        if (!clientExists(clientToAdd.username)){
+            var username = prompt("Please, enter your username:");
+            var password = prompt("Please, enter your password:");
+            if (clientIsAdmin(username) && credentialsAreCorrect(username, password)) {
+                clients.push(clientToAdd);
                 console.log("Client added successfully");
             }
             else {
@@ -100,11 +102,13 @@ function addClient(client) {
     }
 }
 
-function removeClient(username) {
-    if(clientExists(username)){
-        if (clientHasPrivileges()) {
+function removeClient(usernameToRemove) {
+    if(clientExists(usernameToRemove)){
+        var username = prompt("Please, enter your username:");
+        var password = prompt("Please, enter your password:");
+        if (clientIsAdmin(username) && credentialsAreCorrect(username, password)) {
             var usernames = clients.map(function(client) { return client.username; } );
-            var index = usernames.indexOf(username);
+            var index = usernames.indexOf(usernameToRemove);
             clients.splice(index, 1);
             console.log("Client removed successfully");
         }
@@ -117,9 +121,9 @@ function removeClient(username) {
     }
 }
 
-function clientIsAuthorized(username, password) {
+function credentialsAreCorrect(username, password) {
     var storedPassword = getClientPassword(username);
-    return password === storedPassword;
+    return (password === storedPassword);
 }
 
 function getClientPassword(username) {
@@ -156,31 +160,9 @@ function getClient(username) {
     return foundClient ? foundClient : -1;
 }
 
-function clientHasPrivileges() {
-    var failedAttempts = 0;
-    var maxAllowedFailedAttempts = 3;
-    var correctKeyword = "ficticiaMola";
-    var keywordIsCorrect = false;
-    
-    do
-    {
-    var inputKeyword = prompt("Please, enter the keyword");
-    if (inputKeyword === correctKeyword) {
-      keywordIsCorrect = true;
-      console.log("User authorized");
-    }
-    else {
-        failedAttempts++;
-        console.log("User NO authorized (failed attempts: " + failedAttempts + ")");
-    }
-    } while (failedAttempts < maxAllowedFailedAttempts && !keywordIsCorrect);
-    
-    if (failedAttempts >= maxAllowedFailedAttempts)
-    {
-    console.log("Max number of attempts reached");
-    }
-    
-    return keywordIsCorrect;
+function clientIsAdmin(username) {
+    var client = getClient(username);
+    return (client.role === "admin");
 }
 ```
 
@@ -253,8 +235,7 @@ function dispenseProduct(productCode) {
         if (productIsAvailable(product)){
             var username = prompt("Please, enter your username:");
             var password = prompt("Please, enter your password:");
-            if(clientIsAuthorized(username, password)){
-                console.log("User is authorized to buy the product.");
+            if(credentialsAreCorrect(username, password)){
                 var client = getClient(username);
                 if (clientCanPay(client)){
                     console.log("Processing request...");
@@ -274,7 +255,7 @@ function dispenseProduct(productCode) {
             }
         }
         else {
-            console.log("Sorry, the requested produc is out of stock.");
+            console.log("Sorry, the requested product is out of stock.");
         }
     }
     else {
@@ -284,8 +265,10 @@ function dispenseProduct(productCode) {
 
 function addNewProduct(product){
     if(productIsValid(product)){
-        if (!productExists(product)){
-            if (clientHasPrivileges()) {
+        if (!productExists(product.code)){
+            var username = prompt("Please, enter your username:");
+            var password = prompt("Please, enter your password:");
+            if(clientIsAdmin(username) && credentialsAreCorrect(username, password)){
                 products.push(product);
                 console.log("Product added successfully.");
             }
@@ -304,7 +287,9 @@ function addNewProduct(product){
 
 function removeProduct(code) {
     if(productExists(code)){
-        if (clientHasPrivileges()) {
+        var username = prompt("Please, enter your username:");
+        var password = prompt("Please, enter your password:");
+        if(clientIsAdmin(username) && credentialsAreCorrect(username, password)){
             var usernames = products.map(function(product) { return product.code; } );
             var index = products.indexOf(code);
             products.splice(index, 1);
@@ -333,7 +318,7 @@ function getProduct(productCode) {
         }
     }
     
-    return (foundProduct && productIsAvailable(foundProduct)) ? foundProduct : -1;
+    return foundProduct ? foundProduct : -1;
 }
 
 function productIsAvailable(product){
@@ -391,7 +376,9 @@ function resetClientBudget(client, quantity){
 
 ```javascript
 function doInventory(){
-    if(clientHasPrivileges()){
+    var username = prompt("Please, enter your username:");
+    var password = prompt("Please, enter your password:");
+    if(clientIsAdmin(username) && credentialsAreCorrect(username, password)){
         console.log("* * * * * * * * * * Inventory * * * * * * * * * *");
         console.log("Total number of different products: " + products.length);
         for (var item of products) {
@@ -405,6 +392,9 @@ function doInventory(){
         var date = new Date();
         console.log("Date: " + date.toLocaleString());
         console.log("* * * * * * * * * * * * * * * * * * * * * * * * *");
+    }
+    else {
+        console.log("Error doing inventory. Client is not authorized to do this task.");
     }
 }
 ```
