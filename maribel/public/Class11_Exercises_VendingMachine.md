@@ -67,9 +67,13 @@ clients.push(client3);
     - Protegeremos las funciones de gestión de usuarios con la contraseña *ficticiaMola*
 
 ```javascript
-function getClientBudget(username) {
-    var client = getClient(username);
-    return (client !== -1) ? client.budget : -1;
+function getClientBudget() {
+    var username = prompt("Please, enter your username:");
+    var password = prompt("Please, enter your password:");
+    if(clientIsAuthorized(username, password)){
+        var client = getClient(username);
+        return (client !== -1) ? client.budget : -1;
+    }
 }
 
 function getClientExpenses(username){
