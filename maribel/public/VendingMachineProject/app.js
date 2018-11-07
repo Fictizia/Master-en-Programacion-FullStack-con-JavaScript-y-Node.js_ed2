@@ -9,7 +9,8 @@ var client1 = {
     username: "doracat",
     password: "dorayaki",
     role: "admin",
-    budget: 10
+    budget: 10,
+    expenses: []
 };
 
 var client2 = {
@@ -17,7 +18,8 @@ var client2 = {
     username: "oli_atom",
     password: "1234",
     role: "user",
-    budget: 10
+    budget: 10,
+    expenses: []
 };
 
 var client3 = {
@@ -25,7 +27,8 @@ var client3 = {
     username: "lisasimpson",
     password: "library",
     role: "user",
-    budget: 10
+    budget: 10,
+    expenses: []
 };
 
 clients.push(client1);
@@ -37,12 +40,30 @@ function getClientBudget() {
     var password = prompt("Please, enter your password:");
     if(credentialsAreCorrect(username, password)){
         var client = getClient(username);
-        return (client !== -1) ? client.budget : -1;
+        return client.budget;
+    }
+    else
+    {
+        console.log("Error getting client budget. Client is not authorized to do this task.");
     }
 }
 
-function getClientExpenses(username){
-    // TODO
+function getClientExpenses(){
+    var username = prompt("Please, enter your username:");
+    var password = prompt("Please, enter your password:");
+    if(credentialsAreCorrect(username, password)){
+        var client = getClient(username);
+        console.log("* * * * * * * * * * Client exepenses * * * * * * * * * *");
+        for (var expense of client.expenses) {
+            console.log("-------------------------")
+            console.log("Product: " + expense.product.name);
+            console.log("Quantity: " + expense.quantity);
+        }
+    }
+    else
+    {
+        console.log("Error getting client expenses. Client is not authorized to do this task.");
+    }
 }
 
 function addClient(clientToAdd) {
@@ -189,6 +210,8 @@ function dispenseProduct(productCode) {
                     updateProductAvailability(product);
                     client.budget--;
                     
+                    updateClientExpenses(client, product);
+                    
                     console.log(product.name + "'s updated stock: " + product.stock);
                     console.log(client.name + "'s updated budget: " + client.budget);
                 }
@@ -207,6 +230,44 @@ function dispenseProduct(productCode) {
     else {
         console.log("Sorry, the requested product doesn't exist.")
     }
+}
+
+function updateClientExpenses(client, product){
+    if (hasClientBuyProductBefore(client, product)) {
+        var index = getExpenseIndex(client, product);
+        client.expenses[index].quantity++;
+    }
+    else {
+        var expense = {
+            product: product,
+            quantity: 1
+        }
+        console.log(client);
+        client.expenses.push(expense);
+    }
+}
+
+function hasClientBuyProductBefore(client, product){
+    var productHasBeenBoughtBefore = false;
+    for (var expense of client.expenses) {
+        if (expense.product.code === product.code) {
+            productHasBeenBoughtBefore = true;
+        }
+    }
+    
+    return productHasBeenBoughtBefore;
+}
+
+function getExpenseIndex(client, product){
+    var expenseIndex = -1;
+    for (var i = 0; i < client.expenses.length; i++) {
+        if (client.expenses[i].product.code === product.code) {
+            expenseIndex = i;
+            break;
+        }
+    }
+    
+    return expenseIndex;
 }
 
 function addNewProduct(product){
