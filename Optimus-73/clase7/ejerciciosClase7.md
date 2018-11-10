@@ -202,16 +202,61 @@ console.groupEnd("Contador");
 - Usando for:
 
 ```javascript
-	
-	let initialNumber = window.prompt();
 
-	(initialNumber % 2 === 0) ? initialNumber++ : finalNumber++;
+	let number = parseInt(window.prompt());
+	let counter = 49;
 
+	(number % 2 === 0) ? number++ : counter++;
 
 	console.group("Contador");
 
-	for(i = initialNumber; i <= (initialNumber + finalNumber); i+=2){
-		console.log(i);
+	for(let i = 0; i <= counter; i+=2){
+		console.log(number + i);
 	}
 
 	console.groupEnd("Contador");
+```
+
+- Usando while:
+
+```javascript
+	let number = parseInt(window.prompt());
+	let counter = 49;
+
+	(number % 2 === 0) ? number++ : counter++;
+
+	console.group("Contador");
+
+	let i = 0;
+
+	while(i <= counter){
+		console.log(number + i);
+
+		i += 2;
+	}
+
+	console.groupEnd("Contador");
+```
+
+- Usando Do...While:
+
+```javascript
+	let number = parseInt(window.prompt()) - 2;
+	let counter = 49;
+
+	(number % 2 === 0) ? number ++ : counter++;
+
+	console.group("Contador");
+
+	let i = 0;
+
+	do {
+		i += 2;
+
+		console.log(number + i);
+	} while(i <= counter);
+
+	console.groupEnd("Contador");
+```
+
+## 6- Diseña un algoritmo que imprima la suma de los 50 primeros numeros pares y el total de los números impares partiendo de un número dado por el usuario.
