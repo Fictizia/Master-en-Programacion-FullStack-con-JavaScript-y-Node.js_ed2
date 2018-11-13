@@ -14,31 +14,36 @@ document.getElementById("add-ingredient-input").addEventListener("keyup", functi
 });
 
 function searchRecipesByIngredients() {
-    var ingredients = inputIngredients.join("%2C");
-    var fillIngredients = true;
-    var limitLicense = false;
-    var number = 5;
-    var ranking = 2;
+    if(inputIngredients.length > 0){
+        var ingredients = inputIngredients.join("%2C");
+        var fillIngredients = true;
+        var limitLicense = false;
+        var number = 5;
+        var ranking = 2;
 
-    var parameters = "?ingredients=" + ingredients + "&fillIngredients=" + fillIngredients + "&limitLicense=" + limitLicense + "&number=" + number + "&ranking=" + ranking;
-    var completeUrl = baseUrl.concat(parameters);
+        var parameters = "?ingredients=" + ingredients + "&fillIngredients=" + fillIngredients + "&limitLicense=" + limitLicense + "&number=" + number + "&ranking=" + ranking;
+        var completeUrl = baseUrl.concat(parameters);
 
-    console.log(completeUrl);
+        console.log(completeUrl);
 
-    xmlHttp.onreadystatechange = function()
-    {
-        if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-            console.log(JSON.parse(xmlHttp.responseText));
+        xmlHttp.onreadystatechange = function()
+        {
+            if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                console.log(JSON.parse(xmlHttp.responseText));
+            }
+            else if(xmlHttp.readyState === 4){
+                console.log("Error getting data. Status code: " + xmlHttp.status);
+            }
         }
-        else if(xmlHttp.readyState === 4){
-            console.log("Error getting data. Status code: " + xmlHttp.status);
-        }
+
+        xmlHttp.open("GET", completeUrl, true);
+        xmlHttp.setRequestHeader("X-Mashape-Key", apiKey);
+        xmlHttp.setRequestHeader("Accept", "application/json");
+        xmlHttp.send();
     }
-
-    xmlHttp.open("GET", completeUrl, true);
-    xmlHttp.setRequestHeader("X-Mashape-Key", apiKey);
-    xmlHttp.setRequestHeader("Accept", "application/json");
-    xmlHttp.send();
+    else {
+        console.log("Error searching for recipes. There are no ingredients to use.");
+    }
 }
 
 function addIngredientToList(){
