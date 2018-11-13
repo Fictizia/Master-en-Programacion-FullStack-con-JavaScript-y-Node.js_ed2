@@ -42,12 +42,21 @@ function searchRecipesByIngredients() {
 }
 
 function addIngredientToList(){
-    // TODO check if the input ingredient already exists
     var newIngredient = document.getElementsByName("ingredientInput")[0].value;
-    inputIngredients.push(newIngredient);
+    if (!ingredientExists(newIngredient)){
+        inputIngredients.push(newIngredient);
 
-    var node = document.createElement("li");
-	var textNode = document.createTextNode(newIngredient);
-	node.appendChild(textNode);
-	document.getElementById("ingredients-list").appendChild(node);
+        var node = document.createElement("li");
+        var textNode = document.createTextNode(newIngredient);
+        node.appendChild(textNode);
+        document.getElementById("ingredients-list").appendChild(node);
+    }
+    else {
+        console.log("The entered ingredient already exists in the list");
+    }
+}
+
+function ingredientExists(ingredient) {
+    var exists = inputIngredients.indexOf(ingredient);
+    return (exists !== -1) ? true : false;
 }
