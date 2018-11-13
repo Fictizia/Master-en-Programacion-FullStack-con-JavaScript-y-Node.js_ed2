@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Voy al Mercadona kiere algo</title>
+        <link rel="stylesheet" type="text/css" href="home.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo">Logo here</div>
+            <div class="ingridient-form">
+                <input id="add-ingredient-input" type="text" name="ingredientInput" placeholder="Ingredient">
+                <input id="add-ingredient-btn" type="submit" value="Submit" onclick="addIngredientToList()">
+            </div>
+        </div>
+        <div class="content">
+            <button type="button" value="Search for recipes" onclick="searchRecipesByIngredients()"></button>
+            <p>Ingredients</p>
+            <ul id="ingredients-list"></ul>
+        </div>
+
+        <script src="home.js"></script>
+    </body>
+</html>

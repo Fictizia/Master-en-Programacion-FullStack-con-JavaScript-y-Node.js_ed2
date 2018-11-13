@@ -1,0 +1,28 @@
+.header {
+    position: fixed;
+    background-color: grey;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.logo {
+    float: left;
+}
+
+.ingridient-form {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    z-index: 1000;
+}
