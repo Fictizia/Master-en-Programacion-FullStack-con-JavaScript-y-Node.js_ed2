@@ -53,6 +53,10 @@ Fecha | Teoría | Recursos | Contenido
 31/10/18 | [Clase 13](teoria/clase13.md) | [Clase 13](recursos/clase13.md) | BOM y DOM II: Manipulación y Frameworks
 05/11/18 | [Clase 14](teoria/clase14.md) | [Clase 14](recursos/clase14.md) | Eventos del DOM I
 07/11/18 | [Clase 15](teoria/clase15.md) | Clase 15 | Práctica: Hacking Twitter
+12/11/18 | [Clase 16](teoria/clase16.md) | [Clase 16](recursos/clase16.md) | Ajax I: Ajax Básico
+14/11/18 | [Clase 17](teoria/clase17.md) | [Clase 17](recursos/clase17.md) | Ajax II: Ajax Avanzado y Seguridad
+
+
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)
 =================
