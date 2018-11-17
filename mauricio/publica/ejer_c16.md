@@ -212,8 +212,6 @@ init();
             <td class="tempHum"></td>
         </tr>
     </table>
-
-    <script src="e16.js"></script>
 </body>
 
 </html>
