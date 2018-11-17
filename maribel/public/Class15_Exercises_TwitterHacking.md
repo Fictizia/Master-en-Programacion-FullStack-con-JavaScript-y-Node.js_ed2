@@ -20,6 +20,9 @@ it will cause an infinite loop and the browser to hang.
 In order to avoid this and see get it to work, first copy and paste code in
 this order: the declared functions, the "scrollPage" interval and, lastly,
 the rest (this is, the while loop along with the "usernames" array declaration).
+
+Problem asked in StackOVerflow:
+https://stackoverflow.com/questions/53351171/problem-with-infinite-loop-when-manipulating-dom
 */
 var scrollPage = setInterval(function() {
     window.scrollTo(0, document.body.scrollHeight);
