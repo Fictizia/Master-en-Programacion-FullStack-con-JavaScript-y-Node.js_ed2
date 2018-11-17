@@ -23,7 +23,7 @@ function displayDataInView(data) {
   const CLOSING_BRACKET_CHAR = ")";
   const COLON_CHAR = ":";
   const BLANK_SPACE_CHAR = "\u00A0";
-  var polenDetails = document.getElementById("polen-details");
+  var polenDetails = document.getElementById("pollen-details");
 
   for (var place of data) {
     var placeElement = document.createElement("p");
