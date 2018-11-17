@@ -1,14 +1,12 @@
 ## AJAX básico
 1. Sacar en el html los [datos de polen](http://airemad.com/api/v1/pollen).
-```javascript
 
-```
+-> See project [directory](https://github.com/minicatsCB/Master-en-Programacion-FullStack-con-JavaScript-y-Node.js_ed2/tree/master/maribel/public/MadridPollenData).
 
 2. Sacar en el html el tiempo meteorológico de Madrid, Barcelona y Valencia.
 Nota: http://openweathermap.org te será de gran ayuda, busca la solución al error 401
-```javascript
 
-```
+-> See project [directory](https://github.com/minicatsCB/Master-en-Programacion-FullStack-con-JavaScript-y-Node.js_ed2/tree/master/maribel/public/OpenWeatherMap).
 
 3. Jugando con [datos abiertos](http://datos.gob.es/), saquemos los detalles de todos los cuadros eléctricos de Gijón por consola.
 ```javascript
