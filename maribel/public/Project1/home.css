@@ -12,7 +12,7 @@
     float: left;
 }
 
-.ingridient-form {
+.ingredient-form {
     background-color: green;
     display: flex;
     justify-content: center;
@@ -25,4 +25,16 @@
     top: 100px;
     width: 100%;
     z-index: 1000;
+}
+
+#ingredients-list {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#ingredients-list li {
+    background-color: blue;
 }
