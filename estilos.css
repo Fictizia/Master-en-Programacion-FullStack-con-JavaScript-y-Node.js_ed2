@@ -1,0 +1,82 @@
+h1, p{
+    text-align: center;
+}
+
+#cambiar{
+    text-align: left;
+}
+
+#conversor{
+    display: flex;
+      align-items: center;
+  justify-content: center;
+}
+
+.a{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#cambiar{
+    margin-left: 3px;
+    
+}
+
+#aaa{
+height: 400px;
+width: 800px;
+
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 3px 6px 30px rgba(0, 0, 0, 0.2);
+
+}
+.chart-card .heading, .chart-card .source {
+  text-align: center;
+  margin: 1% 0;
+  
+}
+
+.chart {
+  position: relative;
+
+ 
+}
+
+#grafica{
+ position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 80vw;
+  padding-bottom: 30px;
+
+
+
+}
+
+
+.caja{
+  position:absolute;
+
+}
+
+.imprimir{
+  position: relative;
+}
