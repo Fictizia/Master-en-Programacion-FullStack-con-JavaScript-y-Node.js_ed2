@@ -1,1 +1,51 @@
+<!DOCTYPE html>
 
+<html>
+<head>
+  <meta charset="UTF-8">
+ <title> BTC PRICE CALCULATOR</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+ </style>
+</head>
+
+<body>
+   
+    <h1>CONVERSOR DE BITCOINS</h1>   
+   <p id="precionow"></p> 
+   
+   <div id="conversor">
+      <input type="number" id="tercero" name="tercero" min="0" max="9999999" step="any">
+ <select id="primero" name="primero">
+    <option value="1">BTC</option> 
+</select>
+<p class='a'> A </p> 
+ <select id="segundo" name="segundo">
+   <option value="1">EUROS</option> 
+   <option value="2">DÓLARES</option> 
+   <option value="3">LIBRAS</option>
+ 
+</select>
+  
+      <button id='cambiar' onclick='hacercambio()'>CAMBIAR </button>
+      
+   </div>
+   <div id="caja">
+       <div id="wrapper">
+
+      <p id="imprimir">&nbsp</p>
+</div>
+
+    <div id="grafica">
+      
+  <section class="chart-card">
+    <header>
+      <h1 class="heading">PRECIO DEL BITCOIN EL ULTIMO AÑO</h1>
+    </header>
+    <canvas class="chart" id="chart" width="400" height="300"></canvas>
+  </section></div>
+</div>
+   <script type="text/javascript" src="scripts.js"></script>
+   <script type="text/javascript" src="chart.js"></script>
+</body>
+</html>
