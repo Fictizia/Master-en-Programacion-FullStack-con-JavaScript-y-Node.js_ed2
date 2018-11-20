@@ -1,5 +1,4 @@
 
-//EUREKA!
 var eljason;
 function peticionAjax(url) {
     var xmlHttp = new XMLHttpRequest();
@@ -94,7 +93,7 @@ else if(valorsegundo== 3){
 }
 
 }
-document.getElementById('imprimir').innerHTML= valortercero + ' BITCOINS SON ' + cambio * valortercero + ' ' + textosegundo; //no consigo multiplicarlo por el valortercero HAY QUE TRANSFORMAR EL CAMBIO PARA QUITARLE LA COMA Y 
+document.getElementById('imprimir').innerHTML= valortercero + ' BITCOINS SON ' + cambio * valortercero + ' ' + textosegundo; 
 }
 
 
