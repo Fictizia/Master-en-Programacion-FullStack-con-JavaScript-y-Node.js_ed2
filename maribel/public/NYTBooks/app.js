@@ -8,7 +8,6 @@ function requestBooksData(url) {
 
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             var data = JSON.parse(xmlHttp.responseText);
-            console.log(data);
             hideLoadingSpinner();
             showDataContainer();
             displayDataInView(data)
@@ -53,15 +52,12 @@ function displayDataInView(data) {
         cardDeck.appendChild(card);
 
         if (i === numberOfBooks - 1) {
-            console.log("Estamos en ultima fila");
             if (isLastRowIncomplete(numberOfBooks)) {
                 var freeSlots = getNumberOfFreeSlots(numberOfBooks);
-                console.log("Number of free slots: " + freeSlots);
                 for (var j = 0; j < freeSlots; j++) {
                     var card = createEmptyCard();
                     cardDeck.appendChild(card);
                 }
-                console.log("is last row incomplete");
             }
         }
     }
