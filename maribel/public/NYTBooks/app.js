@@ -52,11 +52,7 @@ function displayDataInView(data) {
 
         if (i === numberOfBooks - 1) {
             if (isLastRowIncomplete(numberOfBooks)) {
-                var freeSlots = getNumberOfFreeSlots(numberOfBooks);
-                for (var j = 0; j < freeSlots; j++) {
-                    var card = createEmptyCard();
-                    cardDeck.appendChild(card);
-                }
+                fillFreeSpace(cardDeck, card, numberOfBooks);
             }
         }
     }
@@ -146,6 +142,14 @@ function createEmptyCard() {
 function isLastRowIncomplete(numberOfBooks) {
     var maxNumberOfRows = Math.ceil(numberOfBooks / cardsPerRow);
     return ((maxNumberOfRows * cardsPerRow) - numberOfBooks === 0) ? false : true;
+}
+
+function fillFreeSpace(cardDeck, card, numberOfBooks) {
+    var freeSlots = getNumberOfFreeSlots(numberOfBooks);
+    for (var j = 0; j < freeSlots; j++) {
+        var card = createEmptyCard();
+        cardDeck.appendChild(card);
+    }
 }
 
 function getNumberOfFreeSlots(numberOfBooks) {
