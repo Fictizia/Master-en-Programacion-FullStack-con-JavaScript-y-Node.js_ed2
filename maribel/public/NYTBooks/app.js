@@ -9,6 +9,8 @@ function requestBooksData(url) {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             var data = JSON.parse(xmlHttp.responseText);
             console.log(data);
+            hideLoadingSpinner();
+            showDataContainer();
             displayDataInView(data)
         } else if (xmlHttp.readyState === 4 && xmlHttp.status === 404) {
             console.error("ERROR! 404");
@@ -23,6 +25,16 @@ var url = baseUrl + "?api-key=" + apiKey;
 requestBooksData(url);
 
 const cardsPerRow = 3;
+
+function hideLoadingSpinner() {
+    var loadingSpinner = document.getElementsByClassName("spinner-container")[0];
+    loadingSpinner.classList.add("hidden");
+}
+
+function showDataContainer() {
+    var dataContainer = document.getElementsByClassName("container")[0];
+    dataContainer.classList.remove("hidden");
+}
 
 function displayDataInView(data) {
     var container = document.getElementsByClassName("container")[0];
