@@ -1,5 +1,9 @@
-const apiKey = "yourApiKey";
-const baseUrl = "https://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json";
+var apiKey = "yourApiKey";
+var baseUrl = "https://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json";
+var cardsPerRow = 3;
+
+var url = baseUrl + "?api-key=" + apiKey;
+requestBooksData(url);
 
 function requestBooksData(url) {
     var xmlHttp = new XMLHttpRequest();
@@ -19,11 +23,6 @@ function requestBooksData(url) {
     xmlHttp.open("GET", url, true);
     xmlHttp.send();
 }
-
-var url = baseUrl + "?api-key=" + apiKey;
-requestBooksData(url);
-
-const cardsPerRow = 3;
 
 function hideLoadingSpinner() {
     var loadingSpinner = document.getElementsByClassName("spinner-container")[0];
