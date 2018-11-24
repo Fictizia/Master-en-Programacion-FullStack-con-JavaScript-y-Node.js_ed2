@@ -49,7 +49,7 @@ function seto(el,i)
 {
 
     el.style.opacity = i;
-    el.style.zIndex = -9999;
+    el.style.zIndex = -10;
 
 }
    
