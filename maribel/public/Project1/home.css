@@ -26,3 +26,18 @@
     width: 100%;
     z-index: 1000;
 }
+
+.recipes .container-fluid {
+    border: 1px gray solid;
+}
+
+.recipes div[class*="col"] {
+  background-color: pink;
+  border: 1px purple solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipes div[class*="col"] img {
+  width: 100%;
+}
