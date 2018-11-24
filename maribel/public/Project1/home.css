@@ -41,3 +41,29 @@
 .recipes div[class*="col"] img {
   width: 100%;
 }
+
+.overlay {
+    position: relative;
+}
+
+.recipe-image {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.recipe-name {
+    position: absolute;
+    top: 0;
+    margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    transition: padding-top 1s;
+}
+
+.overlay:hover .recipe-name {
+    padding-top: 10px;
+}
+
+.overlay:hover .recipe-image {
+    opacity: 0.3;
+}
