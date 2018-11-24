@@ -1,5 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+body{
+  font-family: 'VT323';
+}
 h1, p{
     text-align: center;
+}
+h1{
+  font-size: 40px;
 }
 
 #cambiar{
@@ -7,6 +14,7 @@ h1, p{
 }
 
 #conversor{
+  
     display: flex;
       align-items: center;
   justify-content: center;
@@ -79,4 +87,89 @@ width: 800px;
 
 .imprimir{
   position: relative;
+ 
 }
+#imprimir{
+    font-size: 1.3em;
+}
+
+#botonswitcher{
+  position: relative; 
+  left: 50%; 
+  margin-left: -30px;
+  width: 60px;
+}
+
+#botonswitcher{
+ cursor: pointer;
+}
+
+
+#mainContent{
+  opacity: 0;
+}
+
+#spinner{
+display: flex;
+justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+#cargador {
+align-self: center;
+  z-index: inherit;
+  
+}
+
+
+.marquesina {
+ height: 50px;	
+ overflow: hidden;
+ position: relative;
+}
+.marquesina p {
+ font-size: 2em;
+ color: black;
+ text-shadow: 5px gold;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ -moz-animation: marquesina 30s linear infinite;
+ -webkit-animation: marquesina 30s linear infinite;
+ animation: marquesina 30s linear infinite;
+}
+
+@-moz-keyframes marquesina {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes marquesina {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquesina {
+ 0%   { 
+ -moz-transform: translateX(100%); 
+ -webkit-transform: translateX(100%); 
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%);
+ -webkit-transform: translateX(-100%); 
+ transform: translateX(-100%); 
+ }
+}
+

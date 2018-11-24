@@ -1,24 +1,31 @@
-var api_url = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-01-01&end=2018-11-19';
 
+var chart;
+var inicio ='';
+var final = '';
+var urlcambiada= '';
+var api_url ='https://api.coindesk.com/v1/bpi/historical/close.json?start=2018-01-01&end=2018-10-10';
+
+
+
+iniciototal();
+function iniciototal(){
 var ctx = document.getElementById('chart').getContext('2d');
 
-init();
+    function init() {
+      getData();
+    }
 
-function init() {
-  getData();
-}
-
-function getData() {
-  var request = new XMLHttpRequest();
-
-  request.open('GET', api_url, true);
-
-  request.addEventListener('load', function() {
-    createChart(JSON.parse(request.response).bpi);
-  });
-
-  request.send();
-}
+        function getData() {
+          var request = new XMLHttpRequest();
+        
+          request.open('GET', api_url, true);
+        
+          request.addEventListener('load', function() {
+            createChart(JSON.parse(request.response).bpi);
+          });
+        
+          request.send();
+        }
 
 function createChart(data) {
   var keys = Object.keys(data);
@@ -28,7 +35,7 @@ function createChart(data) {
     chart_data.push(data[keys[i]]);
   }
 
-  var chart = new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: keys,
@@ -40,4 +47,45 @@ function createChart(data) {
       }]
     }
   });
+
 }
+init();
+}
+
+    function validateDate(isoDate) {
+
+    if (isNaN(Date.parse(isoDate))) {
+        return false;
+    } else {
+        if (isoDate != (new Date(isoDate)).toISOString().substr(0,10)) {
+            return false;
+        }
+    }
+    return true;
+}
+    
+
+
+
+// CAMBIAR INTERVALO DE FECHAS
+function cambiarChart(){
+
+   inicio = document.getElementById('txtFromDate').value;
+    final = document.getElementById('txtToDate').value;
+    
+  if(validateDate(inicio)==true && validateDate(final)==true)  {
+
+    
+    
+    urlcambiada = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=' + inicio + '&end=' + final;
+    api_url = String(urlcambiada);
+     console.log(api_url);
+     document.getElementById('chart').innerHTML=''  // SIN ESTO LA LINEA DE DEBAJO NO FUNCIONA
+chart.destroy(); 
+iniciototal();
+    }
+else{
+  document.getElementById('imprimir2').innerHTML='¡INTRODUCE UNA FECHA VÁLIDA!'
+}
+}
+

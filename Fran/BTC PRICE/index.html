@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
  <title> BTC PRICE CALCULATOR</title>
 <link rel="stylesheet" type="text/css" href="estilos.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
- </style>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+   
+ 
 </head>
 
 <body>
-   
-    <h1>CONVERSOR DE BITCOINS</h1>   
-   <p id="precionow"></p> 
-   
+    <div id="spinner">
+        
+<img id='cargador' src='media/dosom.gif'></img>
+            
+            
+    </div>
+   <section id="mainContent">
+       <div class="marquesina">
+          <p id="precionow"></p>
+          </div>
+    <h1>CONVERSOR DE BITCOINS:</h1>   
+
+   <div id="switcher">
+         <i id="botonswitcher" onclick="switcher()" class="fas fa-exchange-alt"></i>
+ 
+   </div>
    <div id="conversor">
-      <input type="number" id="tercero" name="tercero" min="0" max="9999999" step="any">
+      <input type="number" id="tercero" name="tercero" min="0" step="any">
  <select id="primero" name="primero">
     <option value="1">BTC</option> 
 </select>
@@ -28,24 +42,41 @@
 </select>
   
       <button id='cambiar' onclick='hacercambio()'>CAMBIAR </button>
-      
+
    </div>
    <div id="caja">
        <div id="wrapper">
 
       <p id="imprimir">&nbsp</p>
 </div>
-
+</div>
     <div id="grafica">
-      
+         <h1>PRECIO HISTÓRICO:</h1>  
+        DESDE: <input type="text" id="txtFromDate" />
+HASTA: <input type="text" id="txtToDate"/>
+<button id='cambiarChart' onclick='cambiarChart()'>cambiar intervalo</button><p id="imprimir2">&nbsp</p>
   <section class="chart-card">
-    <header>
-      <h1 class="heading">PRECIO DEL BITCOIN EL ULTIMO AÑO</h1>
-    </header>
     <canvas class="chart" id="chart" width="400" height="300"></canvas>
   </section></div>
-</div>
-   <script type="text/javascript" src="scripts.js"></script>
-   <script type="text/javascript" src="chart.js"></script>
+ 	  
+	
+ </section>
+
+			  
+			   
+<!--SCRIPTS-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.ui.datepicker-es.js"></script>
 </body>
 </html>
+
+
+
+
+
+
