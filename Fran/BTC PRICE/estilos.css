@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=VT323);
 body{
   font-family: 'VT323';
+  filter: invert(5%);
 }
 h1, p{
     text-align: center;
