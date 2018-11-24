@@ -2,7 +2,6 @@ var xmlHttp = new XMLHttpRequest();
 var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
 var apiKey = "yourAPIKey";
 var inputIngredients = [];
-var recipesResponse;
 
 document.getElementById("add-ingredient-input").addEventListener("keyup", function(ev) {
     if(ev.key !== "Enter") {
@@ -12,13 +11,6 @@ document.getElementById("add-ingredient-input").addEventListener("keyup", functi
         addIngredientToList();
         ev.preventDefault();
     }
-});
-
-var grid = document.querySelector(".grid");
-var msnry = new Masonry(grid, {
-    itemSelector: ".grid-item",
-    columnWidth: 200,
-    gutter: 10
 });
 
 function searchRecipesByIngredients() {
@@ -32,11 +24,12 @@ function searchRecipesByIngredients() {
         var parameters = "?ingredients=" + ingredients + "&fillIngredients=" + fillIngredients + "&limitLicense=" + limitLicense + "&number=" + number + "&ranking=" + ranking;
         var completeUrl = baseUrl.concat(parameters);
 
+        console.log(completeUrl);
+
         xmlHttp.onreadystatechange = function()
         {
             if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-                recipesResponse = JSON.parse(xmlHttp.responseText);
-                console.log(recipesResponse);//cb
+                console.log(JSON.parse(xmlHttp.responseText));
             }
             else if(xmlHttp.readyState === 4){
                 console.log("Error getting data. Status code: " + xmlHttp.status);

@@ -3,50 +3,22 @@
     <head>
         <meta charset='utf-8'>
         <title>Voy al Mercadona kiere algo</title>
-        <script src="lib/masonry.pkgd.min.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     <body>
         <div class="header">
             <div class="logo">Logo here</div>
-            <div class="ingredient-form">
+            <div class="ingridient-form">
                 <input id="add-ingredient-input" type="text" name="ingredientInput" placeholder="Ingredient">
                 <input id="add-ingredient-btn" type="submit" value="Submit" onclick="addIngredientToList()">
             </div>
         </div>
         <div class="content">
-            <section id="fridge">
-                <button type="button" value="Search for recipes" onclick="searchRecipesByIngredients()"></button>
-                <h1>Ingredients</h1>
-                <div id="ingredients-list">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                    <img src="https://placekitten.com/100/100">
-                </div>
-            </section>
-            <section class="recipes" data-masonry>
-                <h1>Recipes</h1>
-                <div>
-                    <img class="grid-item" src="https://placekitten.com/200/300">
-                    <img class="grid-item" src="https://placekitten.com/200/100">
-                    <img class="grid-item" src="https://placekitten.com/300/300">
-                    <img class="grid-item" src="https://placekitten.com/200/300">
-                    <img class="grid-item" src="https://placekitten.com/400/300">
-                    <img class="grid-item" src="https://placekitten.com/200/300">
-                    <img class="grid-item" src="https://placekitten.com/200/400">
-                    <img class="grid-item" src="https://placekitten.com/300/300">
-                    <img class="grid-item" src="https://placekitten.com/200/300">
-                    <img class="grid-item" src="https://placekitten.com/100/300">
-                    <img class="grid-item" src="https://placekitten.com/200/150">
-                    <img class="grid-item" src="https://placekitten.com/200/300">
-                </div>
-            </section>
+            <button type="button" value="Search for recipes" onclick="searchRecipesByIngredients()"></button>
+            <p>Ingredients</p>
+            <ul id="ingredients-list"></ul>
         </div>
+
         <script src="home.js"></script>
     </body>
 </html>
