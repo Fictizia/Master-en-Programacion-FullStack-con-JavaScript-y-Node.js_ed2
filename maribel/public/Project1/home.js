@@ -3,8 +3,6 @@ var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipe
 var apiKey = "yourAPIKey";
 var inputIngredients = [];
 
-searchRecipesByIngredients();
-
 document.getElementById("add-ingredient-input").addEventListener("keyup", function(ev) {
     if(ev.key !== "Enter") {
         return;
@@ -14,6 +12,8 @@ document.getElementById("add-ingredient-input").addEventListener("keyup", functi
         ev.preventDefault();
     }
 });
+
+document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
 
 function requestData(url, cb) {
     xmlHttp.onreadystatechange = function()
@@ -56,10 +56,12 @@ function displayRecipesInView(data){
 
     var containerFluid = document.getElementsByClassName("container-fluid")[0];
 
+    chunkedData = chunkArray(data, numberOfCols);
+
     var rowElement = createRow();
     for(var colIndex = 0; colIndex < numberOfCols; colIndex++) {
         var colElement = createColumn();
-        fillColumnWithRecipes(colIndex, colElement, numberOfCols, data);
+        fillColumnWithRecipes(colIndex, colElement, numberOfCols, chunkedData[colIndex]);
         rowElement.appendChild(colElement);
     }
 
@@ -73,17 +75,34 @@ function createOverlay(){
 }
 
 function fillColumnWithRecipes(colIndex, colElement, numberOfCols, data) {
-    var numberOfRecipesPerCol = getNumberOfRecipesPerCol(colIndex, numberOfCols, data);
-    var startingRecipeIndex = numberOfRecipesPerCol * colIndex;
-    var endingRecipeIndex = numberOfRecipesPerCol * (colIndex + 1);
-    for(var currentRecipeIndex = startingRecipeIndex; currentRecipeIndex < endingRecipeIndex; currentRecipeIndex++) {
+    var numberOfRecipesInCol = data.length;
+    for(var i = 0; i < numberOfRecipesInCol; i++) {
         var overlayElement = createOverlay();
-        var imgElement = createImage(data[currentRecipeIndex].image);
+        var imgElement = createImage(data[i].image);
         overlayElement.appendChild(imgElement);
-        var nameElement = createName(data[currentRecipeIndex].title);
+        var nameElement = createName(data[i].title);
         overlayElement.appendChild(nameElement);
         colElement.appendChild(overlayElement);
     }
+}
+
+function chunkArray(array, numberOfChunks) {
+    var result = [];
+
+    if (numberOfChunks < 2){
+        result = [array];
+    }
+    else {
+        var i = 0;
+        var len = array.length;
+        var size;
+        while (i < len) {
+            size = Math.ceil((len - i) / numberOfChunks--);
+            result.push(array.slice(i, i += size));
+        }
+    }
+
+    return result;
 }
 
 function createRow() {
@@ -111,22 +130,6 @@ function createName(name){
     var nameText = document.createTextNode(name);
     nameElement.appendChild(nameText);
     return nameElement;
-}
-
-function getNumberOfRecipesPerCol(colIndex, numberOfCols, data){
-    var numberOfRecipesPerCol = Math.floor(data.length / numberOfCols);
-    if (isLastColumn(colIndex, numberOfCols) && numberOfImagesIsEven(numberOfCols, data)) {
-        numberOfRecipesPerCol = data.length % numberOfCols;
-    }
-    return numberOfRecipesPerCol;
-}
-
-function isLastColumn(columnIndex, numberOfCols) {
-    return columnIndex === numberOfCols - 1;
-}
-
-function numberOfImagesIsEven(numberOfCols, data) {
-    return data.length % numberOfCols !== 0;
 }
 
 function addIngredientToList(){
