@@ -149,6 +149,7 @@ function displayRecipesInView(data){
     var numberOfCols = 3;
 
     var containerFluid = document.getElementsByClassName("container-fluid")[0];
+    removeChildrenFromNode(containerFluid);
 
     chunkedData = chunkArray(data, numberOfCols);
 
