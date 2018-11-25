@@ -1,7 +1,8 @@
 var xmlHttp = new XMLHttpRequest();
 var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
-var apiKey = "yourAPIKey";
+var apiKey = "yourApiKey";
 var inputIngredients = [];
+var recipes;
 
 document.getElementById("add-ingredient-input").addEventListener("keyup", function(ev) {
     if(ev.key !== "Enter") {
@@ -14,6 +15,8 @@ document.getElementById("add-ingredient-input").addEventListener("keyup", functi
 });
 
 document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
+
+document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
 
 function requestData(url, cb) {
     xmlHttp.onreadystatechange = function()
@@ -51,7 +54,98 @@ function searchRecipesByIngredients() {
     }
 }
 
+function findRecipeByImageUrl(ev){
+    var recipeId = ev.target.dataset.id;
+    return recipes.find(recipe => {
+        return recipe.id == recipeId;
+    });
+}
+
+function showRecipeDetails(ev){
+    if (isTargetValid(ev)) {
+        var recipe = findRecipeByImageUrl(ev);
+        if(recipe){
+            showModal(recipe);
+        }
+    }
+}
+
+function isTargetValid(ev) {
+    return ev.target.className === "recipe-image" || ev.target.className === "recipe-name";
+}
+
+function showModal(recipe) {
+    console.log(recipe);
+    fillModal(recipe);
+    $("#exampleModal").modal("toggle");
+}
+
+function fillModal(recipe) {
+    fillRecipeImage(recipe.image);
+    fillRecipeDetails(recipe);
+}
+
+function fillRecipeImage(imageUrl){
+    var recipeImage = document.querySelector(".modal-body .recipe-image");
+    recipeImage.src = imageUrl;
+}
+
+function fillRecipeDetails(recipe) {
+    fillRecipeName(recipe);
+    fillUnusedIngredients(recipe);
+    fillMissingIngredients(recipe);
+    var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipe.id + "/information";
+    requestData(url, fillRecipeInstructions);
+}
+
+function fillRecipeName(recipe) {
+    var name = document.querySelector(".recipe-details");
+    removeChildrenFromNode(name);
+    var title = document.createElement("h1");
+    var textNode = document.createTextNode(recipe.title);
+    title.appendChild(textNode);
+    name.appendChild(title);
+}
+
+function fillUnusedIngredients(recipe){
+    var unusedIngredientsElement = document.getElementsByClassName("unused-ingredients")[0];
+    removeChildrenFromNode(unusedIngredientsElement);
+    for(var ingredient of recipe.unusedIngredients) {
+        var p = document.createElement("p");
+        var textNode = document.createTextNode(ingredient.name);
+        p.appendChild(textNode);
+        unusedIngredientsElement.appendChild(p);
+    }
+}
+
+function fillMissingIngredients(recipe){
+    var missedIngredientsElement = document.getElementsByClassName("missed-ingredients")[0];
+    removeChildrenFromNode(missedIngredientsElement);
+    for(var ingredient of recipe.missedIngredients) {
+        var p = document.createElement("p");
+        var textNode = document.createTextNode(ingredient.originalString);
+        p.appendChild(textNode);
+        missedIngredientsElement.appendChild(p);
+    }
+}
+
+function fillRecipeInstructions(recipe){
+    if (recipe.instructions) {
+        var recipeSteps = document.getElementsByClassName("recipe-steps")[0];
+        removeChildrenFromNode(recipeSteps);
+        var instructions = document.createTextNode(recipe.instructions);
+        recipeSteps.appendChild(instructions);
+    }
+}
+
+function removeChildrenFromNode(node){
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
+
 function displayRecipesInView(data){
+    recipes = data;
     var numberOfCols = 3;
 
     var containerFluid = document.getElementsByClassName("container-fluid")[0];
@@ -79,8 +173,10 @@ function fillColumnWithRecipes(colIndex, colElement, numberOfCols, data) {
     for(var i = 0; i < numberOfRecipesInCol; i++) {
         var overlayElement = createOverlay();
         var imgElement = createImage(data[i].image);
+        imgElement.dataset.id = data[i].id;
         overlayElement.appendChild(imgElement);
         var nameElement = createName(data[i].title);
+        nameElement.dataset.id = data[i].id;
         overlayElement.appendChild(nameElement);
         colElement.appendChild(overlayElement);
     }

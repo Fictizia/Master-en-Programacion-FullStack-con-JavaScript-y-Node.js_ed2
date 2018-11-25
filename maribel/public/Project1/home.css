@@ -67,3 +67,15 @@
 .overlay:hover .recipe-image {
     opacity: 0.3;
 }
+
+.modal-body .recipe-image {
+    width: 100%;
+}
+
+.recipe-details {
+    word-wrap: break-word;
+}
+
+.unused-ingredients, .missed-ingredients {
+    text-transform: capitalize;
+}
