@@ -2,6 +2,7 @@
 body{
   font-family: 'VT323';
   filter: invert(5%);
+  overflow-x: hidden;
 }
 h1, p{
     text-align: center;
