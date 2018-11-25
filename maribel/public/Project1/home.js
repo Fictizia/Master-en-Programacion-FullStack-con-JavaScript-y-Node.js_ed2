@@ -234,10 +234,15 @@ function addIngredientToList(){
     if (!ingredientExists(newIngredient)){
         inputIngredients.push(newIngredient);
 
-        var node = document.createElement("li");
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        img.src = "https://spoonacular.com/cdn/ingredients_100x100/" + newIngredient + ".jpg";
+        var p = document.createElement("p");
         var textNode = document.createTextNode(newIngredient);
-        node.appendChild(textNode);
-        document.getElementById("ingredients-list").appendChild(node);
+        p.appendChild(textNode);
+        div.appendChild(img);
+        div.appendChild(p);
+        document.getElementsByClassName("input-ingredients")[0].appendChild(div);
     }
     else {
         console.log("The entered ingredient already exists in the list");

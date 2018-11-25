@@ -20,6 +20,14 @@
     height: 100%;
 }
 
+.input-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .content {
     position: relative;
     top: 100px;
