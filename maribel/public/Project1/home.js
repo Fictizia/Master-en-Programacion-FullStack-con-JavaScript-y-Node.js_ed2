@@ -81,13 +81,13 @@ function showModal(recipe) {
 }
 
 function fillModal(recipe) {
-    fillRecipeImage(recipe.image);
+    fillRecipeImage(recipe.id);
     fillRecipeDetails(recipe);
 }
 
-function fillRecipeImage(imageUrl){
+function fillRecipeImage(recipeId){
     var recipeImage = document.querySelector(".modal-body .recipe-image");
-    recipeImage.src = imageUrl;
+    recipeImage.src = "https://spoonacular.com/recipeImages/" + recipeId + "-636x393.jpg";
 }
 
 function fillRecipeDetails(recipe) {
