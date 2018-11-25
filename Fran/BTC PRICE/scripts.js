@@ -50,6 +50,10 @@ function seto(el,i)
 
     el.style.opacity = i;
     el.style.zIndex = -10;
+	    
+    if (el.style.opacity <= 0){
+        el.style.display = 'none';
+    }
 
 }
    
