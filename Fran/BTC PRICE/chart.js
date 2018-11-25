@@ -83,6 +83,7 @@ function cambiarChart(){
      document.getElementById('chart').innerHTML=''  // SIN ESTO LA LINEA DE DEBAJO NO FUNCIONA
 chart.destroy(); 
 iniciototal();
+ document.getElementById('imprimir2').innerHTML='&nbsp';
     }
 else{
   document.getElementById('imprimir2').innerHTML='¡INTRODUCE UNA FECHA VÁLIDA!'
