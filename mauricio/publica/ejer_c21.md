@@ -1,3 +1,11 @@
+1 - Realizaremos una aplicación que nos facilite toda la información necesaria para tomar buenas decisiones por la mañana. Nuestra Aplicación Buenos Días, Madrid! necesitará:
+
+* El estado de la contaminación en Madrid
+* El estado del tiempo ahora mismo
+* La previsión meteorológica de los próximos 4/5 días
+* Una imagen aleatoria del trafico de la ciudad usando las cámaras abiertas de la ciudad.
+
+
 ```html
 
 <!DOCTYPE html>
@@ -52,7 +60,10 @@
 
     </article>
 
-    <article><!-- CONTAMINACIÖN --></article>
+    <article>
+      <h2></h2>
+      <ul></ul>
+    </article>
 
   </main>
 
@@ -64,11 +75,12 @@
   <script src="APIs.js"></script>
   <script>
     (function(){
-
+    
       const API_KEY = config.openweathermap;
 
       const article =  document.querySelector('article');
-      const footer =  document.querySelector('footer');
+      const ul =  document.querySelector('article ul');
+      const h2 =  document.querySelector('article h2');
 
       function getForecastWeather (json) {
 
@@ -85,8 +97,6 @@
         const filtered = json.list.filter(item => {
           return item.dt_txt === day1 || item.dt_txt === day2 || item.dt_txt === day3 || item.dt_txt === day4;
         });
-
-        console.log(filtered);
 
         if (filtered && filtered.length) {
           const ul = document.querySelector('footer ul');
@@ -146,14 +156,33 @@
         article.appendChild(divDetails);
       }
 
+      function getPollutionRandom(json) {
+        const arrayLength = json.length;
+        const random = Math.floor(Math.random() * (arrayLength - 0));
+        const obj = json[random];
+
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const li = document.createElement('LI');
+            const span = document.createElement('SPAN');
+
+            if (typeof obj[key] !== 'string') {
+              li.textContent = `${obj[key].parameter} (${obj[key].abrebiation}): `;
+              span.textContent = `${obj[key].values[0].valor}/m3 medido por ${obj[key].technique}`;
+              li.appendChild(span);
+              ul.appendChild(li);
+            } else {
+              h2.textContent = obj.name;
+            }
+          }
+        }
+      }
+
       fetch(`http://api.openweathermap.org/data/2.5/weather?q=Madrid,Spain&APPID=${API_KEY}&units=metric&lang=es`)
         .then(function (data) {
           return data.json()
         })
         .then(function (json) {
-
-          // console.log(json);
-
           fillCurrentWeather(json);
 
         })
@@ -166,15 +195,23 @@
           return data.json()
         })
         .then(function (json) {
-
-          // console.log(json);
-
           getForecastWeather(json);
 
         })
         .catch(function (error) {
           console.log(error);
         });
+
+      fetch('http://airemad.com/api/v1/pollution')
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function(json) {
+          getPollutionRandom(json);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
 
     })()
   </script>
