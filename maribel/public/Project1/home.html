@@ -7,16 +7,15 @@
         <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     <body>
-        <div class="header">
-            <div class="logo">Logo here</div>
-            <div class="ingridient-form">
-                <input id="add-ingredient-input" type="text" name="ingredientInput" placeholder="Ingredient">
-                <input id="add-ingredient-btn" type="submit" value="Submit" onclick="addIngredientToList()">
-                <button id="search-recipes-btn" class="btn btn-info" type="button">Info</button>
-            </div>
-        </div>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand">Navbar</a>
+            <form class="form-inline">
+                <input id="add-ingredient-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button id="add-ingredient-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Add</button>
+                <button id="search-recipes-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+            </form>
+        </nav>
         <div class="content">
-            <button type="button" value="Search for recipes" onclick="searchRecipesByIngredients()"></button>
             <p>Ingredients</p>
             <div class="input-ingredients"></div>
             <div class="recipes">

@@ -4,18 +4,19 @@ var apiKey = "yourApiKey";
 var inputIngredients = [];
 var recipes;
 
+document.getElementsByClassName("form-inline")[0].addEventListener("submit", function(ev) {
+    ev.preventDefault();
+});
 document.getElementById("add-ingredient-input").addEventListener("keyup", function(ev) {
     if(ev.key !== "Enter") {
         return;
     }
     else {
         addIngredientToList();
-        ev.preventDefault();
     }
 });
-
+document.getElementById("add-ingredient-btn").addEventListener("click", addIngredientToList);
 document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
-
 document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
 
 function requestData(url, cb) {
@@ -23,6 +24,7 @@ function requestData(url, cb) {
     {
         if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             var data = JSON.parse(xmlHttp.responseText);
+            console.log(data);
             cb(data);
         }
         else if(xmlHttp.readyState === 4){
@@ -230,7 +232,7 @@ function createName(name){
 }
 
 function addIngredientToList(){
-    var newIngredient = document.getElementsByName("ingredientInput")[0].value;
+    var newIngredient = document.getElementById("add-ingredient-input").value;
     if (!ingredientExists(newIngredient)){
         inputIngredients.push(newIngredient);
 
