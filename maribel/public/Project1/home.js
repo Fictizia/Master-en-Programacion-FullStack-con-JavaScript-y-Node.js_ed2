@@ -129,12 +129,6 @@ function fillRecipeInstructions(data){
     }
 }
 
-function removeChildrenFromNode(node){
-    while (node.firstChild) {
-        node.removeChild(node.firstChild);
-    }
-}
-
 function displayRecipesInView(data){
     recipes = JSON.parse(data);
     var numberOfCols = 3;

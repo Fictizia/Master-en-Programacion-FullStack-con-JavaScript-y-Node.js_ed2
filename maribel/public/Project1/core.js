@@ -37,3 +37,9 @@ function chunkArray(array, numberOfChunks) {
 
     return result;
 }
+
+function removeChildrenFromNode(node){
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
