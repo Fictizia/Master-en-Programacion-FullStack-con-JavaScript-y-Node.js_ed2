@@ -174,25 +174,6 @@ function fillColumnWithRecipes(colIndex, colElement, numberOfCols, data) {
     }
 }
 
-function chunkArray(array, numberOfChunks) {
-    var result = [];
-
-    if (numberOfChunks < 2){
-        result = [array];
-    }
-    else {
-        var i = 0;
-        var len = array.length;
-        var size;
-        while (i < len) {
-            size = Math.ceil((len - i) / numberOfChunks--);
-            result.push(array.slice(i, i += size));
-        }
-    }
-
-    return result;
-}
-
 function createRow() {
     var rowElement = document.createElement("div");
     rowElement.classList.add("row");

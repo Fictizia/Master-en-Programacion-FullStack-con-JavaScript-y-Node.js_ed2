@@ -18,3 +18,22 @@ function requestData(url, cb) {
     xmlHttp.setRequestHeader("Accept", "application/json");
     xmlHttp.send();
 }
+
+function chunkArray(array, numberOfChunks) {
+    var result = [];
+
+    if (numberOfChunks < 2){
+        result = [array];
+    }
+    else {
+        var i = 0;
+        var len = array.length;
+        var size;
+        while (i < len) {
+            size = Math.ceil((len - i) / numberOfChunks--);
+            result.push(array.slice(i, i += size));
+        }
+    }
+
+    return result;
+}
