@@ -4,6 +4,9 @@ var recipes;
 document.getElementsByClassName("form-inline")[0].addEventListener("submit", function(ev) {
     ev.preventDefault();
 });
+document.getElementById("add-ingredient-btn").addEventListener("click", function() {
+    addIngredientToList(awesomeInput.value);
+});
 document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
 document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
 
