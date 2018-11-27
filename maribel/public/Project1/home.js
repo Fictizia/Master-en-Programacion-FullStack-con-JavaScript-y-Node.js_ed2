@@ -31,11 +31,14 @@ function autocomplete(ev) {
 function awesomeHandler(url, cb) {
     xmlHttp.onreadystatechange = function()
     {
-        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-            var list = JSON.parse(xmlHttp.responseText).map(function(i) { return i.name; });
-            cb(list);
-        } else {
-            console.log("Error getting data. Status code: " + xmlHttp.status);
+        if (xmlHttp.readyState === 4) {
+            if(xmlHttp.status === 200) {
+                var list = JSON.parse(xmlHttp.responseText).map(function(i) { return i.name; });
+                cb(list);
+            }
+            else {
+                console.log("Error getting data. Status code: " + xmlHttp.status);
+            }
         }
     }
     xmlHttp.open("GET", url, true);
@@ -47,12 +50,14 @@ function awesomeHandler(url, cb) {
 function requestData(url, cb) {
     xmlHttp.onreadystatechange = function()
     {
-        if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-            var data = JSON.parse(xmlHttp.responseText);
-            cb(data);
-        }
-        else if(xmlHttp.readyState === 4){
-            console.log("Error getting data. Status code: " + xmlHttp.status);
+        if(xmlHttp.readyState === 4) {
+            if (xmlHttp.status === 200) {
+                var data = JSON.parse(xmlHttp.responseText);
+                cb(data);
+            }
+            else {
+                console.log("Error getting data. Status code: " + xmlHttp.status);
+            }
         }
     }
 
