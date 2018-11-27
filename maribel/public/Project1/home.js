@@ -7,24 +7,48 @@ var recipes;
 document.getElementsByClassName("form-inline")[0].addEventListener("submit", function(ev) {
     ev.preventDefault();
 });
-document.getElementById("add-ingredient-input").addEventListener("keyup", function(ev) {
-    if(ev.key !== "Enter") {
-        return;
-    }
-    else {
-        addIngredientToList();
-    }
-});
-document.getElementById("add-ingredient-btn").addEventListener("click", addIngredientToList);
 document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
 document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
+
+var awesomeInput = document.getElementById("add-ingredient-input");
+var awesomeInstance = new Awesomplete(awesomeInput);
+awesomeInput.addEventListener("keyup", autocomplete);
+awesomeInput.addEventListener("awesomplete-select", function(selection){
+    addIngredientToList(selection.text.value);
+});
+
+function updateSuggestions(suggestions) {
+    awesomeInstance.list = suggestions;
+}
+
+function autocomplete(ev) {
+    if (ev.keyCode >= 65 && ev.keyCode <= 90){
+        var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?query=" + awesomeInput.value;
+        awesomeHandler(url, updateSuggestions);
+    }
+}
+
+function awesomeHandler(url, cb) {
+    xmlHttp.onreadystatechange = function()
+    {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            var list = JSON.parse(xmlHttp.responseText).map(function(i) { return i.name; });
+            cb(list);
+        } else {
+            console.log("Error getting data. Status code: " + xmlHttp.status);
+        }
+    }
+    xmlHttp.open("GET", url, true);
+    xmlHttp.setRequestHeader("X-Mashape-Key", apiKey);
+    xmlHttp.setRequestHeader("Accept", "application/json");
+    xmlHttp.send();
+}
 
 function requestData(url, cb) {
     xmlHttp.onreadystatechange = function()
     {
         if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             var data = JSON.parse(xmlHttp.responseText);
-            console.log(data);
             cb(data);
         }
         else if(xmlHttp.readyState === 4){
@@ -231,14 +255,13 @@ function createName(name){
     return nameElement;
 }
 
-function addIngredientToList(){
-    var newIngredient = document.getElementById("add-ingredient-input").value;
+function addIngredientToList(newIngredient){
     if (!ingredientExists(newIngredient)){
         inputIngredients.push(newIngredient);
 
         var div = document.createElement("div");
         var img = document.createElement("img");
-        img.src = "https://spoonacular.com/cdn/ingredients_100x100/" + newIngredient + ".jpg";
+        img.src = "https://spoonacular.com/cdn/ingredients_100x100/" + newIngredient.replace(" ", "-") + ".jpg";
         var p = document.createElement("p");
         var textNode = document.createTextNode(newIngredient);
         p.appendChild(textNode);
