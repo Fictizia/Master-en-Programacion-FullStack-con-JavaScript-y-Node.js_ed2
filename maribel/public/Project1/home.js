@@ -204,6 +204,7 @@ function addIngredientToList(newIngredient){
 
         var div = document.createElement("div");
         var img = document.createElement("img");
+        img.classList.add("ingredient");
         img.src = ingredientImageUrl + newIngredient.replace(" ", "-") + ".jpg";
         var p = document.createElement("p");
         var textNode = document.createTextNode(newIngredient);

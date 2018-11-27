@@ -28,6 +28,11 @@
     text-align: center;
 }
 
+.ingredient {
+    width: 100px;
+    height: auto;
+}
+
 .content {
     position: relative;
     top: 100px;
