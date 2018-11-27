@@ -92,3 +92,8 @@
 .unused-ingredients, .missed-ingredients {
     text-transform: capitalize;
 }
+
+.fa-cart-plus {
+    display: inline-block;
+    margin-left: 12px;
+}

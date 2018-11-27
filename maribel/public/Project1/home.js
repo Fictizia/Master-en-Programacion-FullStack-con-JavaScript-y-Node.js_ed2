@@ -68,7 +68,6 @@ function isTargetValid(ev) {
 }
 
 function showModal(recipe) {
-    console.log(recipe);
     fillModal(recipe);
     $("#exampleModal").modal("toggle");
 }
@@ -104,10 +103,10 @@ function fillUnusedIngredients(recipe){
     var unusedIngredientsElement = document.getElementsByClassName("unused-ingredients")[0];
     removeChildrenFromNode(unusedIngredientsElement);
     for(var ingredient of recipe.unusedIngredients) {
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(ingredient.name);
-        p.appendChild(textNode);
-        unusedIngredientsElement.appendChild(p);
+        var li = document.createElement("li");
+        li.innerText = ingredient.name;
+
+        unusedIngredientsElement.appendChild(li);
     }
 }
 
@@ -115,10 +114,14 @@ function fillMissingIngredients(recipe){
     var missedIngredientsElement = document.getElementsByClassName("missed-ingredients")[0];
     removeChildrenFromNode(missedIngredientsElement);
     for(var ingredient of recipe.missedIngredients) {
-        var p = document.createElement("p");
-        var textNode = document.createTextNode(ingredient.originalString);
-        p.appendChild(textNode);
-        missedIngredientsElement.appendChild(p);
+        var li = document.createElement("li");
+        li.innerText = ingredient.originalString;
+        var icon = document.createElement("i");
+        icon.classList.add("fas");
+        icon.classList.add("fa-cart-plus");
+
+        li.appendChild(icon);
+        missedIngredientsElement.appendChild(li);
     }
 }
 
