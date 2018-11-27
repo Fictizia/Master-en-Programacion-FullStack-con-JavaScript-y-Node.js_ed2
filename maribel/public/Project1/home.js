@@ -1,4 +1,3 @@
-var xmlHttp = new XMLHttpRequest();
 var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
 var apiKey = "yourApiKey";
 var inputIngredients = [];
@@ -18,53 +17,15 @@ awesomeInput.addEventListener("awesomplete-select", function(selection){
 });
 
 function updateSuggestions(suggestions) {
-    awesomeInstance.list = suggestions;
+    var list = JSON.parse(suggestions).map(function(i) { return i.name; });
+    awesomeInstance.list = list;
 }
 
 function autocomplete(ev) {
     if (ev.keyCode >= 65 && ev.keyCode <= 90){
         var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?query=" + awesomeInput.value;
-        awesomeHandler(url, updateSuggestions);
+        requestData(url, updateSuggestions);
     }
-}
-
-function awesomeHandler(url, cb) {
-    xmlHttp.onreadystatechange = function()
-    {
-        if (xmlHttp.readyState === 4) {
-            if(xmlHttp.status === 200) {
-                var list = JSON.parse(xmlHttp.responseText).map(function(i) { return i.name; });
-                cb(list);
-            }
-            else {
-                console.log("Error getting data. Status code: " + xmlHttp.status);
-            }
-        }
-    }
-    xmlHttp.open("GET", url, true);
-    xmlHttp.setRequestHeader("X-Mashape-Key", apiKey);
-    xmlHttp.setRequestHeader("Accept", "application/json");
-    xmlHttp.send();
-}
-
-function requestData(url, cb) {
-    xmlHttp.onreadystatechange = function()
-    {
-        if(xmlHttp.readyState === 4) {
-            if (xmlHttp.status === 200) {
-                var data = JSON.parse(xmlHttp.responseText);
-                cb(data);
-            }
-            else {
-                console.log("Error getting data. Status code: " + xmlHttp.status);
-            }
-        }
-    }
-
-    xmlHttp.open("GET", url, true);
-    xmlHttp.setRequestHeader("X-Mashape-Key", apiKey);
-    xmlHttp.setRequestHeader("Accept", "application/json");
-    xmlHttp.send();
 }
 
 function searchRecipesByIngredients() {
@@ -160,7 +121,8 @@ function fillMissingIngredients(recipe){
     }
 }
 
-function fillRecipeInstructions(recipe){
+function fillRecipeInstructions(data){
+    var recipe = JSON.parse(data);
     if (recipe.instructions) {
         var recipeSteps = document.getElementsByClassName("recipe-steps")[0];
         removeChildrenFromNode(recipeSteps);
@@ -176,13 +138,13 @@ function removeChildrenFromNode(node){
 }
 
 function displayRecipesInView(data){
-    recipes = data;
+    recipes = JSON.parse(data);
     var numberOfCols = 3;
 
     var containerFluid = document.getElementsByClassName("container-fluid")[0];
     removeChildrenFromNode(containerFluid);
 
-    chunkedData = chunkArray(data, numberOfCols);
+    chunkedData = chunkArray(recipes, numberOfCols);
 
     var rowElement = createRow();
     for(var colIndex = 0; colIndex < numberOfCols; colIndex++) {
