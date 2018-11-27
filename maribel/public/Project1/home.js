@@ -1,5 +1,3 @@
-var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
-var apiKey = "yourApiKey";
 var inputIngredients = [];
 var recipes;
 
@@ -23,7 +21,7 @@ function updateSuggestions(suggestions) {
 
 function autocomplete(ev) {
     if (ev.keyCode >= 65 && ev.keyCode <= 90){
-        var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?query=" + awesomeInput.value;
+        var url = autocompleteUrl + "?query=" + awesomeInput.value;
         requestData(url, updateSuggestions);
     }
 }
@@ -37,7 +35,7 @@ function searchRecipesByIngredients() {
         var ranking = 2;
 
         var parameters = "?ingredients=" + ingredients + "&fillIngredients=" + fillIngredients + "&limitLicense=" + limitLicense + "&number=" + number + "&ranking=" + ranking;
-        var completeUrl = baseUrl.concat(parameters);
+        var completeUrl = searchRecipesUrl.concat(parameters);
 
         requestData(completeUrl, displayRecipesInView);
     }
@@ -79,14 +77,14 @@ function fillModal(recipe) {
 
 function fillRecipeImage(recipeId){
     var recipeImage = document.querySelector(".modal-body .recipe-image");
-    recipeImage.src = "https://spoonacular.com/recipeImages/" + recipeId + "-636x393.jpg";
+    recipeImage.src = recipeImageUrl + recipeId + "-636x393.jpg";
 }
 
 function fillRecipeDetails(recipe) {
     fillRecipeName(recipe);
     fillUnusedIngredients(recipe);
     fillMissingIngredients(recipe);
-    var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipe.id + "/information";
+    var url = recipeInstructionsUrl + recipe.id + "/information";
     requestData(url, fillRecipeInstructions);
 }
 
@@ -228,7 +226,7 @@ function addIngredientToList(newIngredient){
 
         var div = document.createElement("div");
         var img = document.createElement("img");
-        img.src = "https://spoonacular.com/cdn/ingredients_100x100/" + newIngredient.replace(" ", "-") + ".jpg";
+        img.src = ingredientImageUrl + newIngredient.replace(" ", "-") + ".jpg";
         var p = document.createElement("p");
         var textNode = document.createTextNode(newIngredient);
         p.appendChild(textNode);
