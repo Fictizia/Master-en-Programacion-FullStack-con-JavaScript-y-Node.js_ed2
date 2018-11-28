@@ -87,3 +87,7 @@
 	transition: .2s linear;
 	transform: scale(1);
 }
+
+.dropdown-menu {
+    min-width: 15rem;
+}

@@ -1,6 +1,6 @@
 var inputIngredients = [];
 var recipes;
-var numberOfCartItems = 0;
+var cartItems = [];
 
 document.getElementsByClassName("form-inline")[0].addEventListener("submit", function(ev) {
     ev.preventDefault();
@@ -12,13 +12,35 @@ document.getElementById("search-recipes-btn").addEventListener("click", searchRe
 document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
 document.getElementsByClassName("missed-ingredients")[0].addEventListener("click", addToCart);
 
+function createCartItem(item){
+    var itemsDropdown = document.getElementsByClassName("dropdown-menu")[0];
+    var div = document.createElement("div");
+    div.classList.add("dropdown-item-text");
+    var itemImage = createImage(item.imageUrl);
+    itemImage.classList.add("ingredient");
+    var itemName = document.createElement("span");
+    var itemText = document.createTextNode(item.name);
+    itemName.appendChild(itemText);
+    div.appendChild(itemImage);
+    div.appendChild(itemName);
+    itemsDropdown.appendChild(div);
+}
 
 function addToCart(ev){
-    numberOfCartItems++;
-    var cartItemsIndicator = document.querySelector(".fa-shopping-cart > span");
-    cartItemsIndicator.classList.add("counter");
-    cartItemsIndicator.classList.remove("hidden");
-	cartItemsIndicator.innerText = numberOfCartItems;
+    var itemName = ev.target.dataset.name;
+    if(!ingredientExistsInCart(itemName)){
+        var item = {
+            name: itemName,
+            imageUrl: ingredientImageUrl + itemName.replace(" ", "-") + ".jpg"
+        };
+        cartItems.push(item);
+        var cartItemsIndicator = document.querySelector(".fa-shopping-cart > span");
+        cartItemsIndicator.classList.add("counter");
+        cartItemsIndicator.classList.remove("hidden");
+    	cartItemsIndicator.innerText = cartItems.length;
+
+        createCartItem(item);
+    }
 }
 
 var awesomeInput = document.getElementById("add-ingredient-input");
@@ -130,6 +152,7 @@ function fillMissingIngredients(recipe){
         var icon = document.createElement("i");
         icon.classList.add("fas");
         icon.classList.add("fa-cart-plus");
+        icon.dataset.name = ingredient.name;
 
         li.appendChild(icon);
         missedIngredientsElement.appendChild(li);
@@ -176,6 +199,7 @@ function fillColumnWithRecipes(colIndex, colElement, numberOfCols, data) {
     for(var i = 0; i < numberOfRecipesInCol; i++) {
         var overlayElement = createOverlay();
         var imgElement = createImage(data[i].image);
+        imgElement.classList.add("recipe-image");
         imgElement.dataset.id = data[i].id;
         overlayElement.appendChild(imgElement);
         var nameElement = createName(data[i].title);
@@ -200,7 +224,6 @@ function createColumn() {
 
 function createImage(imageUrl) {
     var imgElement = document.createElement("img");
-    imgElement.classList.add("recipe-image");
     imgElement.src = imageUrl;
     return imgElement;
 }
@@ -235,5 +258,11 @@ function addIngredientToList(newIngredient){
 
 function ingredientExists(ingredient) {
     var exists = inputIngredients.indexOf(ingredient);
+    return (exists !== -1) ? true : false;
+}
+
+function ingredientExistsInCart(ingredient) {
+    var list = cartItems.map(function(i) { return i.name; });
+    var exists = list.indexOf(ingredient);
     return (exists !== -1) ? true : false;
 }
