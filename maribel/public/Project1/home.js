@@ -1,5 +1,6 @@
 var inputIngredients = [];
 var recipes;
+var numberOfCartItems = 0;
 
 document.getElementsByClassName("form-inline")[0].addEventListener("submit", function(ev) {
     ev.preventDefault();
@@ -9,6 +10,16 @@ document.getElementById("add-ingredient-btn").addEventListener("click", function
 });
 document.getElementById("search-recipes-btn").addEventListener("click", searchRecipesByIngredients);
 document.getElementsByClassName("recipes")[0].addEventListener("click", showRecipeDetails);
+document.getElementsByClassName("missed-ingredients")[0].addEventListener("click", addToCart);
+
+
+function addToCart(ev){
+    numberOfCartItems++;
+    var cartItemsIndicator = document.querySelector(".fa-shopping-cart > span");
+    cartItemsIndicator.classList.add("counter");
+    cartItemsIndicator.classList.remove("hidden");
+	cartItemsIndicator.innerText = numberOfCartItems;
+}
 
 var awesomeInput = document.getElementById("add-ingredient-input");
 var awesomeInstance = new Awesomplete(awesomeInput);

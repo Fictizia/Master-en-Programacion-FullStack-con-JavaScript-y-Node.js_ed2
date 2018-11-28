@@ -64,3 +64,26 @@
     display: inline-block;
     margin-left: 12px;
 }
+
+.fa-shopping-cart > span {
+	width: 24px;
+	height: 24px;
+	color: white;
+	line-height: 24px;
+	position: absolute;
+    display: block;
+    top: 3px;
+    right: 10px;
+	border-radius: 12px;
+	background: #ffab00;
+	box-shadow: 0 3px 6px rgba(255, 171, 0, 0.16), 0 3px 6px rgba(255, 171, 0, 0.23);
+}
+
+.fa-shopping-cart > span.hidden {
+    transform: scale(0);
+}
+
+.counter {
+	transition: .2s linear;
+	transform: scale(1);
+}
