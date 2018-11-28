@@ -139,7 +139,7 @@ function displayRecipesInView(data){
     recipes = JSON.parse(data);
     var numberOfCols = 3;
 
-    var containerFluid = document.getElementsByClassName("container-fluid")[0];
+    var containerFluid = document.getElementsByClassName("container")[0];
     removeChildrenFromNode(containerFluid);
 
     chunkedData = chunkArray(recipes, numberOfCols);
@@ -183,6 +183,7 @@ function createRow() {
 function createColumn() {
     var colElement = document.createElement("div");
     colElement.classList.add("col-lg-4");
+    colElement.classList.add("p-0");
     return colElement;
 }
 
