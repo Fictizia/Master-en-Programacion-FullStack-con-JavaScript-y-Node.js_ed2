@@ -20,9 +20,16 @@ function createCartItem(item){
     itemImage.classList.add("ingredient");
     var itemName = document.createElement("span");
     var itemText = document.createTextNode(item.name);
+    var icon = document.createElement("i");
+    icon.classList.add("fas");
+    icon.classList.add("fa-window-close");
+    icon.classList.add("ml-5");
+    icon.dataset.name = item.name;
+
     itemName.appendChild(itemText);
     div.appendChild(itemImage);
     div.appendChild(itemName);
+    div.appendChild(icon);
     itemsDropdown.appendChild(div);
 }
 
