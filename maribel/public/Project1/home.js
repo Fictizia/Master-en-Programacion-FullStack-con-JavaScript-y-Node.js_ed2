@@ -74,7 +74,7 @@ function searchRecipesByIngredients() {
         var ingredients = inputIngredients.join("%2C");
         var fillIngredients = true;
         var limitLicense = false;
-        var number = 5;
+        var number = 20;
         var ranking = 2;
 
         var parameters = "?ingredients=" + ingredients + "&fillIngredients=" + fillIngredients + "&limitLicense=" + limitLicense + "&number=" + number + "&ranking=" + ranking;
@@ -180,8 +180,12 @@ function displayRecipesInView(data){
     recipes = JSON.parse(data);
     var numberOfCols = 3;
 
-    var containerFluid = document.getElementsByClassName("container")[0];
-    removeChildrenFromNode(containerFluid);
+    var container = document.getElementsByClassName("container")[0];
+    removeChildrenFromNode(container);
+
+    var sectionTitle = document.createElement("h1");
+    var textNode = document.createTextNode("Some recipes you can try");
+    sectionTitle.appendChild(textNode);
 
     chunkedData = chunkArray(recipes, numberOfCols);
 
@@ -192,12 +196,15 @@ function displayRecipesInView(data){
         rowElement.appendChild(colElement);
     }
 
-    containerFluid.appendChild(rowElement);
+    container.appendChild(sectionTitle);
+    container.appendChild(rowElement);
 }
 
 function createOverlay(){
     var overlayElement = document.createElement("div");
     overlayElement.classList.add("overlay");
+    overlayElement.classList.add("mx-auto");
+    overlayElement.classList.add("my-1");
     return overlayElement;
 }
 
@@ -244,6 +251,11 @@ function createName(name){
 }
 
 function addIngredientToList(newIngredient){
+    var ingredientsContainer = document.getElementsByClassName("input-ingredients")[0];
+    if(inputIngredients.length === 0) {
+        document.querySelector(".input-ingredients > h1").classList.add("d-none");
+    }
+
     if (!ingredientExists(newIngredient)){
         inputIngredients.push(newIngredient);
 
@@ -256,7 +268,7 @@ function addIngredientToList(newIngredient){
         p.appendChild(textNode);
         div.appendChild(img);
         div.appendChild(p);
-        document.getElementsByClassName("input-ingredients")[0].appendChild(div);
+        ingredientsContainer.appendChild(div);
     }
     else {
         console.log("The entered ingredient already exists in the list");

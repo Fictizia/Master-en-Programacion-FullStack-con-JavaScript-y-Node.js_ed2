@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.input-ingredients > h1 {
+    margin: 80px;
+}
+
 .ingredient {
     width: 100px;
     height: auto;
@@ -13,7 +17,6 @@
 
 .content {
     position: relative;
-    top: 100px;
     width: 100%;
 }
 
@@ -22,11 +25,16 @@
   flex-direction: column;
 }
 
+.recipes > .container > h1 {
+    text-align: center;
+}
+
 .overlay {
     position: relative;
 }
 
 .recipe-image {
+    width: 100%;
     opacity: 1;
     transition: opacity 0.5s;
 }

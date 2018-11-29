@@ -9,27 +9,29 @@
         <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">Navbar</a>
+        <nav class="navbar navbar-light bg-light position-top">
+            <img class="navbar-brand">Navbar</img>
             <form class="form-inline m-auto">
-                <input id="add-ingredient-input" class="awesomplete form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button id="add-ingredient-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">
+                <input id="add-ingredient-input" class="awesomplete form-control form-control-lg mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button id="add-ingredient-btn" class="btn btn-lg btn-outline-success my-2 my-sm-0 mr-2" type="button">
                     <i class="fas fa-plus"></i>
                 </button>
-                <button id="search-recipes-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">
+                <button id="search-recipes-btn" class="btn btn-lg btn-outline-success my-2 my-sm-0" type="button">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
             <div class="btn-group">
-                <button id="shopping-cart" type="button" class="btn btn-outline-success dropdown-toggle my-2 my-sm-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button id="shopping-cart" type="button" class="btn btn-lg btn-outline-success dropdown-toggle my-2 my-sm-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart"><span class="hidden"></span></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right"></div>
             </div>
         </nav>
         <div class="content">
-            <p>Ingredients</p>
-            <div class="input-ingredients"></div>
+            <div class="input-ingredients">
+                <h1>Seems that there are no ingredients in the kitchen... :(</h1>
+            </div>
+            <div class="dropdown-divider"></div>
             <div class="recipes">
                 <div class="container"></div>
             </div>
