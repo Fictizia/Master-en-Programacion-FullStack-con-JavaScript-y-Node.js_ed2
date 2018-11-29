@@ -1,3 +1,8 @@
+.navbar > img {
+    width: 150px;
+    border-radius: 10px;
+}
+
 .input-ingredients {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +32,7 @@
 
 .recipes > .container > h1 {
     text-align: center;
+    margin: 50px 0 20px 0;
 }
 
 .overlay {
