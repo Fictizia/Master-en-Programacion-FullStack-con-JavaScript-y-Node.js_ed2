@@ -12,7 +12,6 @@ body {
     font-family:'Roboto';
     font-weight:300;
     font-size:32px;
-    
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
     -webkit-transform: translate3d(0,0,0);
@@ -24,7 +23,6 @@ body {
     height:320px;
     display:flex;
     justify-content: center;
-    
 }
 
 .white {
@@ -39,11 +37,10 @@ body {
     3px 3px #adaeaf;
     
 }
+
 .blackKeyContainer{
     position: relative;
     width:0.1%;
-    
-   
 }
 
 .black{
@@ -58,9 +55,9 @@ body {
     1px 1px #adaeaf,
     2px 2px #adaeaf,
     3px 3px #adaeaf;
-
-transform: translateX(-3px);
+    transform: translateX(-3px);
 }
+
 .blackDown{
     background-color: black;
     width: 1000%;
@@ -69,8 +66,6 @@ transform: translateX(-3px);
     left:0px;
     border-bottom-left-radius: 5px 5px;
     border-bottom-right-radius: 5px 5px;
-
-
 }
 
 .whiteDown {
@@ -79,13 +74,10 @@ transform: translateX(-3px);
     flex-grow:1;
     border-bottom-left-radius: 10px 10px;
     border-bottom-right-radius: 10px 10px;
-  
-    
 }
 
 #imslp {
     width:70%;
-
     display:flex;
     flex-direction: column;
     justify-content: space-around;
@@ -98,24 +90,18 @@ transform: translateX(-3px);
 }
 
 .zonaBusqueda {
-
     display: flex;
     justify-content: space-around;
     margin-top:35px;
 }
 
-#titulo {
-
-}
-
 .obra {
     font-size: 20px;
 }
+
 .busqueda{
-
-margin-top:auto;
-margin-bottom: auto;
-
+    margin-top:auto;
+    margin-bottom: auto;
 }
 
 
