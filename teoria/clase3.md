@@ -29,7 +29,7 @@
 
 **Ginger Code**
 
-![logo](https://raw.githubusercontent.com/GingerCode/Art/master/Logo/Logo%20-%20formato%20horizontal%402x.png)
+![logo](../assets/clase3/484fd1da-eae3-4235-b75d-9a89239de2ba.png)
 
 - [@gingerCode en Github](https://github.com/GingerCode)
 - [Especificación](https://github.com/GingerCode/gingercode.org/wiki/Especificaci%C3%B3n)
@@ -37,7 +37,7 @@
 
 **PSeInt:**
 
-![PSeInt_logo](http://pseint.sourceforge.net/logo-header.png)
+![PSeInt_logo](../assets/clase3/d12d62b0-1ad4-4111-b77b-c1cc28852787.png)
 
 > ...una invitación a entrar en el maravilloso mundo de la programación...
 
@@ -168,11 +168,11 @@
 
 
 - **Teoría**
-![img_simbolos](https://image.jimcdn.com/app/cms/image/transf/dimension=480x10000:format=jpg/path/s37cc796afdd27ec2/image/ib9531583fa25cd50/version/1367814535/image.jpg)
+![img_simbolos](../assets/clase3/add4a673-733e-4035-b2a7-f374af7249bb.jpeg)
 
 
 - **Ejemplo**
-![img_diagrama](https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/DiagramaFlujoLampara.svg/440px-DiagramaFlujoLampara.svg.png) 
+![img_diagrama](../assets/clase3/3e8ae403-4516-47f4-a08f-8dbea2965899.png) 
 
 
 - *Herramientas*
@@ -215,7 +215,7 @@
 
 ### Lenguaje unificado de modelado
 
-![img](https://upload.wikimedia.org/wikipedia/commons/8/81/UML_Diagrams.jpg)
+![img](../assets/clase3/37bb159d-1ac2-4f4a-969b-77707cfe2b61.jpeg)
 
 
 > El lenguaje unificado de modelado (UML, por sus siglas en inglés, Unified Modeling Language) es el lenguaje de modelado de sistemas de software más conocido y utilizado en la actualidad; está respaldado por el Object Management Group (OMG).
@@ -242,7 +242,7 @@
 
 ### Mejorando con juegos
 
-![img](https://media2.giphy.com/media/CEyvatrJlP9mM/giphy.gif)
+![img](../assets/clase3/eb0e957f-d6b1-43b5-8161-47758d5881f1.gif)
 
 - [Code Monkey](https://www.playcodemonkey.com/)
 - [Code Combat](https://codecombat.com/)
@@ -452,7 +452,7 @@ FinProceso
 **9 -** Diseña un algoritmo introducido un numero y pasarlo a número romanos.
 - Esperamos que el número sea menor de 50
 
-![numeros_romanos](https://4.bp.blogspot.com/-oR3XcstycfY/WclGA457UuI/AAAAAAAAD5c/thke5x9K534r28OBOR0eoQMXhXKrlQ4LwCLcBGAs/s1600/U1-Romanos2.jpg)
+![numeros_romanos](../assets/clase3/59f4e8ed-5278-4b7f-acc7-0a2ce4592cb8.jpeg)
 
 ```
 Proceso conversionRomana
@@ -529,7 +529,7 @@ FinProceso
 
 ### ¡Nuestro primer proyecto!
 
-![img](https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif)
+![img](../assets/clase3/07bbff51-1898-48cc-931c-5c7459bd6f8a.gif)
 
 **Funcionamiento:**
 - Usaremos los [issues de nuestro repositorio](https://github.com/Fictizia/Curso-JS-para-desarrolladores-web_ed8/issues) para coordinar todas las dudas que tengais.

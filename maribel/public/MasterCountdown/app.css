@@ -1,0 +1,66 @@
+/*
+Background animation by Manuel Pinto:
+https://codepen.io/P1N2O/pen/pyBNzX
+*/
+
+body {
+	color: white;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "KoHo", sans-serif;
+    font-size: 25px;
+}
+
+#main-title {
+    margin: 0;
+}
+
+#count-end-msg {
+    font-size: 28px;
+}
+
+#timer {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 15px 0 15px;
+}
+
+li p[id] {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+li p {
+    text-transform: uppercase;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}

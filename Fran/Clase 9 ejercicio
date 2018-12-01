@@ -1,0 +1,6 @@
+
+var mistring = 'Fictizia Mola mucho';
+var miarray = mistring.split('') ;
+function  filtrar (miarray) { return miarray === 'm' || miarray ==='M' ;}
+var filtrados = miarray.filter(filtrar);
+console.log('Hay ' + filtrados.length + ' emes');

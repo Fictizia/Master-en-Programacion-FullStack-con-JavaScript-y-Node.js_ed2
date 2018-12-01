@@ -45,7 +45,23 @@ Fecha | Teoría | Recursos | Contenido
 10/10/18 | [Clase 5](teoria/clase5.md) | [Clase 5](recursos/clase5.md) | JSDocs, Comparadores, Tipos de datos, Modo Estricto, etc...
 15/10/18 | [Clase 6](teoria/clase6.md) | [Clase 6](recursos/clase6.md) | Condicionales: If...else, Switch y Operador ternario
 17/10/18 | [Clase 7](teoria/clase7.md) | [Clase 7](recursos/clase7.md) | Bucles: For, While, Do...while, Break & Continue
-
+19/10/18 | [Clase 8](teoria/clase8.md) | [Clase 8](recursos/clase8.md) | Números, Math y Fechas
+22/10/18 | [Clase 9](teoria/clase9.md) | [Clase 9](recursos/clase9.md) | Cadenas y Arrays
+24/10/18 | [Clase 10](teoria/clase10.md) | [Clase 10](recursos/clase10.md) | Objetos y Funciones
+26/10/18 | [Clase 11](teoria/clase11.md) | Clase 11 | Práctica: Maquina Expendedora por consola
+29/10/18 | [Clase 12](teoria/clase12.md) | [Clase 12](recursos/clase12.md) | BOM y DOM I
+31/10/18 | [Clase 13](teoria/clase13.md) | [Clase 13](recursos/clase13.md) | BOM y DOM II: Manipulación y Frameworks
+05/11/18 | [Clase 14](teoria/clase14.md) | [Clase 14](recursos/clase14.md) | Eventos del DOM I
+07/11/18 | [Clase 15](teoria/clase15.md) | Clase 15 | Práctica: Hacking Twitter
+12/11/18 | [Clase 16](teoria/clase16.md) | [Clase 16](recursos/clase16.md) | Ajax I: Ajax Básico
+14/11/18 | [Clase 17](teoria/clase17.md) | [Clase 17](recursos/clase17.md) | Ajax II: Ajax Avanzado y Seguridad
+16/11/18 | [Clase 18](teoria/clase18.md) | [Clase 18](recursos/clase18.md) | Ajax III: HTTP/2 & Fetch
+19/11/18 | [Clase 19](teoria/clase19.md) | [Clase 19](recursos/clase19.md) | Rendimiento, JSDocs, Guías de estilo y SEMVER
+21/11/18 | [Clase 20](teoria/clase20.md) | Clase 20 | Live Coding: Github | Social Network Project
+23/11/18 | [Clase 21](teoria/clase21.md) | Clase 21 | Live Coding: Buenos días, Madrid!
+26/11/18 | [Clase 22](teoria/clase22.md) | Clase 22 | Trabajo en el proyecto personal
+28/11/18 | [Clase 23](teoria/clase23.md) | Clase 23 | Intro a JS Avanzado y definición de proyecto
+30/11/18 | [Clase 24](teoria/clase24.md) | [Clase 24](recursos/clase24.md) | Navegadores y conceptos avanzados de JS...
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)
 =================

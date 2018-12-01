@@ -1,0 +1,177 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+body{
+  font-family: 'VT323';
+  filter: invert(5%);
+  overflow-x: hidden;
+}
+h1, p{
+    text-align: center;
+}
+h1{
+  font-size: 40px;
+}
+
+#cambiar{
+    text-align: left;
+}
+
+#conversor{
+  
+    display: flex;
+      align-items: center;
+  justify-content: center;
+}
+
+.a{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#cambiar{
+    margin-left: 3px;
+    
+}
+
+#aaa{
+height: 400px;
+width: 800px;
+
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 3px 6px 30px rgba(0, 0, 0, 0.2);
+
+}
+.chart-card .heading, .chart-card .source {
+  text-align: center;
+  margin: 1% 0;
+  
+}
+
+.chart {
+  position: relative;
+
+ 
+}
+
+#grafica{
+ position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 80vw;
+  padding-bottom: 30px;
+
+
+
+}
+
+
+.caja{
+  position:absolute;
+
+}
+
+.imprimir{
+  position: relative;
+ 
+}
+#imprimir{
+    font-size: 1.3em;
+}
+
+#botonswitcher{
+  position: relative; 
+  left: 50%; 
+  margin-left: -30px;
+  width: 60px;
+}
+
+#botonswitcher{
+ cursor: pointer;
+}
+
+
+#mainContent{
+  opacity: 0;
+}
+
+#spinner{
+display: flex;
+justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+#cargador {
+align-self: center;
+  z-index: inherit;
+  
+}
+
+
+.marquesina {
+ height: 50px;	
+ overflow: hidden;
+ position: relative;
+}
+.marquesina p {
+ font-size: 2em;
+ color: black;
+ text-shadow: 5px gold;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ -moz-animation: marquesina 30s linear infinite;
+ -webkit-animation: marquesina 30s linear infinite;
+ animation: marquesina 30s linear infinite;
+}
+
+@-moz-keyframes marquesina {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes marquesina {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquesina {
+ 0%   { 
+ -moz-transform: translateX(100%); 
+ -webkit-transform: translateX(100%); 
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%);
+ -webkit-transform: translateX(-100%); 
+ transform: translateX(-100%); 
+ }
+}
+

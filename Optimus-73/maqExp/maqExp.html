@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>maqExp</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function delete_(elementArray, elementName, idPos, namePos){
+		if(maqExp.isAdmin() === true){
+			let idList = elementArray.map((element) => element[idPos]);
+			let nameList = elementArray.map((element) => element[namePos]);
+
+			let name = window.prompt(`Introduce el nombre del ${elementName} que quiera eliminar`);
+
+			let newArray = [];
+
+			if(nameList.indexOf(name) != -1){
+				let deleteId = idList[nameList.indexOf(name)];
+
+				elementArray.forEach(function(element){
+					if(element[idPos] != deleteId){
+						newArray.push(element);
+					} else {
+						console.log(`El ${elementName} '${name}' ha sido eliminado`);
+					}
+				});
+
+				return newArray;
+			} else {
+				console.warn(`No se ha encontrado ningún ${elementName} con el nombre '${name}'. Intentelo de nuevo.`);
+				
+				return elementArray;
+			}
+		} else {
+			console.warn("Acción bloqueada. Pongase en contacto con un administrador.");
+		}
+	}
+
+	let maqExp = {
+		userId: undefined,
+		products: [
+			[0, 'Risketos', 'C0', 30, 100, true],
+			[1, 'KitKat', 'C1', 40, 4, true],
+			[2, 'Chicles Orbit', 'C2', 20, 6, true],
+			[3, 'Pipas Solero', 'C3', 15, 1, true],
+			[4, 'Demonios de Fresa', 'C4', 10, 10, true],
+			[5, 'Chetos','C5', 35, 5, true]
+		],
+		clients: [
+			[0, 'nombre1', 'usuario1', '1234', 1, 100],
+			[1, 'nombre2', 'usuario2', '1234', 0, 10],
+			[2, 'nombre3', 'usuario3', '1234', 0, 55],
+			[3, 'nombre4', 'usuario4', '1234', 0, 43],
+			[4, 'nombre5', 'usuario5', '1234', 0, 222]
+		],
+		expenses: [
+			[0, 40,'KitKat'],
+			[1, 30, 'Risketos'],
+			[0, 30, 'Risketos']
+		],
+
+		login: function(){
+			let user = window.prompt("Introduce el nombre de usuario:");
+			let pass = window.prompt("Introduce la contraseña:");
+
+			for(let i = 0; i <= maqExp.clients.length; i++){
+				if(i < maqExp.clients.length){
+					if(maqExp.clients[i][2] === user && maqExp.clients[i][3] === pass){
+						maqExp.userId = maqExp.clients[i][0];
+						console.log(`Acceso concedido. Bienvenida ${maqExp.clients[i][1]}.`);
+
+						break;
+					}
+				} else {
+					console.log(`Acceso denegado. No se ha encontrado ningún usuario con esas credenciales.`)
+				}
+			}
+		},
+
+		showBalance: function(){
+			if(maqExp.userId != undefined){
+				console.log(`Su saldo actual es de ${maqExp.clients[maqExp.clients.map((element) => element[0]).indexOf(maqExp.userId)][5]}`);
+			} else {
+				return -1
+			}
+		},
+
+		showExpenses: function(){
+			if(maqExp.userId != undefined){
+
+				console.group('Gastos:');
+
+				maqExp.expenses.forEach(function(element){
+					if(maqExp.userId === element[0]){
+						console.log(`${element[1]} => ${element[2]}`);
+					}
+				});
+
+				console.groupEnd('Gastos:')
+
+			} else {
+				return false;
+			}
+		},
+
+		addUser: function(){
+
+			function addUser(){
+				let newUserAux = window.prompt("Introduce de nombre de usuario:");
+				let userList = maqExp.clients.map((element) => element[2]);
+
+				if(newUserAux != ""){
+					if(userList.indexOf(newUserAux) === -1){
+						return newUserAux;
+					} else {
+						alert(`El nombre de usuario '${newUserAux}' ya esta registrado.`);
+					}
+				} else {
+					alert(`El nombre de usuario 'undefined' no es válido.`);
+
+					return addUser();
+				}
+			}
+
+			function addElement(elementName){
+				let newElement = window.prompt(`Introduce ${elementName} del nuevo cliente:`);
+
+				if(newElement != ""){
+					return newElement;
+				} else {
+					alert(`${elementName} no puese ser una cadena vacía.`);
+
+					return addElement(elementName);
+				}
+			}
+
+			if(maqExp.isAdmin() === true){
+				let newName, newUser, newPass;
+
+				let nextId = Math.max(...maqExp.clients.map((element) => element[0])) + 1;
+				newUser = addUser();
+				newName = addElement("el nombre");
+				newPass = addElement("la contraseña");
+				let newClient = [nextId, newName, newUser, newPass, 'client', '50'];
+
+				maqExp.clients.push(newClient);
+
+				console.group('Nuevo cliente registrado con éxito:');
+					console.log(`Nombre: ${newName}.\nUsuario: ${newUser}.\nContraseña: ${newPass}.\nCreditos: 50.`);
+				console.groupEnd('Nuevo cliente registrado con éxito:');
+			} else {
+				console.warn("Acción bloqueada. Pongase en contacto con un administrador.");
+			}
+		},
+
+		deleteUser: function(){
+			maqExp.clients = delete_(maqExp.clients, 'usuario', 0, 2);
+		},
+
+		getProduct: function(){
+			if(maqExp.userId != undefined){
+
+				console.table(maqExp.products.map((element) => [element[1], element[2], element[3]]));
+
+				let article = window.prompt("Seleccione un articulo de la lista (pulsando la tecla correspondiente):");
+
+				let articleCodes = maqExp.products.map((element) => element[2]);
+
+				let selectedArticle = articleCodes.indexOf(article);
+
+				if(selectedArticle != -1){
+					if(maqExp.products[selectedArticle][5] === true){
+
+						let idList = maqExp.clients.map((element) => element[0]);
+
+						if(maqExp.clients[idList.indexOf(maqExp.userId)][5] - maqExp.products[selectedArticle][3] >= 0){
+
+							maqExp.clients[idList.indexOf(maqExp.userId)][5] -= maqExp.products[selectedArticle][3];
+
+							maqExp.products[selectedArticle][4] -= 1;
+
+							if(maqExp.products[selectedArticle][4] <= 0){
+								maqExp.products[selectedArticle][5] = false;
+							}
+
+							maqExp.expenses.push([maqExp.userId, maqExp.products[selectedArticle][3], maqExp.products[selectedArticle][1]]);
+
+							console.log(`RETURNando: ${maqExp.products[selectedArticle][1]} por ${maqExp.products[selectedArticle][3]} créditos.`);
+						} else {
+							alert("No hay saldo suficiente en su cuenta.");
+
+							return -1;
+						}
+					} else {
+						alert("No hay existencias del producto seleccionado. Intentelo de nuevo más tarde.");
+
+						return -1;
+					}
+				} else {
+					alert("No se ha encontrado la referencia marcada. Seleccione la referencia de la lista de productos.");
+
+					return -1;
+				}
+
+			} else {
+				alert("Acción bloqueada. Es necesario iniciar sesión.");
+				maqExp.login();
+			}
+		},
+
+		addProduct: function(){
+			if(maqExp.isAdmin() === true){
+				let nextId = Math.max(...maqExp.products.map((element) => element[0])) + 1;
+
+				let newName = window.prompt("Añada un nuevo producto a la máquina:");
+				let newPrice = window.prompt("Determine el valor del nuevo producto.");
+
+				let newProduct = [nextId, newName, "C" + nextId, parseInt(newPrice), 0, false];
+
+				maqExp.products.push(newProduct);
+
+				console.group("Nuevo producto registrado con éxito:");
+					console.log(`Nombre: ${newProduct[1]}.\nTecla: ${newProduct[2]}.\nPrecio: ${newProduct[3]}.\nStock: ${newProduct[4]}.\nDisponibilidad: ${newProduct[5]}.`);
+				console.groupEnd("Nuevo producto registrado con éxito:");
+			} else {
+				console.warn("Acción bloqueada. Pongase en contacto con un administrador.");
+			}
+
+		},
+
+		deleteProduct: function(){
+			maqExp.products = delete_(maqExp.products, "producto", 0, 1);
+		},
+
+		editBalance: function(){
+			if(maqExp.userId != undefined){
+				let idList = maqExp.clients.map((element) => element[0]);
+
+				let newBalance = window.prompt("Introduce el valor que desea añadir:\n\rCon los caracteres:\n(+) -> Añadir saldo.\n(-) -> Retirar saldo.\n( ) -> Reasignar saldo.");
+
+				let firstCaracter = newBalance.substr(0, 1);
+
+				switch(firstCaracter){
+					case "+":
+						maqExp.clients[idList.indexOf(maqExp.userId)][5] += parseInt(newBalance.substr(1));
+						break;
+					case "-":
+						maqExp.clients[idList.indexOf(maqExp.userId)][5] -= parseInt(newBalance.substr(1));
+						break;
+					default:
+						maqExp.clients[idList.indexOf(maqExp.userId)][5] = parseInt(newBalance);
+				}
+
+				console.log(`Su saldo ha sido actualizado con éxito. Dispone de ${maqExp.clients[idList.indexOf(maqExp.userId)][5]} créditos.`)
+
+			} else {
+				alert("Acción bloqueada. Es necesario iniciar sesión.");
+				maqExp.login();
+			}
+		},
+
+		printStock: function(){
+			let date = new Date();
+
+			if(maqExp.isAdmin() === true){
+				console.group("Informe de stock:");
+					console.log(`Informe a día: ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}.`);
+					maqExp.products.forEach(function(element){
+						console.log(`Nombre: ${element[1]}.\nCódigo: ${element[2]}\nStock: ${element[4]}.\nDsiponibilidad: ${element[5]}`);
+					});
+				console.groupEnd("Informe de stock:");
+			} else {
+				console.warn("Acción bloqueada. Pongase en contacto con un administrador.");
+			}
+		},
+
+		isAdmin(){
+			if((maqExp.userId != undefined && maqExp.clients[maqExp.clients.map((element) => element[0]).indexOf(maqExp.userId)][4] === 1) || window.prompt("Introduce la clave de administrador") === "fictiziaMola"){
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+</script>
+
+</body>
+</html>
