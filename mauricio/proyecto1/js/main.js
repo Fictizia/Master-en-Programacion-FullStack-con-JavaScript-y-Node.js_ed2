@@ -1,41 +1,40 @@
 (function(){
+
+  const urlBase = 'https://api.songkick.com/api/3.0/';
+
   /**
    * @description convierte un día a formato local, (wednesday -> miércoles)
-   * @param {string} date - día a convertir
-   * @param {string} day - día a convertir
+   * @param {string} date - fecha formato (2018-12-07)
+   * @return {Function} capitalizeFirstLetter
    */
   function convertDay(date) {
     let day = new Date(date).toLocaleDateString('es-ES', {weekday: 'long'});
-    return capitalizeDay(day);
+    return capitalizeFirstLetter(day);
   }
 
   /**
    * @description capitaliza el día de la semana
-   * @param {string} - day, día de semana
-   * @return {string} array convertido a string
+   * @param {string} day, día de semana
+   * @return {string} string
    */
-  function capitalizeDay(day) {
-    let array = day.split('');
-    const firstLetter = day[0].toUpperCase();
-    array.splice(0, 1, firstLetter);
-    return array.join('');
+  function capitalizeFirstLetter(day) {
+    return day.charAt(0).toUpperCase() + day.slice(1);
   }
 
   /**
    * @description convierte la fecha del evento a formato local
-   * @param {string} date - fecha
+   * @param {string} date - fecha formato (2018-12-07)
    * @param {string} type - (día, mes o año)
-   * @returns {string} splitter - devuelve un day o posición del array depediendo del type
+   * @returns {string | number} string en el caso de que el type sea mount y number si no
    */
   function splitDate(date, type) {
-    const splitter = date.split('-');
+    const fullDate = new Date(date);
     if (type === 'year') {
-      return splitter[0];
+      return fullDate.getFullYear();
     } else if (type === 'month') {
-      let day = new Date(date).toLocaleDateString('es-ES', {month: 'long'});
-      return capitalizeDay(day);
-    } else {
-      return splitter[2];
+      return capitalizeFirstLetter(new Date(date).toLocaleDateString('es-ES', {month: 'long'}));
+    } else if (type === 'day') {
+      return fullDate.getDate();
     }
   }
 
@@ -60,37 +59,55 @@
    * @return void
    */
   function closeModal($event) {
-    console.log($event.target.parentElement.parentElement.style.display = 'none');
+    document.querySelector('.modal').remove();
   }
 
   /**
-   * @description pinta en un modal la ubicación del evento en Google Maps
-   * @param {string} idEvent - id que servirá para obtener las coordenadas del evento
-   * @param data.results.venue: array - array de todas las direcciones
-   * @param event.street - dirección del evento para el DOM
-   * @param google.maps.Map - API google maps
-   * @param google.maps.Marker - API google maps
+   * @description muestra u oculta el spinner con css dependiendo de si el state es show o no
+   * @param {string} si es show, aplica 'block' a display, en otro caso, 'none'
    * @return void
    */
+  function toggleSpinner(state) {
+    const spinner = document.querySelector('.spinner');
+    let css = spinner.style;
+    if (state === 'show') {
+      css.display = 'block';
+    } else {
+      css.display = 'none';
+    }
+  }
+  /**
+   * @description crea un nodeElement y le asigna una clase de CSS
+   * @param {string} tagName - nombre de la etiqueta
+   * @param {string} className - nombre de la clase de CSS
+   * @return {HTMLElement}
+   */
+  function createTagAndSetStyle(tagName, className) {
+    const tag = document.createElement(tagName);
+    tag.classList.add(className);
+    return tag;
+  }
 
-  function searchLocation(idEvent) {
+  /**
+   * @description estructura los divs que tendrá el modal para el mapa y los datos del evento
+   * @param {number} idEvent - id que servirá para obtener las coordenadas del evento
+   * @return void
+   */
+  function loadModal(idEvent) {
 
     const eventDetails = document.querySelector('.event-details');
 
-    const divModal = document.createElement('DIV');
-    divModal.setAttribute('class', 'modal');
-    divModal.style.display = 'block';
+    const divModal = createTagAndSetStyle('DIV', 'modal');
     eventDetails.appendChild(divModal);
 
     const modal = document.querySelector('.modal');
-    const divModalContent = document.createElement('DIV');
-    divModalContent.setAttribute('class', 'modal-content');
+
+    const divModalContent = createTagAndSetStyle('DIV', 'modal-content');
     modal.appendChild(divModalContent);
 
     const modalContent = document.querySelector('.modal-content');
 
-    const span = document.createElement('SPAN');
-    span.setAttribute('class', 'close');
+    const span = createTagAndSetStyle('SPAN', 'close');
     span.addEventListener('click', closeModal, false);
     span.textContent = 'X';
     modalContent.appendChild(span);
@@ -108,14 +125,30 @@
     modalContent.appendChild(p2);
     modalContent.appendChild(p3);
 
-    const divMap = document.createElement('DIV');
+    const divMap = createTagAndSetStyle('DIV', 'map');
     divMap.setAttribute('id', 'map');
-    divMap.style.display = 'block';
     modalContent.appendChild(divMap);
 
-    callApis('https://api.songkick.com/api/3.0/venues/ ' + idEvent + '.json?apikey=' + config.API_SK, function (data) {
+    _searchLocation(idEvent, divModal, divMap);
 
-      console.log(data);
+  }
+
+  /**
+   * @description busca los detalles del evento (dirección, teléfono, website)
+   * @param {number} idEvent - id del evento que servirá para hacer la llamada AJAX
+   * @param {HTMLElement} divModal - contenedor de los detalles del evento
+   * @param {HTMLElement} divMap - contenedor para el mapa de Google
+   * @param {Object} data.results.venue - objeto con detalles del evento
+   * @param {string} event.street - dirección
+   * @param {string} event.zip - codigo postal
+   * @param {string} event.website - website
+   * @private
+   */
+  function _searchLocation(idEvent, divModal, divMap) {
+    const path = 'venues/ ' + idEvent + '.json?apikey=' + config.API_SK;
+    const url = urlBase + path;
+
+    callApis(url, function (data) {
 
       const event = data.results.venue;
 
@@ -124,56 +157,72 @@
         divModal.querySelector('h1').textContent = event.displayName;
         divModal.querySelector('h3').textContent = event.street + ' - ' + event.zip;
         let pes = divModal.querySelectorAll('p');
-        pes[0].textContent = event.phone;
-        pes[1].textContent = event.website;
-        pes[2].textContent = event.city.country.displayName;
+        for (let i = 0; i < pes.length; i++) {
+          if (i === 0) {
+            pes[i].textContent = event.phone;
+          } else if (i === 1) {
+            pes[i].textContent = event.website;
+          } else if (i === 2) {
+            pes[i].textContent = event.city.country.displayName;
+          }
+        }
 
-        const location = {lat: event.lat, lng: event.lng};
-        const map = new google.maps.Map(divMap, {
-          zoom: 12,
-          center: location
-        });
-        const marker = new google.maps.Marker({
-          position: location,
-          map: map,
-          title: event.street
-        });
+        _googleMaps(event, divMap);
+
       } else {
         divModal.firstElementChild.children[1].textContent = 'No podemos mostrar la ubicación en el mapa';
       }
     });
 
+    /**
+     * @description pinta la ubicación y su marcador en el mapa de google
+     * @param {Object} event - contiene detalles del evento
+     * @param {HTMLElement} divMap - contenedor para los mapas
+     * @param google.maps.Map - API google maps
+     * @param google.maps.Marker - API google maps
+     * @private
+     */
+    function _googleMaps(event, divMap) {
+      const location = {lat: event.lat, lng: event.lng};
+      const map = new google.maps.Map(divMap, {
+        zoom: 12,
+        center: location
+      });
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: event.street
+      });
+    }
   }
 
   /**
    * @description crea una lista con todos los detalles de los eventos del artista
    * @param {number} id - id del artista para buscar todos sus eventos relacionados
    * @param data.totalEntries - numero total de resultados
-   * @param tem.start.date - fecha. Parametro para la funcion splitDate
+   * @param tem.start.date - fecha. Parametro para la función splitDate
    * @return void
    */
-
   function artistDetails(id) {
 
-    const spinner = document.querySelector('.spinner');
-    spinner.style.display = 'block';
+    toggleSpinner('show');
 
-    callApis('https://api.songkick.com/api/3.0/artists/' + id + '/calendar.json?apikey=' + config.API_SK, function (data) {
-      console.log(data);
+    const path = 'artists/' + id + '/calendar.json?apikey=' + config.API_SK;
+    const url = urlBase + path;
 
-      spinner.style.display = 'none';
+    callApis(url, function (data) {
+
+      toggleSpinner('hide');
 
       const listOfEvents = data.results.event;
 
       const container = document.querySelector('.container');
       container.innerHTML = '';
 
-      const eventDetails = document.createElement('DIV');
-      eventDetails.setAttribute('class', 'event-details');
+      const eventDetails = createTagAndSetStyle('DIV', 'event-details');
       container.appendChild(eventDetails);
 
-      const eventTotalSpan = document.createElement('SPAN');
-      eventTotalSpan.setAttribute('class', 'event-total');
+      const eventTotalSpan = createTagAndSetStyle('SPAN', 'event-total');
       eventTotalSpan.textContent = data.totalEntries + ' resultados encontrados';
       eventDetails.appendChild(eventTotalSpan);
 
@@ -183,59 +232,63 @@
 
       listOfEvents.forEach(function (item) {
 
-        const li = document.createElement('LI');
+        _createStructureEventDetail(item, ul);
 
-        const div1 = document.createElement('DIV');
-        div1.setAttribute('class', 'event-date');
-        const eventDateYear = document.createElement('DIV');
-        eventDateYear.setAttribute('class', 'event-date-year');
-        const eventDateMonth = document.createElement('DIV');
-        eventDateMonth.setAttribute('class', 'event-date-month');
-        const eventDateDay = document.createElement('DIV');
-        eventDateDay.setAttribute('class', 'event-date-day');
-
-        const div2 = document.createElement('DIV');
-        div2.setAttribute('class', 'event-date-details');
-        const eventDetailsHour = document.createElement('DIV');
-        eventDetailsHour.setAttribute('class', 'event-date-details-hour');
-        const eventDetailsVenue = document.createElement('DIV');
-        eventDetailsVenue.setAttribute('class', 'event-date-details-venue');
-        const eventCityCountry = document.createElement('DIV');
-        eventCityCountry.setAttribute('class', 'event-date-city-country');
-
-        const div3 = document.createElement('DIV');
-        div3.setAttribute('class', 'event-location');
-        const button = document.createElement('BUTTON');
-        button.appendChild(document.createTextNode('Buscar en el mapa'));
-
-        div1.appendChild(eventDateDay);
-        div1.appendChild(eventDateMonth);
-        div1.appendChild(eventDateYear);
-
-        div2.appendChild(eventDetailsHour);
-        div2.appendChild(eventDetailsVenue);
-        div2.appendChild(eventCityCountry);
-
-        div3.appendChild(button);
-
-        li.appendChild(div1);
-        li.appendChild(div2);
-        li.appendChild(div3);
-        ul.appendChild(li);
-
-        eventDateYear.textContent = splitDate(item.start.date, 'year');
-        eventDateMonth.textContent = splitDate(item.start.date, 'month');
-        eventDateDay.textContent = splitDate(item.start.date, 'day');
-
-        eventDetailsHour.textContent = convertDay(item.start.date) + ' - ' + formatTime(item.start.time);
-        eventDetailsVenue.textContent = item.venue.displayName;
-        eventCityCountry.textContent = item.location.city;
-        button.addEventListener('click', function () {
-          searchLocation(item.venue.id);
-        }, false);
       });
 
     });
+
+    /**
+     * @description crea la estructura con los detalles de cada evento divido por filas, (fecha, ciudad, y botón para buscarlo en el google maps)
+     * @param {Object} item - contiene los detalles del evento seleccionado
+     * @param {HTMLElement} ul - nodo contenedor
+     * @return void
+     * @private
+     */
+    function _createStructureEventDetail(item, ul) {
+      const li = document.createElement('LI');
+
+      const div1 = createTagAndSetStyle('DIV', 'event-date');
+      const eventDateYear = createTagAndSetStyle('DIV', 'event-date-year');
+      const eventDateMonth = createTagAndSetStyle('DIV', 'event-date-month');
+      const eventDateDay = createTagAndSetStyle('DIV', 'event-date-day');
+
+      const div2 = createTagAndSetStyle('DIV', 'event-date-details');
+      const eventDetailsHour = createTagAndSetStyle('DIV', 'event-date-details-hour');
+      const eventDetailsVenue = createTagAndSetStyle('DIV', 'event-date-details-venue');
+      const eventCityCountry = createTagAndSetStyle('DIV', 'event-date-city-country');
+
+      const div3 = createTagAndSetStyle('DIV', 'event-location');
+      const button = document.createElement('BUTTON');
+      button.appendChild(document.createTextNode('Buscar en el mapa'));
+
+      div1.appendChild(eventDateDay);
+      div1.appendChild(eventDateMonth);
+      div1.appendChild(eventDateYear);
+
+      div2.appendChild(eventDetailsHour);
+      div2.appendChild(eventDetailsVenue);
+      div2.appendChild(eventCityCountry);
+
+      div3.appendChild(button);
+
+      li.appendChild(div1);
+      li.appendChild(div2);
+      li.appendChild(div3);
+      ul.appendChild(li);
+
+      eventDateYear.textContent = splitDate(item.start.date, 'year');
+      eventDateMonth.textContent = splitDate(item.start.date, 'month');
+      eventDateDay.textContent = splitDate(item.start.date, 'day');
+
+      eventDetailsHour.textContent = convertDay(item.start.date) + ' - ' + formatTime(item.start.time);
+      eventDetailsVenue.textContent = item.venue.displayName;
+      eventCityCountry.textContent = item.location.city;
+      button.addEventListener('click', function () {
+        loadModal(item.venue.id);
+        // button.disabled = true;
+      }, false);
+    }
   }
 
   /**
@@ -245,35 +298,29 @@
    * @param data.totalEntries - numero total de artistas encontrados
    * @return void
    */
-
   function createListArtist(data) {
 
-    const spinner = document.querySelector('.spinner');
-    spinner.style.display = 'block';
-
-    const container = document.querySelector('.container');
-    const events = document.createElement('DIV');
-    events.setAttribute('class', 'events');
-    container.appendChild(events);
-
-    const listArtist = document.createElement('DIV');
-    listArtist.setAttribute('class', 'list-artist');
-    events.appendChild(listArtist);
-
-    const listArtistNoEvents = document.createElement('DIV');
-    listArtistNoEvents.setAttribute('class', 'list-artist-noEvents');
-    events.appendChild(listArtistNoEvents);
-
+    toggleSpinner('show');
     const arrayResults = data.results.artist;
     const totalEntries = data.totalEntries;
+
+    const container = document.querySelector('.container');
+
+    const events = createTagAndSetStyle('DIV', 'events');
+    container.appendChild(events);
+
+    const listArtist = createTagAndSetStyle('DIV', 'list-artist');
+    events.appendChild(listArtist);
+
+    const listArtistNoEvents = createTagAndSetStyle('DIV', 'list-artist-noEvents');
+    events.appendChild(listArtistNoEvents);
 
     const ul = document.createElement('UL');
     const ulNoEvents = document.createElement('UL');
 
-    const spanTotalEntries = document.createElement('SPAN');
+    const spanTotalEntries = createTagAndSetStyle('SPAN', 'total-entries');
     let spanText = document.createTextNode(totalEntries + ' resultados coinciden con tu búsqueda');
     spanTotalEntries.appendChild(spanText);
-    spanTotalEntries.classList.add('total-entries');
     listArtist.appendChild(spanTotalEntries);
 
     if (arrayResults && arrayResults.length > 0) {
@@ -283,44 +330,57 @@
 
       arrayResults.forEach(function (artist) {
 
-        callApis('https://api.songkick.com/api/3.0/artists/' + artist.id + '/calendar.json?apikey=' + config.API_SK, function (event) {
+        _orderListArtistByEvents(artist);
 
-          spinner.style.display = 'none';
-
-          if (event.totalEntries > 0) {
-
-            const li = document.createElement('LI');
-            const text = document.createTextNode(artist.displayName);
-            li.appendChild(text);
-            ul.insertBefore(li, ul.firstChild);
-
-            const small = document.createElement('SMALL');
-            const totalEvents = document.createTextNode(event.totalEntries + ' eventos encontrados');
-            small.appendChild(totalEvents);
-            li.appendChild(small);
-
-            li.classList.add('list-artist-link');
-
-            document.querySelector('.list-artist-link').addEventListener('click', function () {
-              artistDetails(artist.id);
-            }, false);
-
-          } else {
-            const li = document.createElement('LI');
-            const text = document.createTextNode(artist.displayName);
-            li.appendChild(text);
-            ulNoEvents.appendChild(li);
-
-            const small = document.createElement('SMALL');
-            const totalEvents = document.createTextNode(event.totalEntries + ' eventos encontrados');
-            small.appendChild(totalEvents);
-            li.appendChild(small);
-          }
-        });
       });
     } else {
-      spinner.style.display = 'none';
+      toggleSpinner('hide');
     }
+
+    /**
+     * @description coloca más arriba los artistas cuyo número total de eventos sea diferente a 0
+     * @param {Object} artist - contiene el nombre y el id del artista
+     * @return void
+     * @private
+     */
+    function _orderListArtistByEvents (artist) {
+      const path = 'artists/' + artist.id + '/calendar.json?apikey=' + config.API_SK;
+      const url = urlBase + path;
+
+      callApis(url, function (event) {
+
+        toggleSpinner('hide');
+
+        if (event.totalEntries > 0) {
+
+          const li = createTagAndSetStyle('LI', 'list-artist-link');
+          const text = document.createTextNode(artist.displayName);
+          li.appendChild(text);
+          ul.insertBefore(li, ul.firstChild);
+
+          const small = document.createElement('SMALL');
+          const totalEvents = document.createTextNode(event.totalEntries + ' eventos encontrados');
+          small.appendChild(totalEvents);
+          li.appendChild(small);
+
+          document.querySelector('.list-artist-link').addEventListener('click', function () {
+            artistDetails(artist.id);
+          }, false);
+
+        } else {
+          const li = document.createElement('LI');
+          const text = document.createTextNode(artist.displayName);
+          li.appendChild(text);
+          ulNoEvents.appendChild(li);
+
+          const small = document.createElement('SMALL');
+          const totalEvents = document.createTextNode(event.totalEntries + ' eventos encontrados');
+          small.appendChild(totalEvents);
+          li.appendChild(small);
+        }
+      });
+    }
+
   }
 
   /**
@@ -330,36 +390,40 @@
    * @param {number} delay - delay para el disparador de la función
    * @return void
    */
-
   function searchEvents(input, callback, delay) {
-    const api = {
-      API_ARTIST: 'https://api.songkick.com/api/3.0/search/artists.json?apikey='+ config.API_SK +'&query='
-    };
+    const path = 'search/artists.json?apikey=' + config.API_SK + '&query=';
+    const url = urlBase + path;
+
     const container = document.querySelector('.container');
     container.innerHTML = '';
+    container.classList.remove('warning');
 
     let timer = null;
     input.onkeyup = function ($event) {
       let string = '';
+      //numeros, letras, backspace, enter
       const condition = $event.which >= 48 && $event.which <= 90 || $event.which === 8 || $event.which === 13;
       if (condition) {
         if ($event.target.value.length > 3) {
-          string = $event.target.value;
+          string = $event.target.value.trim();
           if (timer) {
             window.clearTimeout(timer);
           }
           timer = window.setTimeout(function () {
             timer = null;
-            callback(api.API_ARTIST + string, function (data) {
-            // callback('https://httpstat.us/500', function (data) {
+            callback(url + string, function (data) {
 
               container.innerHTML = '';
+              container.classList.remove('warning');
               createListArtist(data);
 
             });
           }, delay);
         } else if ($event.target.value === '') {
           container.innerHTML = '';
+        } else {
+          container.innerHTML = 'Escribe al menos 3 caracteres';
+          container.classList.add('warning');
         }
 
       }
