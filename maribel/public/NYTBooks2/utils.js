@@ -1,6 +1,7 @@
 function openList(ev) {
     var clickedList = ev.target.dataset.list;
     var url = baseUrl + clickedList + ".json?api-key=" + apiKey;
+    appendListTitle(clickedList);
     requestData(url, createBookCard);
 }
 
@@ -8,9 +9,10 @@ function displayDataInView(data, createCardOfType) {
     var container = document.getElementsByClassName("container")[0];
 
     var elements = data.results;
-    if(data.results.books) {
+    if(isBookData(data)) {
         elements = data.results.books;
     }
+
     var numberOfElements = elements.length;
     var cardDeck;
     for(var i = 0; i < numberOfElements; i++) {
@@ -29,6 +31,15 @@ function displayDataInView(data, createCardOfType) {
             }
         }
     }
+}
+
+function isBookData(data) {
+    return data.results.books;
+}
+
+function appendListTitle(clickedList) {
+    var titleElement = document.getElementsByClassName("list-title")[0];
+    titleElement.innerText = clickedList;
 }
 
 function createListCard(list){
