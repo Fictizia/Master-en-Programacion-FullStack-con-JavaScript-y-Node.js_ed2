@@ -1,8 +1,14 @@
 function openList(ev) {
-    var clickedList = ev.target.dataset.list;
-    var url = baseUrl + clickedList + ".json?api-key=" + apiKey;
-    appendListTitle(clickedList);
-    requestData(url, createBookCard);
+    if(elementIsButton(ev.target)){
+        var clickedList = ev.target.dataset.list;
+        var url = baseUrl + clickedList + ".json?api-key=" + apiKey;
+        appendListTitle(clickedList);
+        requestData(url, createBookCard);
+    }
+}
+
+function elementIsButton(element) {
+    return element.getAttribute("role") === "button";
 }
 
 function displayDataInView(data, createCardOfType) {
