@@ -7,7 +7,7 @@ function requestData(url, cb) {
        .then(data => {
            hideLoadingSpinner();
            showDataContainer();
-           cb(data);
+           displayDataInView(data, cb);
         })
        .catch(err => {
            console.error("An error ocurred while fetching data: ", err);

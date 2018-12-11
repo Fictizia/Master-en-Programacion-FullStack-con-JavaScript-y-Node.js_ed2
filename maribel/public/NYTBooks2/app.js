@@ -1,41 +1,45 @@
  var cardsPerRow = 3;
 
  var url = baseUrl + "names.json?api-key=" + apiKey;
- requestData(url, displayListsInView);
+ requestData(url, createListCard);
 
  document.getElementsByClassName("container")[0].addEventListener("click", openList);
 
  function openList(ev) {
      var clickedList = ev.target.dataset.list;
      var url = baseUrl + clickedList + ".json?api-key=" + apiKey;
-     requestData(url, displayBooksInView);
+     requestData(url, createBookCard);
  }
 
- function displayListsInView(data) {
+ function displayDataInView(data, createCardOfType) {
      var container = document.getElementsByClassName("container")[0];
 
-     var lists = data.results;
-     var numberOfLists = lists.length;
+     var elements = data.results;
+     if(data.results.books) {
+         elements = data.results.books;
+     }
+     var numberOfElements = elements.length;
      var cardDeck;
-     for(var i = 0; i< numberOfLists; i++) {
+     for(var i = 0; i < numberOfElements; i++) {
          if (i % cardsPerRow === 0) {
              cardDeck = document.createElement("div");
              cardDeck.classList.add("card-deck");
              container.appendChild(cardDeck);
          }
 
-         var card = createListCard(lists[i]);
+         var card = createCardOfType(elements[i]);
          cardDeck.appendChild(card);
 
-         if (i === numberOfLists - 1) {
-             if (isLastRowIncomplete(numberOfLists)) {
-                 fillFreeSpace(cardDeck, card, numberOfLists);
+         if (i === numberOfElements - 1) {
+             if (isLastRowIncomplete(numberOfElements)) {
+                 fillFreeSpace(cardDeck, card, numberOfElements);
              }
          }
      }
  }
 
  function createListCard(list){
+     console.log("Creando lista");
      var card = document.createElement("div");
      card.classList.add("card");
      card.classList.add("mb-4");
@@ -86,31 +90,8 @@
      return card;
  }
 
- function displayBooksInView(data) {
-     var container = document.getElementsByClassName("container")[0];
-
-     var books = data.results.books;
-     var numberOfBooks = books.length;
-     var cardDeck;
-     for (var i = 0; i < numberOfBooks; i++) {
-         if (i % cardsPerRow === 0) {
-             cardDeck = document.createElement("div");
-             cardDeck.classList.add("card-deck");
-             container.appendChild(cardDeck);
-         }
-
-         var card = createBookCard(books[i]);
-         cardDeck.appendChild(card);
-
-         if (i === numberOfBooks - 1) {
-             if (isLastRowIncomplete(numberOfBooks)) {
-                 fillFreeSpace(cardDeck, card, numberOfBooks);
-             }
-         }
-     }
- }
-
  function createBookCard(book) {
+     console.log("Creando libro");
      var card = document.createElement("div");
      card.classList.add("card");
      card.classList.add("mb-4");
@@ -191,22 +172,22 @@
      return card;
  }
 
- function isLastRowIncomplete(numberOfBooks) {
-     var maxNumberOfRows = Math.ceil(numberOfBooks / cardsPerRow);
-     return ((maxNumberOfRows * cardsPerRow) - numberOfBooks === 0) ? false : true;
+ function isLastRowIncomplete(numberOfElements) {
+     var maxNumberOfRows = Math.ceil(numberOfElements / cardsPerRow);
+     return ((maxNumberOfRows * cardsPerRow) - numberOfElements === 0) ? false : true;
  }
 
- function fillFreeSpace(cardDeck, card, numberOfBooks) {
-     var freeSlots = getNumberOfFreeSlots(numberOfBooks);
+ function fillFreeSpace(cardDeck, card, numberOfElements) {
+     var freeSlots = getNumberOfFreeSlots(numberOfElements);
      for (var j = 0; j < freeSlots; j++) {
          var card = createEmptyCard();
          cardDeck.appendChild(card);
      }
  }
 
- function getNumberOfFreeSlots(numberOfBooks) {
-     var maxNumberOfRows = Math.ceil(numberOfBooks / cardsPerRow);
-     return (maxNumberOfRows * cardsPerRow) - numberOfBooks;
+ function getNumberOfFreeSlots(numberOfElements) {
+     var maxNumberOfRows = Math.ceil(numberOfElements / cardsPerRow);
+     return (maxNumberOfRows * cardsPerRow) - numberOfElements;
  }
 
  function removeChildrenFromNode(node){
