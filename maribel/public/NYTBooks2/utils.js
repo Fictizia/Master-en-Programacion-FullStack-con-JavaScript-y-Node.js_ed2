@@ -32,7 +32,6 @@ function displayDataInView(data, createCardOfType) {
 }
 
 function createListCard(list){
-    console.log("Creando lista");
     var card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("mb-4");
@@ -84,7 +83,6 @@ function createListCard(list){
 }
 
 function createBookCard(book) {
-    console.log("Creando libro");
     var card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("mb-4");
