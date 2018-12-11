@@ -46,3 +46,9 @@ function clearContainerChildren(){
     var container = document.getElementsByClassName("container")[0];
     removeChildrenFromNode(container);
 }
+
+function removeChildrenFromNode(node){
+   while (node.firstChild) {
+       node.removeChild(node.firstChild);
+   }
+}

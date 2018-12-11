@@ -182,9 +182,3 @@ function getNumberOfFreeSlots(numberOfElements) {
     var maxNumberOfRows = Math.ceil(numberOfElements / cardsPerRow);
     return (maxNumberOfRows * cardsPerRow) - numberOfElements;
 }
-
-function removeChildrenFromNode(node){
-   while (node.firstChild) {
-       node.removeChild(node.firstChild);
-   }
-}
