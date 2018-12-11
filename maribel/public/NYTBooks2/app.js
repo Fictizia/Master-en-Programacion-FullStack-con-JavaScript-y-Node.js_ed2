@@ -2,14 +2,21 @@
  var baseUrl = "https://api.nytimes.com/svc/books/v3/lists/";
  var cardsPerRow = 3;
 
- requestBooksData();
+ requestListsData();
+
+ document.getElementsByClassName("container")[0].addEventListener("click", openList);
+
+ function openList(ev) {
+     var clickedList = ev.target.dataset.list;
+     var url = baseUrl + clickedList + ".json?api-key=" + apiKey;
+     requestBooksData(url);
+ }
 
  function requestData(url) {
      fetch(url)
         .then(getStatus)
         .then(getJson)
         .then(function(data) {
-            console.log("Received data: ", data);
             hideLoadingSpinner();
             showDataContainer();
             displayListsInView(data);
@@ -19,6 +26,21 @@
         });
  }
 
+ function requestBooksData(url) {
+     clearContainerChildren();
+     showLoadingSpinner();
+     fetch(url)
+        .then(getStatus)
+        .then(getJson)
+        .then(function(data) {
+            hideLoadingSpinner();
+            showDataContainer();
+            displayBooksInView(data);
+        })
+        .catch(function(err) {
+            console.error("An error ocurred while fetching data: ", err);
+        });
+ }
 
 function getStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -33,9 +55,14 @@ function getJson(response) {
     return response.json();
 }
 
- function requestBooksData(url) {
+ function requestListsData(url) {
       var url = baseUrl + "names.json?api-key=" + apiKey;
      requestData(url);
+ }
+
+ function showLoadingSpinner() {
+     var loadingSpinner = document.getElementsByClassName("spinner-container")[0];
+     loadingSpinner.classList.remove("hidden");
  }
 
  function hideLoadingSpinner() {
@@ -46,6 +73,11 @@ function getJson(response) {
  function showDataContainer() {
      var dataContainer = document.getElementsByClassName("container")[0];
      dataContainer.classList.remove("hidden");
+ }
+
+ function clearContainerChildren(){
+     var container = document.getElementsByClassName("container")[0];
+     removeChildrenFromNode(container);
  }
 
  function displayListsInView(data) {
@@ -106,6 +138,7 @@ function getJson(response) {
      var readMoreButton = document.createElement("a");
      readMoreButton.setAttribute("role", "button");
      readMoreButton.setAttribute("href", "#");
+     readMoreButton.dataset.list = list.list_name.toLowerCase();
      readMoreButton.classList.add("btn");
      readMoreButton.classList.add("btn-outline-primary");
      var readMoreText = document.createTextNode("READ MORE!");
@@ -244,3 +277,9 @@ function getJson(response) {
      var maxNumberOfRows = Math.ceil(numberOfBooks / cardsPerRow);
      return (maxNumberOfRows * cardsPerRow) - numberOfBooks;
  }
+
+ function removeChildrenFromNode(node){
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
