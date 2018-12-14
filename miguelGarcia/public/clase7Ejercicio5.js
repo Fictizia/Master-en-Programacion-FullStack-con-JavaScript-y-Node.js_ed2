@@ -12,7 +12,7 @@ function impImparFor (){
     }
     
     
-    function impImparWhile (){
+    function impImparWhile () {
     var i = 2;
     
         while(i < 101){
