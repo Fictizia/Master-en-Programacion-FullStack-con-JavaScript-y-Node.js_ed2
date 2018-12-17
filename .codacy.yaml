@@ -1,0 +1,5 @@
+exclude_paths:
+  - 'teoria/**/*'
+  - 'recursos/**/*'
+  - 'assets/**/*'
+  - '**/*.md' 
