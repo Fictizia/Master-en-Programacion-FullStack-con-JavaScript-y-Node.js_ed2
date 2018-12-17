@@ -324,7 +324,21 @@ document.getElementById("id").style.display="none";
 **1 -** Saca una lista de los cursos disponibles en Fictizia en el [área de Desarrollo interactivo y Web](https://www.fictizia.com/planes/desarrollo-interactivo-y-web) y conviertelo en Markdown. 
 
 ```javascript
-	// Tu solución
+	var markdown = "# Cursos de Fictizia en el Área de Desarrollo interactivo y Web\n\n";
+	
+	var cursos = document.querySelectorAll('.plan');
+
+	
+	for (var i = 0; cursos.length > i; i++) {
+		
+		var curso = cursos[i];
+		var horas = curso.querySelector(".mainTag").innerText;
+		var titulo = curso.querySelector("a").innerText
+		var link = curso.querySelector("a").href
+		markdown +=  "- [" + titulo + " (" + horas + ")](" + link + ")\n";
+	}
+	
+	console.log(markdown);
 ```
 
 - Respuesta esperada (consola):
@@ -356,9 +370,78 @@ document.getElementById("id").style.display="none";
 **2 -** Hagamos la [web del Metro](https://www.metromadrid.es/es/index.html) más divertida.
 - Saca el estado actual de todas las líneas del metro de Madrid por consola.
 
+
+- Antes de Diciembre de 2018
 ```javascript
-    // Tu solución
+	var lineas = document.querySelectorAll('.bloquet');
+	
+	for (var i = 0; i < lineas.length; i++) {
+	  var estado = lineas[i].querySelector('.circulacion > .txt > a');
+	  
+	  if(!estado) estado = lineas[i].querySelector('.circulacion > .r > a');
+	  
+	  if(estado) console.log(estado.innerText.trim());
+	  
+	}
 ```
+
+- Después de Diciembre de 2018
+```javascript
+
+function capitalizeFirstLetter(string) {
+	if(string && typeof(string) === "string") {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	} else {
+		return false
+	}
+    
+}
+
+function warningDetails (el, name) {
+	if (elContainsClass (el, name)) {
+		var idRef = el.parentNode.dataset.toggle
+		return document.getElementById(idRef).innerText
+	} else {
+		return false;
+	}
+}
+
+function cleanName (item) {
+	var imgSlctr = item.querySelector("img")
+	if(imgSlctr && imgSlctr.className) {
+		var firstClass = imgSlctr.className.split(' ')[0]
+		return firstClass.split("-").join(" ")
+	} else {
+		return false
+	}
+}
+
+function elContainsClass (el, name) {
+	if(el && el.classList) {
+		return el.classList.contains(name)
+	} else {
+		return false
+	}
+}
+
+function printTheLegend (data){
+	return `En ${data.line} circulación ${data.working ? "normal" : "deficiente"}. ${data.warnings ? data.warnings : ""}`
+}
+
+
+var lineas = Array.prototype.slice.call(document.querySelectorAll(".list__otraslineas > li:not(:last-child)"));
+lineas.forEach(function (item) {
+	var spanSlctr = item.querySelector("span > span") || item.querySelector("span");
+
+	var text = printTheLegend({
+		line: capitalizeFirstLetter(cleanName(item)),
+		working: elContainsClass (spanSlctr, "state--green"),
+		warnings: warningDetails (item.querySelector("span > span"), "state--alert")
+	})
+	console.log(text)
+})
+```
+
 
 - Respuesta esperada:
 ```txt
@@ -381,10 +464,46 @@ Circulación normal en ML1
 
 **3 -**  Diseña un script que sustituya todas las imágenes de las entradas de [Tecnología del Mundo Today](http://www.elmundotoday.com/noticias/tecnologia/) por [imágenes dummy de gatitos](https://placekitten.com/).
 ```javascript
-    // Tu solución
+		var imagenes = document.querySelectorAll('.td-module-thumb img');
+
+		for(var i = 0; i < imagenes.length; i++){
+			var url = document.querySelectorAll('.td-module-thumb img')[i].src;
+			var ancho = document.querySelectorAll('.td-module-thumb img')[i].width;
+			var alto = document.querySelectorAll('.td-module-thumb img')[i].height;
+			var sustituto = "https://placekitten.com/"+ancho+"/"+alto;
+			document.querySelectorAll('.td-module-thumb img')[i].src = sustituto;
+			// Hack para solucionar el visionado
+			document.querySelectorAll('.td-module-thumb img')[i].removeAttribute("srcset");
+		}
 ```
 
 **4 -** Nos creamos un array de objetos con la informacion, links y fotografias de l@s [profes de Fictizia](https://www.fictizia.com/profesorado)
 ```javascript
-    // Tu solución
+	var listaProfesores = [];
+	
+	var profesores = document.querySelectorAll('.microCard');
+
+	for (var i = 0; profesores.length > i; i++) {
+		
+		var profesor = profesores[i];
+		
+		detallesProfesor = {
+			nombre: profesor.querySelector("h3").innerText,
+			bio: profesor.querySelector("p").innerText,
+			avatar: profesor.querySelector("img").src,
+		};
+		
+		var links = profesor.querySelectorAll(".microBtns > li")
+		
+		for (var j = 0; links.length > j; j++) {
+			var link = links[j]
+			var linkNombre = link.innerText.toLowerCase().trim();
+			var linkUrl = link.querySelector("a").href;
+			detallesProfesor[linkNombre] = linkUrl
+		}
+		
+		listaProfesores.push(detallesProfesor)
+	}
+	
+	console.log(listaProfesores);
 ```

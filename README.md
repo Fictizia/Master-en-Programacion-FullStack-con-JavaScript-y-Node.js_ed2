@@ -50,6 +50,24 @@ Fecha | Teoría | Recursos | Contenido
 24/10/18 | [Clase 10](teoria/clase10.md) | [Clase 10](recursos/clase10.md) | Objetos y Funciones
 26/10/18 | [Clase 11](teoria/clase11.md) | Clase 11 | Práctica: Maquina Expendedora por consola
 29/10/18 | [Clase 12](teoria/clase12.md) | [Clase 12](recursos/clase12.md) | BOM y DOM I
+31/10/18 | [Clase 13](teoria/clase13.md) | [Clase 13](recursos/clase13.md) | BOM y DOM II: Manipulación y Frameworks
+05/11/18 | [Clase 14](teoria/clase14.md) | [Clase 14](recursos/clase14.md) | Eventos del DOM I
+07/11/18 | [Clase 15](teoria/clase15.md) | Clase 15 | Práctica: Hacking Twitter
+12/11/18 | [Clase 16](teoria/clase16.md) | [Clase 16](recursos/clase16.md) | Ajax I: Ajax Básico
+14/11/18 | [Clase 17](teoria/clase17.md) | [Clase 17](recursos/clase17.md) | Ajax II: Ajax Avanzado y Seguridad
+16/11/18 | [Clase 18](teoria/clase18.md) | [Clase 18](recursos/clase18.md) | Ajax III: HTTP/2 & Fetch
+19/11/18 | [Clase 19](teoria/clase19.md) | [Clase 19](recursos/clase19.md) | Rendimiento, JSDocs, Guías de estilo y SEMVER
+21/11/18 | [Clase 20](teoria/clase20.md) | Clase 20 | Live Coding: Github | Social Network Project
+23/11/18 | [Clase 21](teoria/clase21.md) | Clase 21 | Live Coding: Buenos días, Madrid!
+26/11/18 | [Clase 22](teoria/clase22.md) | Clase 22 | Trabajo en el proyecto personal
+28/11/18 | [Clase 23](teoria/clase23.md) | Clase 23 | Intro a JS Avanzado y definición de proyecto
+30/11/18 | [Clase 24](teoria/clase24.md) | [Clase 24](recursos/clase24.md) | Navegadores y conceptos avanzados de JS...
+03/12/18 | [Clase 25](teoria/clase25.md) | [Clase 25](recursos/clase25.md) | Entrevistas técnicas para JavaScript Developers
+10/12/18 | [Clase 26](teoria/clase26.md) | [Clase 26](recursos/clase26.md) | ECMA6, es7, es8, es9 I: Teoria I
+12/12/18 | [Clase 27](teoria/clase27.md) | [Clase 27](recursos/clase27.md) | ECMA6, es7, es8, es9 II: Teoria II
+14/12/18 | [Clase 28](teoria/clase28.md) | Clase 28 | ECMA6, es7, es8, es9 III: Ejercicios I
+17/12/18 | [Clase 29](teoria/clase29.md) | Clase 29 | ECMA6, es7, es8, es9 IV: Ejercicios II
+
 
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)

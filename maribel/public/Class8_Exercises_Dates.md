@@ -55,8 +55,8 @@ function getTimeElapsed() {
   var endDate = new Date();
   var elapsedTime = endDate - startDate;
 
-  var elapsedHours = (elapsedTime / (1000 * 60 * 60)).toFixed(0);
-  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0);
+  var elapsedHours = Math.floor(elapsedTime / (1000 * 60 * 60));
+  var elapsedDays  = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
 
   console.log(elapsedHours + " hours since the master started");
   console.log(elapsedDays + " days since the master started");
@@ -69,8 +69,8 @@ function getTimeRemaining() {
   var endDate = new Date(2019, 6, 1);
   var elapsedTime = endDate - startDate;
 
-  var elapsedHours = (elapsedTime / (1000 * 60 * 60)).toFixed(0);
-  var elapsedDays  = (elapsedTime / (1000 * 60 * 60 * 24)).toFixed(0);
+  var elapsedHours = Math.floor(elapsedTime / (1000 * 60 * 60));
+  var elapsedDays  = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
 
   console.log(elapsedHours + " hours for the master to end");
   console.log(elapsedDays + " days for the master to end");
