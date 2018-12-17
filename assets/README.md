@@ -200,3 +200,6 @@
 ### clase28
 
 - https://marsblogger.files.wordpress.com/2015/04/giga.png 
+
+### clase29
+
