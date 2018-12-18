@@ -151,3 +151,55 @@
 ### clase22
 
 - https://media0.giphy.com/media/l3uGKbsTIyhyM/giphy.gif 
+
+### clase23
+
+- http://i0.kym-cdn.com/photos/images/original/000/177/486/tumblr_lrp6hz6Bxd1qjuciho2_500.gif 
+
+### clase24
+
+- http://spiritual-artwork.org/wp-content/uploads/2015/03/Browsers.png 
+- https://i.emezeta.com/weblog/guerra-de-navegadores/browser-wars.jpg 
+- https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Timeline_of_web_browsers.svg/800px-Timeline_of_web_browsers.svg.png 
+- https://upload.wikimedia.org/wikipedia/en/timeline/6e13eec446def3d241affb7c5b2df7b6.png 
+- https://i.emezeta.com/weblog/guerra-de-navegadores/firefox-vs-chrome.jpg 
+- https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/layers.png 
+- https://cdn-images-1.medium.com/max/800/1*lZ-KXoVNUSOwaq7q8zUBDg.png 
+- https://cdn-images-1.medium.com/max/800/1*9mv-g9E-87Sji9j7YR08Fw.gif 
+- https://cdn-images-1.medium.com/max/2000/1*Kd0UGiDvgooFooCy28rs8Q.jpeg 
+- http://klimas.lt/slides/3-you-dont-know-javascript/img/understanding-closures-is-like-when-neo-sees-the-matrix-for-the-first-time.jpg 
+- https://cdn-images-1.medium.com/max/2000/1*oPPs_dGbLnYmDraOawR0Ig.jpeg 
+- http://bernardisecurities.com/wp-content/uploads/2015/08/Liquidity_Illusion_0.png 
+- https://cdn-images-1.medium.com/max/965/1*hmECDVvkUVL6H_orThhd-g.png 
+- https://rux.vc/wp-content/uploads/2017/12/javascript-5954ff.jpg 
+- https://cdn-images-1.medium.com/max/1600/1*dianRzNAQevG4-ZXUfxpDg.png 
+- http://northstar-www.dartmouth.edu/doc/solaris-forte/manuals/tools++/tlsug/images/image2.gif 
+- https://i.imgur.com/8yKeaLf.jpg 
+- https://static.charlieharvey.org.uk/graphics/js-weird-parts.png 
+
+### clase25
+
+- https://www.vistacollege.edu/wp-content/uploads/2015/12/feature-undecided-major.jpg 
+- https://static1.squarespace.com/static/531fb456e4b087367275843a/53228d91e4b08e2f1a3ab96e/533c799be4b05fdb12d5a06d/1422685426748/Rover+%281+of+7%29.jpg?format=1000w 
+
+### clase26
+
+- https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/novedades-ecmascript6-t1.gif 
+- https://assets.contents.io/asset_Y9hpxcgL.png 
+- https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/es6%20%26%20beyond/fig1.png 
+- https://mdn.mozillademos.org/files/8629/typed_arrays.png 
+- https://cdn-images-1.medium.com/max/1600/1*4KPIzPcEPAI0um7OQ-ibYw.jpeg 
+- https://mdn.mozillademos.org/files/8633/promises.png 
+
+### clase27
+
+- https://cdn-images-1.medium.com/max/1446/1*JhDw7yiwv5YOJIncUhCXQg.png 
+- https://i.ytimg.com/vi/LsynbD9gwqg/maxresdefault.jpg 
+- https://cdn-images-1.medium.com/max/1000/1*ReeHV0eEsfmMskVUk1vVog.png 
+
+### clase28
+
+- https://marsblogger.files.wordpress.com/2015/04/giga.png 
+
+### clase29
+

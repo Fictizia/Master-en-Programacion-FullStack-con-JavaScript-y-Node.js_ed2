@@ -63,5 +63,5 @@ typings/
 # Personal folder
 PROFESOR/
 
-#webstorm
-.idea/
+# JetBrains IDEs
+.idea/**/*
