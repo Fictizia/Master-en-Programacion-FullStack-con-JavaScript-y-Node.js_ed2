@@ -3,6 +3,7 @@
   const spinner = document.querySelector('.spinner');
   const header = document.querySelector('.header');
   const articlesContainer = document.querySelector('.articles');
+  const arrayTags = [];
   spinner.style.display = 'block';
 
   function loadAjax(url, callback) {
@@ -26,7 +27,11 @@
     const h2 = document.createElement('h2');
     header.appendChild(h2);
 
-    if ($event.target.nodeName === 'A' && $event.target.id !== '' && $event.isTrusted) {
+    const arrayConditions = [$event.target.nodeName === 'A', $event.target.dataset.id !== '', $event.isTrusted];
+
+    const isTagA = arrayConditions.every(item => item === true);
+
+    if (isTagA) {
 
       spinner.style.display = 'block';
 
@@ -37,7 +42,7 @@
 
       button.addEventListener('click', back, false);
 
-      const idSelected = $event.target.id;
+      const idSelected = $event.target.dataset.id;
       const url = `http://api.nytimes.com/svc/books/v3/lists/${idSelected}.json?api-key=${config.API_KEY}`;
 
       loadAjax(url, function (data) {
@@ -50,35 +55,31 @@
 
         res.forEach(function (item) {
 
-          createAndAppendListElement(item);
+          arrayTags.length = 0;
+
+          _createElement({tag:'h3', mount: 1});
+          _createElement({tag:'img', mount: 1});
+          _createElement({tag:'small', mount: 1});
+          _createElement({tag:'p', mount: 1});
+          _createElement({tag:'a', mount: 1});
+
+          _addTextToElement([
+            '# ' + item.rank + ' ' + item.title,
+            ,
+            item.description,
+            'Semanas en lista: ' + item.weeks_on_list,
+            'Comprar'
+          ]);
+
+          _setAttributesToTag('IMG', 'src', item.book_image);
+          _setAttributesToTag('A', 'target', '_blank');
+          _setAttributesToTag('A', 'href', item.amazon_product_url);
+
+          _attachElementsToDOM(arrayTags);
 
         });
       });
     }
-  }
-
-  function createAndAppendListElement(item) {
-    const article = document.createElement('ARTICLE');
-    const h3 = document.createElement('H3');
-    const img = document.createElement('IMG');
-    const small = document.createElement('SMALL');
-    const p = document.createElement('P');
-    const a = document.createElement('a');
-
-    h3.textContent = '# ' + item.rank + ' ' + item.title;
-    img.src = item.book_image;
-    p.textContent = item.description;
-    small.textContent = 'Semanas en lista: ' + item.weeks_on_list;
-    a.textContent = 'Comprar';
-    a.setAttribute('target', '_blank');
-    a.href = item.amazon_product_url;
-
-    articlesContainer.appendChild(article);
-    article.appendChild(h3);
-    article.appendChild(img);
-    article.appendChild(small);
-    article.appendChild(p);
-    article.appendChild(a);
   }
 
   function init() {
@@ -101,42 +102,69 @@
 
       res.forEach(function (item) {
 
-        createAndAppendList(item);
+        arrayTags.length = 0;
+
+        _createElement({tag:'h3', mount: 1});
+        _createElement({tag:'p', mount: 3});
+        _createElement({tag:'a', mount: 1});
+
+        _addTextToElement([
+          item.display_name,
+          `Oldest: ${item.newest_published_date}`,
+          `Newest: ${item.oldest_published_date}`,
+          `Updated: ${item.updated}`,
+          'Read more'
+        ]);
+
+        _setAttributesToTag('A', 'data-id', item.list_name);
+        _setAttributesToTag('A', 'href', '#');
+
+        _attachElementsToDOM(arrayTags);
 
       });
     });
   }
 
-  function createAndAppendList(item) {
+  function _createElement(obj) {
+    if (obj.mount > 1) {
+      for (let i = 0; i < obj.mount; i++) {
+        arrayTags.push(document.createElement(obj.tag));
+      }
+    } else {
+      arrayTags.push(document.createElement(obj.tag));
+    }
+  }
 
+  function _addTextToElement(array) {
+    arrayTags.forEach((element, index) => {
+
+      element.textContent = array[index];
+
+    });
+  }
+
+  function _attachElementsToDOM (array) {
     const article = document.createElement('ARTICLE');
-    const h3 = document.createElement('H3');
-    const p1 = document.createElement('P');
-    const p2 = document.createElement('P');
-    const p3 = document.createElement('P');
-    const a = document.createElement('a');
-
-    h3.textContent = item.display_name;
-    p1.textContent = 'Oldest: ' + item.newest_published_date;
-    p2.textContent = 'Newest: ' + item.oldest_published_date;
-    p3.textContent = 'Updated: ' + item.updated;
-    a.textContent = 'Read more';
-    a.setAttribute('id', item.list_name);
-    a.setAttribute('href', '#');
-
+    array.forEach(item => {
+      article.appendChild(item);
+    });
     articlesContainer.appendChild(article);
-    article.appendChild(h3);
-    article.appendChild(p1);
-    article.appendChild(p2);
-    article.appendChild(p3);
-    article.appendChild(a);
+  }
 
+  function _setAttributesToTag(node, attribute, src) {
+    arrayTags.forEach(item => {
+      if (item.tagName === node) {
+        item.setAttribute(attribute, src);
+      }
+    });
   }
 
   function back() {
-    header.querySelector('h1').remove();
-    header.querySelector('h2').remove();
-    header.querySelector('button').remove();
+    const childrenOfHeader = document.querySelector('.header').children;
+
+    for (let i = childrenOfHeader.length - 1; i > 0; i--) {
+      childrenOfHeader[i].remove();
+    }
     articlesContainer.innerHTML = '';
     init();
   }
