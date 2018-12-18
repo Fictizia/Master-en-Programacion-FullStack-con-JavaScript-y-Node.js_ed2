@@ -4,11 +4,11 @@
   input.addEventListener('keyup', searchUser, false);
   const container = document.querySelector('.container');
 
-  function searchUser($event) {
+  async function searchUser($event) {
 
     if ($event.code === 'Enter' && $event.isTrusted) {
 
-      if (input.value.trim() === '') {
+      if (!input.value.trim()) {
 
         const p = document.createElement('P');
         container.appendChild(p);
@@ -17,92 +17,78 @@
 
       } else {
 
-        if (document.querySelector('ul') !== null) {
+        const isUl = document.querySelector('ul') !== null;
+
+        if (isUl) {
           document.querySelector('ul').remove();
         }
 
         const text = input.value.trim();
 
-        loadAjax(`https://api.github.com/search/users?q=${text}+in%3Afullname&type=Users`)
-          .then(getNetwork)
-          .catch(error => console.log(error));
+        const response = await callApi(`https://api.github.com/search/users?q=${text}+in%3Afullname&type=Users`);
+        generateUserList(response);
 
       }
     }
+
   }
 
-  function loadAjax(url) {
+  function ajax(url) {
     return new Promise((resolve, reject) => {
       fetch(url)
-        .then(json => json.json())
-        .then(resolve)
-        .catch(reject);
+        .then(response => {
+          if (response.status === 200) {
+            resolve(response.json())
+          } else {
+            reject(response.json());
+          }
+        })
+        .catch(error => console.log(error));
     })
   }
 
-  function getNetwork(urlNetwork) {
-    const users = urlNetwork.items;
-
-    if (users && users.length) {
-
-      users.forEach(function (item) {
-
-        const followers = new Promise( (resolve, reject) => {
-          loadAjax(`https://api.github.com/users/${item.login}/followers`)
-            .then(resolve)
-        })
-
-        const followings = new Promise( (resolve, reject) => {
-          loadAjax(`https://api.github.com/users/${item.login}/following`)
-            .then(resolve)
-        })
-
-        createContainerUser(item, followers, followings);
-      });
-    } else {
-      feedBackMessage('No users found');
-    }
+  async function callUserProfile(url) {
+    return await ajax(url);
   }
 
-  function createContainerUser(item, followers, followings) {
+  async function callApi(url) {
+    return await ajax(url);
+  }
+
+  function generateUserList(data) {
     const ul = document.createElement('UL');
-    const li = document.createElement('LI');
-    const img = document.createElement('IMG');
-    const div = document.createElement('DIV');
-    div.setAttribute('class', 'user-details');
-
-    const divScore = document.createElement('DIV');
-
-    li.appendChild(document.createTextNode(item.login));
-
-    divScore.innerHTML = `Score: <span>${item.score.toFixed(2)}</span>`;
-
-    img.setAttribute('src', item.avatar_url);
-
-    ul.appendChild(li);
-    li.appendChild(img);
-    li.appendChild(div);
-    div.appendChild(divScore);
     container.appendChild(ul);
 
-    getFollowers(followers, div);
-    getFollowings(followings, div);
+    const resArray = data.items;
+
+    resArray.forEach(async function (item) {
+      const urls = item.url;
+      const netWorking = await callUserProfile(urls);
+      const div = makeTemplate(item, netWorking);
+      ul.insertAdjacentHTML('afterbegin', div);
+
+    })
   }
 
-  function getFollowers (followers, div) {
-    followers.then( res => {
-      const divFollower = document.createElement('DIV');
-      divFollower.innerHTML = `Followers: <span>${res.length}</span>`;
-      div.appendChild(divFollower);
-    });
-  }
+  function makeTemplate(item, netWorking) {
+    const template = `
+      <li>${item.login}
+        <img src="${item.avatar_url}">
+        <div class="user-details">
+          <div>Score: 
+            <span>${item.score.toFixed(2)}</span>
+          </div>
+          <div>
+            <span>Followers: ${netWorking.followers}</span>
+          </div>
+          <div>
+            <span>Followings: ${netWorking.following}</span>
+          </div>
+        </div>
+       </li>
+    `;
 
-  function getFollowings(followings, div) {
-    followings.then( res => {
-      const divFollowing = document.createElement('DIV');
-      divFollowing.innerHTML = `Followings: <span>${res.length}</span>`;
-      div.appendChild(divFollowing);
-    });
+    return template;
   }
 
 })();

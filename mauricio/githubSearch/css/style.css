@@ -1,12 +1,4 @@
-/* https://color.adobe.com/es/Copy-of-Pastels-color-theme-11580203/
-background: #F8B195"
-background: #F67280"
-background: #C06C84"
-background: #6C5B7B"
-background: #355C7D"*/
-
 body {
-  /*background-color: #F8B195;*/
   font-family: 'Roboto', sans-serif;
 }
 
@@ -41,7 +33,6 @@ ul {
   width: 620px;
   margin: 0 auto 0;
   list-style-type: none;
-  /*background-color: #355C7D;*/
   padding: 1.25rem 1.25rem 0.3125rem 1.25rem;
   color: #fff;
 }
