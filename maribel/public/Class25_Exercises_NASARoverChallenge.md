@@ -42,50 +42,50 @@ var machine = {
         y: 2
     },
     instructions: [],
-    state: "north",
+    state: "N",
     transitions: {
-        "north" : {
-            move: function(){
+        "N" : {
+            M: function(){
                 this.changePositionTo(this.position.x, this.position.y + 1);
             },
-            left: function(){
-                this.changeStateTo("west");
+            L: function(){
+                this.changeStateTo("W");
             },
-            right: function(){
-                this.changeStateTo("east");
+            R: function(){
+                this.changeStateTo("E");
             }
         },
-        "east" : {
-            move: function(){
+        "E" : {
+            M: function(){
                 this.changePositionTo(this.position.x + 1, this.position.y);
             },
-            left: function(){
-                this.changeStateTo("north");
+            L: function(){
+                this.changeStateTo("N");
             },
-            right: function(){
-                this.changeStateTo("south");
+            R: function(){
+                this.changeStateTo("S");
             }
         },
-        "south": {
-            move: function(){
+        "S": {
+            M: function(){
                 this.changePositionTo(this.position.x, this.position.y - 1);
             },
-            left: function(){
-                this.changeStateTo("east");
+            L: function(){
+                this.changeStateTo("E");
             },
-            right: function(){
-                this.changeStateTo("west");
+            R: function(){
+                this.changeStateTo("W");
             }
         },
-        "west": {
-            move: function(){
+        "W": {
+            M: function(){
                 this.changePositionTo(this.position.x - 1, this.position.y);
             },
-            left: function(){
-                this.changeStateTo("south");
+            L: function(){
+                this.changeStateTo("S");
             },
-            right: function(){
-                this.changeStateTo("north");
+            R: function(){
+                this.changeStateTo("N");
             }
         }
     },
@@ -131,6 +131,6 @@ function start() {
     machine.executeInstructions();
 }
 
-setup(5, "1 2 north", ["left", "move", "left", "move", "left", "move", "left", "move", "move"]);
+setup(5, "1 2 N", ["L", "M", "L", "M", "L", "M", "L", "M", "M"]);
 start();
 ```
