@@ -38,8 +38,8 @@ Expected Output: “1 3 N”
 var machine = {
     squareSize: 5,
     position: {
-        x: 1,
-        y: 2
+        x: 0,
+        y: 0
     },
     instructions: [],
     state: "N",
