@@ -36,10 +36,12 @@ Expected Output: “1 3 N”
 
 ```javascript
 var machine = {
+    squareSize: 5,
     position: {
         x: 1,
         y: 2
     },
+    instructions: [],
     state: "north",
     transitions: {
         "north" : {
@@ -105,14 +107,30 @@ var machine = {
         this.position.x = newX;
         this.position.y = newY;
         console.log("Position changed to: ", this.position);
+    },
+    
+    executeInstructions() {
+        this.instructions.forEach(instr => {
+            machine.dispatch(instr);
+        });
     }
 }
 
 function setup(squareSize, initialPosition, instructions) {
-    instructions.forEach(instr => {
-        machine.dispatch(instr);
-    });
+    machine.squareSize = squareSize;
+    
+    initialPosition = initialPosition.split(" ");
+    machine.position.x = parseInt(initialPosition[0]);
+    machine.position.y = parseInt(initialPosition[1]);
+    machine.state = initialPosition[2];
+    
+    machine.instructions = instructions;
 }
 
-setup(5, "1 2 N", ["left", "move", "left", "move", "left", "move", "left", "move", "move"]);
+function start() {
+    machine.executeInstructions();
+}
+
+setup(5, "1 2 north", ["left", "move", "left", "move", "left", "move", "left", "move", "move"]);
+start();
 ```
