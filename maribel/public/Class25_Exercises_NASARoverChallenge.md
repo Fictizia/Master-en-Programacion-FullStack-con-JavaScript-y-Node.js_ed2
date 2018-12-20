@@ -88,12 +88,11 @@ var machine = {
         }
     },
     
-    dispatch(actionName, ...payload) {
-        const actions = this.transitions[this.state];
+    dispatch(actionName) {
         const action = this.transitions[this.state][actionName];
         
         if (action) {
-            action.apply(machine, ...payload);
+            action.apply(machine);
         }
     },
     
