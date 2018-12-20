@@ -104,9 +104,13 @@ var machine = {
     },
     
     changePositionTo(newX, newY) {
-        this.position.x = newX;
-        this.position.y = newY;
-        console.log("Position changed to: ", this.position);
+        var newXIsValid = (newX >= 0 && newX < this.squareSize);
+        var newYIsValid = (newY >= 0 && newY < this.squareSize);
+        if (newXIsValid && newYIsValid) {
+            this.position.x = newX;
+            this.position.y = newY;
+            console.log("Position changed to: ", this.position);
+        }
     },
     
     executeInstructions() {
