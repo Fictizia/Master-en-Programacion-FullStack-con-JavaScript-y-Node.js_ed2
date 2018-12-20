@@ -1,2 +1,3 @@
 privada/
-.idea/
+publica/.idea/*
+.idea/**/*
