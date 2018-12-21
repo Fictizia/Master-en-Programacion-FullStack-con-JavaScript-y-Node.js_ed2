@@ -100,7 +100,6 @@ var machine = {
     
     changeStateTo(newState) {
         this.state = newState;
-        console.log("State changed to: ", this.state);
     },
     
     changePositionTo(newX, newY) {
@@ -109,7 +108,6 @@ var machine = {
         if (newXIsValid && newYIsValid) {
             this.position.x = newX;
             this.position.y = newY;
-            console.log("Position changed to: ", this.position);
         }
     },
     
@@ -117,6 +115,9 @@ var machine = {
         this.instructions.forEach(instr => {
             machine.dispatch(instr);
         });
+        
+        var finalResult = [this.position.x, this.position.y, this.state].join(" ");
+        console.log(finalResult);
     }
 }
 
