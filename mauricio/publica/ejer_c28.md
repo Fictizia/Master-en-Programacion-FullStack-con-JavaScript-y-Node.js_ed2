@@ -6,7 +6,7 @@ En Marte tenemos un rover llamado curiosity... Nuestro objetivo es usar la API d
 
 function NasaRequest(current, request, frecuency) {
   const token = '';
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/phoeetos?sol=${current}&api_key=${token}`;
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${current}&api_key=${token}`;
   return new Promise(((resolve, reject) => {
     fetch(url)
       .then(json => {
