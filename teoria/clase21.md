@@ -35,6 +35,4 @@
 ![buenos_dias_madrid.png](../OTROS/buenos_dias_madrid.png)
 
 
-```javascript
-    // Tu solución
-```
+**[Solución](../OTROS/buenos_dias_madrid)**
