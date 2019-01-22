@@ -3,37 +3,58 @@
 `main.js`
 ```javascript
 $http('http://airemad.com/api/v1/station')
-    .get()
+    .then()
 ```
 
-`main.js`
+`library.js`
 ```javascript
-(function(){
-    function $http(url){
-      const library = {  }
-      
-      library.promise = new Promise((resolve, reject) => {
-        fetch(url)
-          .then(response => {
-            if (response.status === 200) {
-              return resolve(response.json());
-            } else {
-              return reject(response.json());
-            }
-          })
-          .catch(error => console.log(error));
+(function () {
+
+  function $http(url) {
+
+    const library = {}
+
+    library.promise = fetch(url)
+      .then(response => response)
+
+    library.get = function () {
+    
+      return library.promise
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            library.catch(response);
+            return false;
+          }
       })
-
-      library.get = function() {
-        console.log('olaquease');
-      }
-      
-      return library;
     }
 
-    if(typeof(window.$http) === 'undefined'){
-      window.$http = $http;
+    library.then = function () {
+      this.get()
+        .then( data => {
+            if (data && data.length) {
+              let content = ""
+              data.forEach(element => {
+                content += `<li>La estación ${element.nombre_estacion} (${element.id}) está en ${element.direccion}</li>`
+              })
+              document.body.innerHTML = `<ul>${content}</ul>` 
+            }            
+          }
+        )
     }
 
-  })();
+    library.catch = function(error) {
+      document.body.innerHTML = `Error: ${error.status} ${error.statusText}` 
+    }
+
+    return library;
+  }
+
+  if (typeof (window.$http) === 'undefined') {
+    window.$http = $http;
+  }
+
+})();
+
 ```

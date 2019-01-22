@@ -208,3 +208,59 @@
 
 - https://learnmate.com.au/wp-content/uploads/2017/03/6a00d8341c5dea53ef0163035a4bd0970d-pi.jpg 
 
+### clase31
+
+- http://4.bp.blogspot.com/-YUyWf1Ey2nQ/VcUCyFjtPXI/AAAAAAAAACU/Hk9ylpwa-3g/s1600/1.jpg 
+- https://cdn-images-1.medium.com/max/1000/1*vYtDyAbOMTJnArJvXix5wg.jpeg 
+- http://nmp90.com/wp-content/uploads/2017/12/object-oriented-programming.jpg 
+- https://cdn-images-1.medium.com/max/800/1*cBFSQ9Ytv_D0jwGtpuL5WA.png 
+
+### clase32
+
+- https://blog.capterra.com/wp-content/uploads/2015/12/dt150622-720x224.gif
+- https://ricardogeek.com/wp-content/uploads/2015/03/dt140812.gif
+- https://pbs.twimg.com/media/C9jUzCQXgAA6S4p.jpg 
+- https://i.ytimg.com/vi/FooS1nB3kuw/maxresdefault.jpg 
+- https://comunidad.iebschool.com/metodologiasagiles/files/2015/05/metodologias-agiles.jpg 
+- https://media.makeameme.org/created/brace-yourself-project.jpg 
+- https://memegenerator.net/img/instances/61734818/guys-code-this-software-design-done.jpg 
+- https://pbs.twimg.com/media/Db3pazRWsAE6KMC.jpg 
+- https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg 
+- https://pbs.twimg.com/media/DfGdI0CX4AEMLA3.jpg 
+- https://memegenerator.net/img/instances/61666374/organization.jpg 
+- https://i.kym-cdn.com/photos/images/newsfeed/001/401/347/312.jpg 
+- https://res.cloudinary.com/practicaldev/image/fetch/s--3L0blRat--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2AYkPBKSgLzs_gq1X13TcyaQ.jpeg
+- https://i.giphy.com/NsTceS2EH3Mli.gif
+- http://www.tiposdesoftware.com/images/historia-del-software-etapas.jpg
+- https://slideplayer.es/slide/9018329/27/images/7/L%C3%ADnea+del+tiempo+digital.jpg
+
+### clase33
+
+- https://cdn.mos.cms.futurecdn.net/277fa434118f748dc70c67558105d70d-650-80.jpg 
+- http://quatresoft.com/wp-content/uploads/2016/06/Geolocalizaci%C3%B3n.jpg 
+- http://www.excelguru.ca/blog/wp-content/uploads/2014/07/image_thumb.png 
+- https://carto.com/blog/img/posts/2016/2016-09-01-from-cartodb-to-carto/carto-logo.6e337a04.svg 
+- http://des.esri.es/images/ESRI-N.png 
+- https://openrouteservice.org/wp-content/uploads/2018/01/openstreetmap-2.png 
+- http://www.joseluisestevez.com/wp-content/uploads/2016/02/logo_ol3.png 
+- http://mourner.github.io/Leaflet/docs/images/logo.png 
+- http://www.thenetworking.com/wp-content/uploads/2017/10/google-maps-logo-openA.png 
+
+
+### clase34
+
+- http://imgs.xkcd.com/comics/regular_expressions.png "RegEx save the day" 
+- http://i.imgur.com/7rV4c56.jpg "email regex" 
+
+
+### clase35
+
+### clase36
+
+- https://assets.madebyshape.co.uk/uploads/imager/299deb39facbb0c50fa0371390d9cd0c/637/cc1363b2772c79ebc866edf877bcb3ca.jpg 
+- http://www.tutorialmonsters.com/wp-content/uploads/2013/05/graficas-1080x720.jpg 
+- http://www.jolicharts.com/wp-content/uploads/2013/08/D3JS.png 
+- https://cdn-images-1.medium.com/max/1920/1*O7ttrU2PqHXwPYni8RSA4w.png 
+- https://cdn-shop.adafruit.com/1200x900/673-00.jpg 
+- http://bookofsound.com/wp-content/uploads/2014/09/P5js-png.png 
+- https://cdn-images-1.medium.com/focal/1600/480/60/24/1*Cit3KMtbvkUK31oCXR0HXg.jpeg 
