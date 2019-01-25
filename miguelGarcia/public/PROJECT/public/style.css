@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap: wrap;
+    font-family: 'bookman';
+    background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+    color:#555;
+    font-family:'Roboto';
+    font-weight:300;
+    font-size:32px;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+
+#piano {
+    width: 90%;
+    height:320px;
+    display:flex;
+    justify-content: center;
+}
+
+.white {
+    border:2px solid black;
+    background-color:white;
+    flex-grow:1;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    box-shadow:
+    1px 1px #adaeaf,
+    2px 2px #adaeaf,
+    3px 3px #adaeaf;
+    
+}
+
+.blackKeyContainer{
+    position: relative;
+    width:0.1%;
+}
+
+.black{
+    background-color: black;
+    width: 1000%;
+    height:200px;
+    position: absolute;
+    left:0px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    box-shadow:
+    1px 1px #adaeaf,
+    2px 2px #adaeaf,
+    3px 3px #adaeaf;
+    transform: translateX(-3px);
+}
+
+.blackDown{
+    background-color: black;
+    width: 1000%;
+    height:200px;
+    position: absolute;
+    left:0px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+}
+
+.whiteDown {
+    border:2px solid black;
+    background-color:white;
+    flex-grow:1;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+
+#imslp {
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+}
+
+.zonaBusqueda {
+    display: flex;
+    justify-content: space-around;
+    margin-top:35px;
+}
+
+.obra {
+    font-size: 20px;
+}
+
+.busqueda{
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+
+
+
