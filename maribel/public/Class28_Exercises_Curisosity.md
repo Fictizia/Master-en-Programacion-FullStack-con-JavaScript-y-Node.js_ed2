@@ -53,6 +53,7 @@ request started for: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/ph
 currentValue: [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 ```
 
+Mientras hacía el ejercicio, tuve algunos problemas intentando usar async/await recursivamente. Más info en [esta pregunta](https://stackoverflow.com/questions/54370252/recursive-async-await-request-doesnt-return-to-calling-function) de SO.
 ```javascript
 const apiKey = "yourApiKey";
 const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=";
