@@ -1,6 +1,6 @@
 ### Ejercicios
 
-![img](assets/clase28/2fbe4515-8a48-4374-8b0c-bd5d2dc0e888.png)
+![img](../../assets/clase28/2fbe4515-8a48-4374-8b0c-bd5d2dc0e888.png)
 
 #### 1 - Ayudemos a la NASA!
 
