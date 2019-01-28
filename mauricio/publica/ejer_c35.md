@@ -1,7 +1,7 @@
 ### 1 - Captura los emails del siguiente texto
 
 ```javascript
-([a-z]+)[-_]?([a-z]+)?([1-3]+)?@([a-z]+)\.([a-z]+)?\.?([a-z]+)?\.?([a-z]{2})?
+([\w]+[\-]*[0-9]*)+@(([\w]{3,})+[\.])+([a-z]{2,3})
 ```
 
 ### 2 - Captura el DNI y NIE
