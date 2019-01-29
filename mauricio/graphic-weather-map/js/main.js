@@ -1,7 +1,7 @@
 let OpenWeatherMap = (function(){
   const canvas = document.getElementById("chartOWM");
 
-  const API = `f6f7f9a1591073fb35d158aead30270e`;
+  const API = ``;
   const URL = `https://api.openweathermap.org/data/2.5/forecast?q=Madrid&appid=${API}&units=metric`;
 
   async function callApi(URL) {
