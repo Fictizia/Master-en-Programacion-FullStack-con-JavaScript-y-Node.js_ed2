@@ -354,3 +354,9 @@
 ### clase44
 
 - https://firebase.google.com/docs/auth/images/auth-providers.png?hl=es-419 
+
+
+### clase45
+
+- https://cdn-images-1.medium.com/max/1600/1*w1IJOmdzBNji2uAyXX4XgQ.jpeg 
+- https://media.giphy.com/media/l3mZm7FJoEK3KIKru/giphy.gif 
