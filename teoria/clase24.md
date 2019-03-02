@@ -316,34 +316,6 @@ var size14 = makeSizer(14);
 var size16 = makeSizer(16);
 ```
 
-**Ejemplo ES5.1 vs ES6**
-```javascript
-//ES5
-(function () {
-	if(true) {
-		var ifScope = "data"
-	}
-    for(var forScope = 0; forScope < 3; forScope += 1) {
-        console.log(forScope);
-    }
-    console.log("forScope ?", forScope);	// 3
-    console.log("ifScope ?", ifScope);		// data
-}());
-
-// ES6
-(function () {
-	if(true) {
-		let ifScope = "data"
-	}
-    for(let forScope = 0; forScope < 3; forScope += 1) {
-        console.log(forScope);
-    }
-    console.log("forScope ?", forScope);	// Uncaught ReferenceError: forScope is not defined
-    console.log("ifScope ?", ifScope);		// Uncaught ReferenceError: ifScope is not defined
-}());
-```
-
-
 
 **Recursos**
 - [JavaScript Closures Demystified](https://www.sitepoint.com/javascript-closures-demystified/)
@@ -380,6 +352,34 @@ function fn2() { return 2; }
 
 console.log("fn1", fn1()); // 1
 console.log("fn2", fn2()); // 2
+```
+
+
+**Ejemplo ES5.1 vs ES6**
+```javascript
+//ES5
+(function () {
+	if(true) {
+		var ifScope = "data"
+	}
+    for(var forScope = 0; forScope < 3; forScope += 1) {
+        console.log(forScope);
+    }
+    console.log("forScope ?", forScope);	// 3
+    console.log("ifScope ?", ifScope);		// data
+}());
+
+// ES6
+(function () {
+	if(true) {
+		let ifScope = "data"
+	}
+    for(let forScope = 0; forScope < 3; forScope += 1) {
+        console.log(forScope);
+    }
+    console.log("forScope ?", forScope);	// Uncaught ReferenceError: forScope is not defined
+    console.log("ifScope ?", ifScope);		// Uncaught ReferenceError: ifScope is not defined
+}());
 ```
 
 **Recursos**
@@ -984,12 +984,6 @@ console.log(array2); //[1, 2, 3, "MANDARINA"]
 - [What is the most efficient way to deep clone an object in JavaScript?](https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript)
 - [How to Copy a JavaScript Object](https://raddevon.com/articles/copy-javascript-object/)
 - [Immutable structures and cloning](http://www.jstips.co/en/javascript/immutable-structures-and-cloning/)
-
-
-### Librerías esenciales @@ULISES
-- http://elasticlunr.com/
-- https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
-- https://blog.bitsrc.io/11-javascript-utility-libraries-you-should-know-in-2018-3646fb31ade
 
 ### Resumen de la clase :muscle::muscle:
 

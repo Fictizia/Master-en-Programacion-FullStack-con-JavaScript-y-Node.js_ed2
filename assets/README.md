@@ -203,3 +203,150 @@
 
 ### clase29
 
+
+### clase30
+
+- https://learnmate.com.au/wp-content/uploads/2017/03/6a00d8341c5dea53ef0163035a4bd0970d-pi.jpg 
+
+### clase31
+
+- http://4.bp.blogspot.com/-YUyWf1Ey2nQ/VcUCyFjtPXI/AAAAAAAAACU/Hk9ylpwa-3g/s1600/1.jpg 
+- https://cdn-images-1.medium.com/max/1000/1*vYtDyAbOMTJnArJvXix5wg.jpeg 
+- http://nmp90.com/wp-content/uploads/2017/12/object-oriented-programming.jpg 
+- https://cdn-images-1.medium.com/max/800/1*cBFSQ9Ytv_D0jwGtpuL5WA.png 
+
+### clase32
+
+- https://blog.capterra.com/wp-content/uploads/2015/12/dt150622-720x224.gif
+- https://ricardogeek.com/wp-content/uploads/2015/03/dt140812.gif
+- https://pbs.twimg.com/media/C9jUzCQXgAA6S4p.jpg 
+- https://i.ytimg.com/vi/FooS1nB3kuw/maxresdefault.jpg 
+- https://comunidad.iebschool.com/metodologiasagiles/files/2015/05/metodologias-agiles.jpg 
+- https://media.makeameme.org/created/brace-yourself-project.jpg 
+- https://memegenerator.net/img/instances/61734818/guys-code-this-software-design-done.jpg 
+- https://pbs.twimg.com/media/Db3pazRWsAE6KMC.jpg 
+- https://slimfit.khanhicetea.com/images/solve-any-problem-meme.jpg 
+- https://pbs.twimg.com/media/DfGdI0CX4AEMLA3.jpg 
+- https://memegenerator.net/img/instances/61666374/organization.jpg 
+- https://i.kym-cdn.com/photos/images/newsfeed/001/401/347/312.jpg 
+- https://res.cloudinary.com/practicaldev/image/fetch/s--3L0blRat--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/2000/1%2AYkPBKSgLzs_gq1X13TcyaQ.jpeg
+- https://i.giphy.com/NsTceS2EH3Mli.gif
+- http://www.tiposdesoftware.com/images/historia-del-software-etapas.jpg
+- https://slideplayer.es/slide/9018329/27/images/7/L%C3%ADnea+del+tiempo+digital.jpg
+
+### clase33
+
+- https://cdn.mos.cms.futurecdn.net/277fa434118f748dc70c67558105d70d-650-80.jpg 
+- http://quatresoft.com/wp-content/uploads/2016/06/Geolocalizaci%C3%B3n.jpg 
+- http://www.excelguru.ca/blog/wp-content/uploads/2014/07/image_thumb.png 
+- https://carto.com/blog/img/posts/2016/2016-09-01-from-cartodb-to-carto/carto-logo.6e337a04.svg 
+- http://des.esri.es/images/ESRI-N.png 
+- https://openrouteservice.org/wp-content/uploads/2018/01/openstreetmap-2.png 
+- http://www.joseluisestevez.com/wp-content/uploads/2016/02/logo_ol3.png 
+- http://mourner.github.io/Leaflet/docs/images/logo.png 
+- http://www.thenetworking.com/wp-content/uploads/2017/10/google-maps-logo-openA.png 
+
+
+### clase34
+
+- http://imgs.xkcd.com/comics/regular_expressions.png "RegEx save the day" 
+- http://i.imgur.com/7rV4c56.jpg "email regex" 
+
+
+### clase35
+
+### clase36
+
+- https://assets.madebyshape.co.uk/uploads/imager/299deb39facbb0c50fa0371390d9cd0c/637/cc1363b2772c79ebc866edf877bcb3ca.jpg 
+- http://www.tutorialmonsters.com/wp-content/uploads/2013/05/graficas-1080x720.jpg 
+- http://www.jolicharts.com/wp-content/uploads/2013/08/D3JS.png 
+- https://cdn-images-1.medium.com/max/1920/1*O7ttrU2PqHXwPYni8RSA4w.png 
+- https://cdn-shop.adafruit.com/1200x900/673-00.jpg 
+- http://bookofsound.com/wp-content/uploads/2014/09/P5js-png.png 
+- https://cdn-images-1.medium.com/focal/1600/480/60/24/1*Cit3KMtbvkUK31oCXR0HXg.jpeg 
+
+
+### clase37
+
+- https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F30423109%2F185617782430%2F1%2Foriginal.jpg?s=e00c5055af924b2c841715f435978f74 
+- https://aramgo.files.wordpress.com/2017/12/hl2-logo.jpg
+- https://image.slidesharecdn.com/whywebuilt35kbreactnativealternative2-180125022828/95/why-we-built-35kb-react-native-alternative-5-638.jpg?cb=1516847406
+- https://cdn-images-1.medium.com/max/2000/1*DCzEYU60hk2pO7WCJj3GoQ.jpeg
+
+### clase38
+
+- http://anexsoft.com/media/posts/140/image/48bd58422bcbcd32172e089839df478b.jpg
+
+### clase39
+
+- https://bids.berkeley.edu/sites/default/files/kyle_blog_pic.png 
+- https://r3dux.org/wp-content/uploads/2011/06/DesignPatternRelationships.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/abstract_factory/abstract_factory.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/builder/builder.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/builder/builder_seq.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/factory/factory.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/prototype/prototype.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/creational/singleton/singleton.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/adapter/adapter.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/bridge/bridge.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/composite/composite.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/decorator/decorator.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/facade/facade.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/flyweight/flyweight.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/structural/proxy/proxy.png 
+- https://upload.wikimedia.org/wikipedia/commons/7/73/Module-software-design-pattern.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/chain_of_responsibility/chain_of_responsibility.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/command/command.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/command/command_seq.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/interpreter/interpreter.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/iterator/iterator.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/mediator/mediator.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/memento/memento.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/memento/memento_seq.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/observer/observer.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/observer/observer_seq.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/state/state.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/strategy/strategy.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/template_method/template_method.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/visitor/visitor.png 
+- https://raw.githubusercontent.com/loredanacirstea/staruml-design-patterns/master/generated/Model/loretek/design_patterns/behavioral/visitor/visitor_seq.png 
+- http://i.imgur.com/bgqt2er.png 
+- http://growinguu.blogs.uua.org/files/2016/10/calming-manatee-meme.png 
+- https://media.giphy.com/media/KI9oNS4JBemyI/giphy.gif 
+
+
+### clase40
+
+- https://i.ytimg.com/vi/exBNB5njcNA/maxresdefault.jpg 
+- https://media0.giphy.com/media/l3uGKbsTIyhyM/giphy.gif 
+ 
+
+### clase41
+
+- https://www.synbioz.com/blog/introduction_aux_web_workers
+- https://blog.teamtreehouse.com/wp-content/uploads/2013/01/workers-feature.png
+- https://i.giphy.com/L2UdIWuCRbUL6.gif
+- https://i.giphy.com/s80iJpkor4T8A.gif
+- https://az813057.vo.msecnd.net/testdrive/ieblog/2011/Jul/01_WebWorkersinIE10BackgroundJavaScriptMakesWebAppsFaster_2.png 
+
+
+
+### clase42
+
+- https://developers.google.com/web/images/social-webfu-16x9.png 
+- https://user-images.githubusercontent.com/3104648/28351989-7f68389e-6c4b-11e7-9bf2-e9fcd4977e7a.png 
+- https://i2.wp.com/www.onmsft.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-06-at-18.56.56.png?fit=1050%2C575&ssl=1 
+- https://www.risdall.com/wp-content/uploads/2017/10/AMP-project-logo2-1.png 
+- https://cdn-images-1.medium.com/max/1600/1*f__SEWRvsNwt4B-u8-85Bw.png 
+- https://cdn.auth0.com/blog/webassembly/webassembly-2.png 
+- https://cdn-images-1.medium.com/max/800/1*XdcikPGwbP_aqCsgyK3tMQ.png 
+- https://cdn-images-1.medium.com/max/1600/1*WAv5DQnoHKnZEEoy5jzFRg.jpeg 
+
+
+
+### clase43
+
+- https://firebase.google.com/images/brand-guidelines/logo-standard.png 
+- http://cdn772.swedroid.se/wp-content/uploads/2016/05/google-firebase-logo-600x308.png 
+- https://cdn.scotch.io/1/Bg4r7dI1Q2W3bX9Sf4oD_unnamed.png 
+- https://cdn-images-1.medium.com/max/1200/1*qmvFg6ILS7Y8WsUxa2vLOw.gif 

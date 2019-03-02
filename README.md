@@ -67,7 +67,20 @@ Fecha | Teoría | Recursos | Contenido
 12/12/18 | [Clase 27](teoria/clase27.md) | [Clase 27](recursos/clase27.md) | ECMA6, es7, es8, es9 II: Teoria II
 14/12/18 | [Clase 28](teoria/clase28.md) | Clase 28 | ECMA6, es7, es8, es9 III: Ejercicios I
 17/12/18 | [Clase 29](teoria/clase29.md) | Clase 29 | ECMA6, es7, es8, es9 IV: Ejercicios II
-
+19/12/18 | [Clase 30](teoria/clase30.md) | [Clase 30](recursos/clase30.md) | Router Frontend + templates
+21/12/18 | [Clase 31](teoria/clase31.md) | [Clase 31](recursos/clase31.md) | Paradigmas: Programación orientada a Objetos
+09/01/18 | [Clase 32](teoria/clase32.md) | [Clase 32](recursos/clase32.md) | Patrones en JS I: Antipatrones
+11/01/18 | [Clase 33](teoria/clase33.md) | [Clase 33](recursos/clase33.md) | HTML5: Geo y mapas
+14/01/19 | [Clase 34](teoria/clase34.md) | [Clase 34](recursos/clase34.md) | Regex I: Teoría
+16/01/19 | [Clase 35](teoria/clase35.md) | Clase 35 | Regex II: Ejercicios
+21/01/19 | [Clase 36](teoria/clase36.md) | [Clase 36](recursos/clase36.md) | HTML5: Programación creativa con Canvas, Gráficos y 3D
+23/01/19 | [Clase 37](teoria/clase37.md) | [Clase 37](recursos/clase37.md) | Paradigmas: Programación Funcional
+25/01/19 | [Clase 38](teoria/clase38.md) | [Clase 38](recursos/clase38.md) | HTML5: LocalStorage y contentEditor
+28/01/19 | [Clase 39](teoria/clase39.md) | [Clase 39](recursos/clase39.md) | Patrones en JS II: Metaprogramación y Patrones
+30/01/19 | [Clase 40](teoria/clase40.md) | [Clase 40](recursos/clase40.md) | HTML5: Offline
+01/02/19 | [Clase 41](teoria/clase41.md) | [Clase 41](recursos/clase41.md) | HTML5: WebWorkers, Blob y FileSystem
+04/02/19 | [Clase 42](teoria/clase42.md) | [Clase 42](recursos/clase42.md) | HTML5: PWA
+06/02/19 | [Clase 43](teoria/clase43.md) | [Clase 43](recursos/clase43.md) | Firebase I: Realtime Database
 
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)
