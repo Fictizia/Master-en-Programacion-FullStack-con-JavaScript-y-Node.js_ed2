@@ -68,7 +68,6 @@ Running sanity checks on your system
 
 ### Yeoman: Generadores Populares
 - [Web Oficial](http://yeoman.io/generators/)
-- [Markdown version by Ulises Gascon]()https://gist.github.com/UlisesGascon/61eee71846e8150c4bfe6cf4209d5449
 
 
 ### Ejercicios
