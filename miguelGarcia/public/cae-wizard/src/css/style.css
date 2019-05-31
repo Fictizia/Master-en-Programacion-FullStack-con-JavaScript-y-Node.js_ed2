@@ -1,0 +1,265 @@
+*{
+    font-family: monospace;
+    
+}
+#wizard{
+    max-height:auto;
+    max-width: 30%;
+}
+.wrapper{
+    background-color: #D5D5D5 ; 
+    display:grid;
+    grid-template: repeat(10,1fr) / repeat(6,1fr);
+    max-width: 1600px;
+    min-height:100vh;
+    margin:0 auto;
+    z-index:1;
+}
+.app-login{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column:1/7;
+    grid-row:1/9;
+    
+}
+.app-header{
+    border-radius: 0% 0% 50% 0% ; 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    grid-column:1/7;
+    grid-row:1/2;
+    background-color:#6D7993;
+    color: white;
+
+}
+
+.app-content{
+    grid-column:2/7;
+    grid-row:2/10;
+    background-color:#D5D5D5;
+
+}
+
+.app-footer{
+    border-radius: 0% 50% 0% 0% ;
+    grid-column:1/7;
+    grid-row:10/11;
+    background-color: #9099A2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.app-nav{
+    border-radius: 0% 50% 50% 0%;
+    grid-column:1/2;
+    grid-row:2/10;
+    background-color:#96858F;
+    color: white;
+    
+
+}
+
+.underC{
+    align-self: center;
+    justify-self: center;
+}
+.nav{
+
+ font-size: 40px;
+ display:flex;
+ flex-wrap: wrap;
+ flex-direction:column;
+ margin:20px
+
+}
+.content{
+    
+    
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+
+
+.login{
+
+    color:white;
+    border-radius: 50px;
+    padding: 30px;
+    width:20%;
+    background: #6D7993;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user{
+
+    padding:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+}
+.profileArea{
+    display:grid;
+    grid-template: repeat(8,1fr) / repeat(6,1fr);
+
+}
+.userConfig{
+    grid-column:1/4;
+    grid-row:1/9;
+    margin-left:10%; 
+    margin-top: 10%;
+    
+    display:flex;
+    flex-direction: column;
+
+}
+.company{
+    grid-column:4/7;
+    grid-row:1/9;
+    margin-left:10%;
+    margin-right:20%; 
+    margin-top: 10%;
+    
+    display:flex;
+    flex-direction: column;
+
+}
+.inputArea{
+
+    padding:30px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+.app-modal{
+
+    grid-column:1/7;
+    grid-row:1/9;
+    display:grid;
+    grid-template: repeat(8,1fr) / repeat(6,1fr);
+    
+}
+.app-modal-background{
+
+    align-items: center;
+    grid-column:1/7;
+    grid-row:1/9;
+    background:black;
+    z-index:3;
+    opacity:0.7;
+    min-height:100vh;
+    width:100%;
+}
+.app-modal-content{
+    border-radius: 50px;
+    z-index:4;
+    grid-column:3/6;
+    grid-row:3/6;
+    background: rgba(255,255,255,1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+.modalTitle{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color:#6D7993;
+    width:100%;
+    color:white;
+    font-size: 2em;
+    text-align: center;
+}
+.helperArea{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    justify-self: center;
+}
+.buttonsArea{
+    margin: 30px;
+    align-self: flex-end;
+    justify-self: center;
+}
+.sectionTitle{
+width:100%;
+text-align: center;
+font-size: 2em;
+
+}
+.tabulatorTable{
+    width:95%;
+    margin:10%;
+}
+.link{
+	color: #000000;
+	font-size: 16px;
+	font-weight: 700;
+
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/*
+* These styles creates the underlining of link
+*/
+
+.link{
+	position: relative;
+	z-index: 1;
+    display: inline-flex;
+    color: #D5D5D5;
+	
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+
+.link::before{
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to top, #6D7993 25%, rgba(0, 0, 0, 0) 40%);
+	
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	z-index: -1;
+	
+	will-change: width;
+	transform: rotate(-2deg);
+	transform-origin: left bottom
+}
+
+.link:hover::before{
+	width: 0;
+}
+
+/*
+* animation styles
+*/
+
+.link::before{
+	transition: width .1s ease-out;
+}
+
+.link:hover::before{
+	transition-duration: .15s;
+}
