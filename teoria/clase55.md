@@ -48,7 +48,8 @@ ps
 
 **3 -** ¿Cuanto tiempo lleva la máquina funcionando?
 ```bash
-# Tu solución
+#!/bin/bash
+uptime --pretty
 ```
 
 ```
