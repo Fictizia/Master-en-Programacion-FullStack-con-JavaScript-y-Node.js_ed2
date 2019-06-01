@@ -83,4 +83,8 @@ No válidas:
 perrito
 perrito123
 Perrito1234`;
+
+const exp = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/gm;
+const validas = test.match(exp);
+// ["Z%C2Uacgw_4weL@Q", "QZ6UttU-&r4t%R+J", "KK8a%K^9seQ$Qc8X", "*Q#*9-CP%?JkXQSs", "#1234abCD@"]
 ```
