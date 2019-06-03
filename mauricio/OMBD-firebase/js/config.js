@@ -1,0 +1,3 @@
+const API = {
+  key: 'XXXXXX'
+};
