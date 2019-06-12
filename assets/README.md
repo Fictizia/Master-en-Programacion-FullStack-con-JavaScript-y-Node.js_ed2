@@ -750,3 +750,8 @@
 ### clase86
 - https://cdn-images-1.medium.com/fit/t/1600/480/1*r19LkMzh3ciz0lRBXf546A.png
 - https://t3chfest.uc3m.es/2018/static/resources/events_cards/98.png?q=1517275807
+
+
+### clase87
+
+- https://avatars3.githubusercontent.com/u/13935948?s=400&v=4 
