@@ -755,3 +755,11 @@
 ### clase87
 
 - https://avatars3.githubusercontent.com/u/13935948?s=400&v=4 
+
+
+
+### clase88
+
+- https://nodemon.io
+- https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png
+- https://pm2.io/doc/img/runtime/runtime-black.png
