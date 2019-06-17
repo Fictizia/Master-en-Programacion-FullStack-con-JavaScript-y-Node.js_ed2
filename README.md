@@ -126,6 +126,10 @@ Fecha | Teoría | Recursos | Contenido
 10/06/19 | [Clase 86](teoria/clase86.md) | [Clase 86](recursos/clase86.md) | Scraping con Puppeteer
 12/06/19 | [Clase 87](teoria/clase87.md) | [Clase 87](recursos/clase87.md) | CLI con Nodejs 
 14/06/19 | [Clase 88](teoria/clase88.md) | [Clase 88](recursos/clase88.md) | Node funcionando con PM2, Nodemon, etc... 
+17/06/19 | [Clase 89](teoria/clase89.md) | [Clase 89](recursos/clase89.md) | Deploy en Cloud
+
+
+
 
 [Temario](https://coggle.it/diagram/W5ZfeGRd293lprIt/t/master-js-y-node-de-fictizia)
 =================
