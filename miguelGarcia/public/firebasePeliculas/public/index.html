@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>FireBasePelis</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row my-5 align-items-center">
+            <div class="col-4 text-right">
+                <img src="./assets/fire.gif" class="img-fluid" width="10%">
+            </div>
+            <div class="col-8 text-left">
+                
+                <h1 class="display-2">rankingFilms</h1>
+            </div>
+        </div>
+        <div class="row align-items-center mt-5 mb-2 bg-secondary text-center">
+            <div class="col  ">
+                <input type="text" id="filmName">
+            </div>
+        </div>
+        <div class="row align-items-centers  ">
+            <div class="col bg-secondary text-center">
+                <button id="getFilm" class="btn btn-primary">Buscar pelicula</button>
+                <button id="saveFilm" class="btn btn-success">Guardar seleccion</button>
+                <button id="deleteFilm" class="btn btn-danger">Borrar seleccion</button>
+            </div>
+        </div>
+        <div class="row justify-content-center" id="newFilmArea"></div>
+        <div class="row " id="filmsArea"></div>
+    </div>
+
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script src="./js/controller.js"></script>
+    <script src="./js/view.js"></script>
+</body>
+</html>
