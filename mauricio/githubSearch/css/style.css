@@ -1,0 +1,83 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  max-width: 2.5rem;
+  vertical-align: sub;
+}
+
+input {
+  margin: 0 auto 3.125rem;
+  display: block;
+  font-size: 1.875rem;
+  padding: 0.3125rem 0.9375rem;
+  border: 0.125rem solid #355C7D;
+}
+
+p {
+  text-align: left;
+  margin: 0;
+}
+
+ul {
+  width: 620px;
+  margin: 0 auto 0;
+  list-style-type: none;
+  padding: 1.25rem 1.25rem 0.3125rem 1.25rem;
+  color: #fff;
+}
+
+ul li {
+  margin: 0.45rem 0 1.75rem 0;
+  position: relative;
+  padding: 20px 4.0625rem 20px 110px;
+  font-size: 1.25rem;
+  background-color: #355C7D;
+}
+
+ul li a {
+  display: block;
+}
+
+ul li img {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  border-radius: 50%;
+  border: 0.125rem solid #F8B195;
+  padding: 0.125rem;
+}
+
+div .user-details {
+  display: table;
+  width: 100%;
+  margin-top: 0.3125rem;
+}
+
+div .user-details div {
+  display: table-cell;
+  width: 35%;
+  font-size: 1rem;
+}
+
+.p-username {
+  font-weight: 700;
+  margin-bottom: 0.3125rem;
+}
+
+span {
+  font-weight: 300;
+}
