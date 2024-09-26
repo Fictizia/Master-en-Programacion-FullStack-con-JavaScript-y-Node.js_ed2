@@ -1,0 +1,159 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#ombd-login, #ombd-signup {
+  width: 200px;
+  margin: auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#ombd-login *, #ombd-signup * {
+  margin-bottom: 15px;
+}
+
+#ombd-login input, #ombd-signup input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  outline: none;
+}
+
+#ombd-perfil {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 0 0 60px;
+  background-color: #f6f6f5;
+  margin-bottom: 20px;
+}
+
+#ombd-perfil p {
+  margin: 0 20px 0 0;
+}
+
+#ombd-container {
+  flex-direction: column;
+  width: 1170px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#ombd-container .search {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+#error {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.ombd-peli-detail {
+  margin-bottom: auto;
+}
+
+.ombd-peli-detail p {
+  margin: 0;
+}
+
+.ombd-peli-data {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.ombd-peli-buttons {
+  padding-bottom: 8px;
+}
+
+.ombd-peli-detail {
+  margin-bottom: auto;
+}
+
+.ombd-peli-detail-tags {
+  padding-bottom: 20px;
+}
+
+.small {
+  font-size: 14px;
+}
+
+button#searchButton {
+  justify-content: flex-end;
+  display: flex;
+}
+
+input#searchInput {
+  width: 350px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  background-color: #f6f6f5;
+  display: flex;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.ombd-peli-poster {
+  margin: 2px 30px 5px 0;
+  flex: 0 0 120px;
+}
+
+img {
+  width: 100%;
+  min-width: 130px;
+}
+
+.spinner {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.spinner-content {
+  text-align: center;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
